@@ -43,7 +43,7 @@ When I run this agent, you will:
 
 ### 1. DATA LOADING
 - Look in `data/raw/meta/` for the performance CSV export (single file, ad level)
-- Required fields: Campaign name, Ad set name, Ad name, Reporting starts, Reporting ends, Impressions, Reach, Amount spent (USD), CPM (cost per 1,000 impressions) (USD), CTR (link click-through rate), Frequency, Leads, Cost per lead (USD)
+- Required fields: Campaign name, Ad set name, Ad name, Reporting starts, Reporting ends, Impressions, Reach, Amount spent (CURRENCY), CPM (cost per 1,000 impressions) (CURRENCY), CTR (link click-through rate), Frequency, Leads, Cost per lead (CURRENCY)
 - For traffic/consideration campaigns: use Results and Cost per results where Leads is empty; use Result indicator to understand what is being counted
 - Use `Reporting starts` as the date column
 - Aggregate to campaign level (sum spend/leads; weighted averages for CPM/CTR/Frequency)

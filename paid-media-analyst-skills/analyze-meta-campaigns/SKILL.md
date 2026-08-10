@@ -42,6 +42,8 @@ Before validation, derive the two values that drive all output file naming:
 
 ### Column Validation
 
+**First, detect the account's reporting currency.** Cost columns are currency-qualified (`Amount spent (USD)`, `Amount spent (CAD)`, `Amount spent (EUR)`, etc.) — scan the header row for `Amount spent (<CODE>)` and use that `<CODE>` as `CURRENCY` everywhere below. Don't require the literal `(USD)` string; any valid ISO currency code is a match.
+
 Confirm all 19 required columns are present:
 
 | Required Column | Notes |
@@ -54,16 +56,16 @@ Confirm all 19 required columns are present:
 | Impressions | |
 | Reach | |
 | Frequency | |
-| Amount spent (USD) | |
-| CPM (cost per 1,000 impressions) (USD) | |
-| CPC (cost per link click) (USD) | |
+| Amount spent (CURRENCY) | |
+| CPM (cost per 1,000 impressions) (CURRENCY) | |
+| CPC (cost per link click) (CURRENCY) | |
 | CTR (link click-through rate) | |
 | Link clicks | |
 | Results | Used by traffic/consideration campaigns |
 | Result indicator | Should contain `actions:link_click` for traffic campaigns |
 | Cost per results | Used by traffic/consideration campaigns |
 | Leads | Used by lead gen campaigns |
-| Cost per lead (USD) | Used by lead gen campaigns |
+| Cost per lead (CURRENCY) | Used by lead gen campaigns |
 | Ad delivery | Tracks active/paused/not_delivering/rejected status |
 
 Full validation spec: `prompts/meta/agent_0_data_validator.md`
@@ -111,7 +113,14 @@ Before running any agent, compute these benchmarks from the full dataset. Every 
 
 ```python
 import pandas as pd
+import re
 df = pd.read_csv(target, encoding='utf-8-sig')
+
+# Detect the account's reporting currency from the spend column header
+# (e.g. "Amount spent (USD)", "Amount spent (CAD)") rather than assuming USD
+spend_col_match = next(c for c in df.columns if re.match(r'^Amount spent \([A-Z]{3}\)$', c))
+CURRENCY = re.search(r'\(([A-Z]{3})\)', spend_col_match).group(1)
+SPEND_COL = f'Amount spent ({CURRENCY})'
 
 # Detect granularity
 is_daily = (df['Reporting starts'] == df['Reporting ends']).mean() > 0.5
@@ -122,7 +131,7 @@ DATA_GRANULARITY = 'DAILY' if is_daily else 'AGGREGATE'
 if DATA_GRANULARITY == 'DAILY':
     # Group by ad to get totals
     ad_totals = df.groupby(['Campaign name', 'Ad set name', 'Ad name']).agg({
-        'Amount spent (USD)': 'sum', 'Impressions': 'sum', 'Link clicks': 'sum',
+        SPEND_COL: 'sum', 'Impressions': 'sum', 'Link clicks': 'sum',
         'Leads': 'sum', 'Reach': 'max', 'Frequency': 'max'
     }).reset_index()
 else:
@@ -132,9 +141,9 @@ lead_gen = ad_totals[ad_totals['Leads'].notna() & (ad_totals['Leads'] > 0)]
 traffic  = df[df['Result indicator'].str.contains('link_click', na=False)] if 'Result indicator' in df.columns else pd.DataFrame()
 
 # Account-level baselines
-total_spend     = ad_totals['Amount spent (USD)'].sum()
+total_spend     = ad_totals[SPEND_COL].sum()
 total_leads     = ad_totals['Leads'].sum()
-lead_gen_spend  = lead_gen['Amount spent (USD)'].sum()
+lead_gen_spend  = lead_gen[SPEND_COL].sum()
 blended_cpl     = lead_gen_spend / total_leads if total_leads > 0 else None
 kill_threshold  = blended_cpl * 3 if blended_cpl else None
 total_impressions = ad_totals['Impressions'].sum()
@@ -333,7 +342,7 @@ Append a brief session learning entry to the `## Session Learnings` section of `
 ### Data Handling
 - **Encoding**: Always use `encoding='utf-8-sig'` — Meta exports use UTF-8 with BOM.
 - **Date column**: Use `Reporting starts` as the date field. Daily rows will have matching `Reporting starts` and `Reporting ends`.
-- **Lead gen vs. traffic**: Lead gen campaigns populate `Leads` + `Cost per lead (USD)`. Traffic campaigns populate `Results` + `Cost per results` (where `Result indicator` = `actions:link_click`). Never mix these columns when calculating CPL.
+- **Lead gen vs. traffic**: Lead gen campaigns populate `Leads` + `Cost per lead (CURRENCY)`. Traffic campaigns populate `Results` + `Cost per results` (where `Result indicator` = `actions:link_click`). Never mix these columns when calculating CPL.
 - **Aggregation**: Always sum/group daily rows before calculating derived metrics. Raw file has one row per ad per day.
 
 ### Analysis Conventions

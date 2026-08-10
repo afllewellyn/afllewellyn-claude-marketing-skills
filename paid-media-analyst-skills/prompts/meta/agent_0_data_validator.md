@@ -35,7 +35,10 @@ For each file, identify:
 - `AGGREGATE` → Total performance analysis only: campaign ranking, CPL/CTR/CPM comparisons, budget allocation, top/bottom performers. Skip all WoW trend sections and frequency trajectory analysis. Flag this limitation clearly in each report header.
 
 ### 3. COLUMN VALIDATION
-Check each file for the following columns. Mark each as PRESENT or MISSING:
+
+**Detect the account's reporting currency first.** The cost columns are currency-qualified — a non-USD account exports headers like `Amount spent (CAD)` or `CPC (cost per link click) (EUR)`, not the literal `(USD)` string. Scan the header row for a column matching `Amount spent (<CODE>)` and use that `<CODE>` (e.g. `USD`, `CAD`, `EUR`) as `CURRENCY` for the rest of validation and analysis — do not hard-require the `(USD)` variant specifically.
+
+Check each file for the following columns, substituting the detected `CURRENCY` code where shown. Mark each as PRESENT or MISSING:
 
 **Required for all analysis:**
 - Campaign name
@@ -46,15 +49,15 @@ Check each file for the following columns. Mark each as PRESENT or MISSING:
 - Impressions
 - Reach
 - Frequency
-- Amount spent (USD)
-- CPM (cost per 1,000 impressions) (USD)
-- CPC (cost per link click) (USD)
+- Amount spent (CURRENCY)
+- CPM (cost per 1,000 impressions) (CURRENCY)
+- CPC (cost per link click) (CURRENCY)
 - CTR (link click-through rate)
 - Link clicks
 - Results (all-objective result count)
 - Cost per results
 - Leads (lead-specific result count — populated for lead gen campaigns)
-- Cost per lead (USD)
+- Cost per lead (CURRENCY)
 - Campaign ID
 - Ad set ID
 - Ad ID

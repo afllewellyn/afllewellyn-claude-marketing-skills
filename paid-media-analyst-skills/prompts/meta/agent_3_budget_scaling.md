@@ -41,7 +41,7 @@ When I run this agent, you will:
 
 ### 1. DATA LOADING
 - Look in `data/raw/meta/` for the performance CSV export (single file, ad level)
-- Required fields: Campaign name, Ad set name, Ad name, Reporting starts, Reporting ends, Amount spent (USD), Leads, Cost per lead (USD), Impressions, Frequency
+- Required fields: Campaign name, Ad set name, Ad name, Reporting starts, Reporting ends, Amount spent (CURRENCY), Leads, Cost per lead (CURRENCY), Impressions, Frequency
 - For traffic/consideration campaigns: use Results and Cost per results where Leads is empty
 - Use `Reporting starts` as the date column
 
