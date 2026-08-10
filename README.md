@@ -4,13 +4,28 @@ A collection of [Claude skills](https://docs.claude.com/en/docs/agents-and-tools
 
 These are generic templates, not tied to any one company. Where a skill has a company-specific "quick-start" layer (real spend, verified reps, past decisions), it ships blank so you can fill in your own — see each skill's folder for details.
 
-## Skills in this repo
+## Groups in this repo
+
+The repo is organized into three groups. Each group is a top-level folder holding one or more related skills.
+
+| Group | What it's for |
+|---|---|
+| [`healthcare-trade-media-planning/`](healthcare-trade-media-planning/) | Healthcare trade publication research and media planning. |
+| [`ai-governance-and-adoption/`](ai-governance-and-adoption/) | Planning and grounding AI adoption and governance work in PMI's published AI standard. |
+| [`paid-media-analyst-skills/`](paid-media-analyst-skills/) | Running paid media analysis end to end, across ad platforms. |
+
+### Healthcare trade media planning
 
 | Skill | What it does |
 |---|---|
 | [`healthcare-trade-media-planning/`](healthcare-trade-media-planning/) | Healthcare trade publication research and media planning: maps business groups, products, audiences, and regions to trade publishers, associations, media kits, rates, and contacts. Covers Dental, Health IT, Medical Surgical, and Biopharma/Life Sciences. |
-| [`ai-adoption-plan/`](ai-adoption-plan/) | Builds a formal, client- or leadership-ready AI adoption and governance plan as a Word document, grounded in PMI's Standard for Artificial Intelligence in PPPM. |
-| [`pmi-ai-standard/`](pmi-ai-standard/) | Reference and coaching skill for grounding any AI-adoption discussion, pitch, or governance argument in PMI's actual published AI standard — not general AI-adoption folklore. |
+
+### AI governance and adoption
+
+| Skill | What it does |
+|---|---|
+| [`ai-governance-and-adoption/ai-adoption-plan/`](ai-governance-and-adoption/ai-adoption-plan/) | Builds a formal, client- or leadership-ready AI adoption and governance plan as a Word document, grounded in PMI's Standard for Artificial Intelligence in PPPM. |
+| [`ai-governance-and-adoption/pmi-ai-standard/`](ai-governance-and-adoption/pmi-ai-standard/) | Reference and coaching skill for grounding any AI-adoption discussion, pitch, or governance argument in PMI's actual published AI standard — not general AI-adoption folklore. |
 
 ### Paid media analyst skills
 
@@ -44,7 +59,7 @@ Each folder is a self-contained skill: copy it into your Claude client's skills 
 
 ## Adding more skills
 
-New standalone skills go in their own top-level folder with their own `SKILL.md` + `references/`. A related group of skills (like the paid media analyst set) can live together in one top-level folder, with each skill as its own subfolder. Add a row to the table above when you do.
+A standalone skill goes in its own top-level folder with its own `SKILL.md` + `references/`. A related group of skills (like AI governance and adoption, or paid media analyst) lives together in one top-level folder, with each skill as its own subfolder. Add a row to the relevant table above when you do.
 
 Before adding a skill pulled from a real client engagement, anonymize it first — swap out client names, product names, account codenames, and domains for generic placeholders.
 
