@@ -1,0 +1,23 @@
+{
+  "skill_name": "analyze-meta-campaigns",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just dropped the new Meta export in data/raw/meta/ — can you run the full analysis on it?",
+      "expected_output": "Agent 0 validation summary (GREEN/YELLOW/RED status with account name, date range, campaign counts), followed by all 5 analysis reports and 5 action CSVs written to outputs/reports/meta/ and outputs/recommendations/meta/, ending with a final summary table of generated files and top 3 priority actions.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "/analyze-meta-campaigns ME-CLIENT-DS-ALL-USAC-USD-Ads-Jan-1-2026-Fe-28-2026_v2.csv",
+      "expected_output": "Uses the specified file. Detects account as account_dental, date as 2026-02-28. Runs all 5 agents. Since Google outputs exist in outputs/reports/google/, Agent 5 cross-platform synthesis also runs. Outputs all 10 files with correct naming convention (e.g., creative_audit_account_dental_2026-02-28.md).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "run the meta campaign analysis and focus on what's broken in the lead gen funnel",
+      "expected_output": "Runs full pipeline. Agent 4 (cross-KPI) and Agent 3 (budget scaling) outputs specifically surface the lead gen structural issues: 3 [Product E] campaigns paused at best CPLs ($5.94–$16.64), CA-FR at kill threshold ($90.64 vs $64.22 threshold), CA-EN retargeting with rejected ads. Top priority actions include reactivating [Product E] campaigns and pausing CA-FR.",
+      "files": []
+    }
+  ]
+}
