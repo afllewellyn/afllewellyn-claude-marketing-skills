@@ -1,4 +1,4 @@
-# afllewellyn-claude-marketing-skills
+# Claude Marketing Skills
 
 A collection of [Claude skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) for marketing, media planning, and AI adoption/governance work. Each skill lives in its own folder and can be installed independently — you don't need all of them.
 
