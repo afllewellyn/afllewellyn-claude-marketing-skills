@@ -31,6 +31,8 @@ The repo is organized into three groups. Each group is a top-level folder holdin
 
 A set of 12 skills for running paid media analysis end to end — from raw platform exports to a client-ready deck. Originally built for one client's account setup, then anonymized (client, product, and account names swapped for generic placeholders like `[Client]` and `[Account: X]`) so they're safe to reuse anywhere. Live in [`paid-media-analyst-skills/`](paid-media-analyst-skills/).
 
+Unlike the other two groups, these skills aren't drag-and-drop on their own — several depend on shared files that sit alongside them in this folder: [`prompts/`](paid-media-analyst-skills/prompts/) (the detailed agent instructions each skill runs), [`scripts/`](paid-media-analyst-skills/scripts/) (helper scripts like the QA linter and the Firecrawl fetch tool), and [`.claude/agents/`](paid-media-analyst-skills/.claude/agents/) (the QA, run-log, and memory-curator subagents `qa-review` calls). To use this set, copy the whole `paid-media-analyst-skills/` folder into your project so those shared paths stay in place, rather than pulling out a single skill folder.
+
 | Skill | What it does |
 |---|---|
 | [`analyze-bing-campaigns/`](paid-media-analyst-skills/analyze-bing-campaigns/) | Analyzes Microsoft (Bing) Ads exports and flags performance issues and opportunities. |
@@ -49,7 +51,7 @@ Each of these skills keeps a `memory.md` file — a running log of past mistakes
 
 ## Installing a skill
 
-Each folder is a self-contained skill: copy it into your Claude client's skills directory (or however your Claude product supports custom/loaded skills), following that skill's own `SKILL.md` for setup notes.
+Each folder in `healthcare-trade-media-planning/` and `ai-governance-and-adoption/` is a self-contained skill: copy it into your Claude client's skills directory (or however your Claude product supports custom/loaded skills), following that skill's own `SKILL.md` for setup notes. `paid-media-analyst-skills/` is the exception — copy the whole folder together (see that section above) so the shared `prompts/`, `scripts/`, and `.claude/agents/` files it depends on come with it.
 
 ## Getting started
 
