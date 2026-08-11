@@ -1,0 +1,31 @@
+{
+  "eval_id": 1,
+  "eval_name": "natural-language-trigger-auto-detect",
+  "prompt": "I just dropped the new Meta export in data/raw/meta/ — can you run the full analysis on it?",
+  "assertions": [
+    {
+      "name": "validation_status_green",
+      "description": "Run summary or report output contains GREEN validation status (not YELLOW or RED)"
+    },
+    {
+      "name": "account_name_inferred_correctly",
+      "description": "Output files or run summary reference 'account_dental' as the account name"
+    },
+    {
+      "name": "five_reports_generated",
+      "description": "At least 5 .md report files are present in the outputs directory"
+    },
+    {
+      "name": "five_action_csvs_generated",
+      "description": "At least 5 .csv action files are present in the outputs directory"
+    },
+    {
+      "name": "high_priority_actions_present",
+      "description": "At least one action CSV contains rows with priority=High"
+    },
+    {
+      "name": "[product_e]_reactivation_surfaced",
+      "description": "At least one output references [Product E] campaign reactivation or paused [Product E] lead gen"
+    }
+  ]
+}

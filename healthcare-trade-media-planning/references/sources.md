@@ -1,0 +1,62 @@
+# Source appendix
+
+
+Most useful current sources found during setup:
+
+- EndeavorB2B Dental Group 2026 Marketing Planner: https://dental.endeavorb2b.com/wp-content/uploads/Dental-Media-Kit.pdf
+- EndeavorB2B Dental Economics: https://dental.endeavorb2b.com/dental-economics/
+- RDH resources: https://dental.endeavorb2b.com/rdh-resources/
+- Dentistry Today 2026 Digital Media Kit: https://www.dentistrytoday.com/digital-media-kit-2026/
+- Dentistry Today advertise page: https://www.dentistrytoday.com/advertise/
+- Conexiant Dental Solutions: https://conexiantsolutions.com/dental-solutions
+- Conexiant ADA Products: https://conexiantsolutions.com/ada
+- AGD 2026 Media and Sponsorships: https://www.agd.org/docs/default-source/default-document-library/agd_2026-mediakit.pdf
+- Dental Tribune International marketing solutions: https://www.dental-tribune.com/dental-marketing-and-lead-generation-solutions/
+- Dental Tribune submission/contact guidelines: https://www.dental-tribune.com/submission-guidelines/
+- BDJ In Practice advertising: https://www.nature.com/bdjinpractice/advertising
+- BDA sponsorship / BDJ portfolio: https://www.bda.org/about-us/sponsorship/
+- Decisions in Dentistry advertising: https://decisionsindentistry.com/advertise-with-decisions-in-dentistry/
+- The Probe advertising: https://the-probe.co.uk/advertising/
+- ASDA 2026 Media Kit: https://www.asdanet.org/docs/media-kit/asda-mediakit.pdf
+- HIMSS Media marketing solutions: https://www.himss.org/marketingsolutions/
+- Healthcare IT News sponsored content / media kit contact: https://www.healthcareitnews.com/about-himss-medias-sponsored-content-program
+- Becker’s request media kit: https://www.beckershospitalreview.com/request-media-kit/
+- Healthcare Innovation resources: https://healthcare.endeavorb2b.com/hi-resources/
+- Modern Healthcare advertising opportunities: https://help.modernhealthcare.com/hc/en-us/articles/15725778390164-Advertising-Opportunities-Media-Kit
+- HFMA hfm Magazine marketing opportunities: https://www.hfma.org/marketing-opportunities/hfm-magazine/
+- HBMA 2026 Media Kit: https://www.hbma.org/uploads/content_files/files/2026_Media_Kit.pdf
+- Healthcare IT Today media kit request: https://www.healthcareittoday.com/healthcare-it-today-media-kit/
+- Healthcare Finance News sponsored content: https://www.healthcarefinancenews.com/sponsored
+- AORN advertising: https://www.aorn.org/corporate-partnership/aorn-advertising
+- AORN 2026 Media Kit (via Walchli Tauber): https://www.wt-group.com/mediakits/aorn_mediakit.pdf
+- AACN 2026 Media Kit (via Walchli Tauber): https://www.wt-group.com/mediakits/aacn_mediakit.pdf
+- Periop Leader Network OR Manager Media Kit: https://periopleader.com/long-form-stories/or-manager-media-kit/
+- Beyond the Mask podcast (direct): https://beyondthemaskpodcast.com
+- ORNAC Journal: https://ornacjournal.ca/
+- ORNAC advertising rates: https://ornac.ca/careers_ad_rates.phtml
+- ASA Monitor media kit: https://www.wolterskluwer.com/en/solutions/lippincott-hcp-access/media-kits/asa-monitor
+- ASA advertise page: https://www.asahq.org/corporatesupport/advertise
+- Anesthesiology News advertise: https://www.anesthesiologynews.com/Advertise
+- Anesthesiology News 2026 Media Planner: https://www.anesthesiologynews.com/PDF/2026/mediaplanner.pdf
+- AANA 2026 Media Kit: https://www.healthcommedia.com/wp-content/uploads/2026/02/AANA-Media-Kit-2026.pdf
+- AANA advertise page: https://www.aana.com/about-us/partnerships-sponsorships-advertising/advertise-with-aana/
+- Healthcare Purchasing News 2026 Media Kit: https://healthcare.endeavorb2b.com/wp-content/uploads/HPN-Media-Kit.pdf
+- Healthcare Purchasing News resources: https://healthcare.endeavorb2b.com/hpn-resources/
+- Infection Control Today: https://www.infectioncontroltoday.com/
+- APIC Prevention Strategist 2026 Media Kit: https://apic.org/wp-content/uploads/2025/12/APIC_Media-Kit_Prevention-Strategist.pdf
+- WoundSource media kit request: https://www.woundsource.com/request-media-kit-0
+- WoundSource: https://www.woundsource.com/
+- WoundSource / HMP contact modal: https://www.woundsource.com/hubspot-contact/modal
+- General Surgery News 2026 Media Kit: https://www.generalsurgerynews.com/PDF/2026/mediakit.pdf
+- AAOS Now 2026 Media Kit: https://www.aaos.org/globalassets/about/corporate-engagement/advertising-and-media/aaos_2026_aaosnow_mediakit.pdf
+- ONS 2026 Media Kit: https://www.ons.org/sites/default/files/2026-04/ons-2026-media-kit_final-1.pdf
+- BioProcess International sponsorship / 2026 media kit (Informa Connect): https://get.informaconnect.com/bpipublication/sponsorship/
+- BioProcess International about / ad-sales team: https://www.bioprocessintl.com/about
+- European Pharmaceutical Manufacturer advertise: https://pharmaceuticalmanufacturer.media/advertise
+- EPM media portfolio: https://pharmaceuticalmanufacturer.media/media-portfolio
+- Fierce Biotech / Questex marketing solutions: https://healthcarelifesciences.questex.com/biotech/
+- Fierce Life Sciences advertise / media kit: https://www.fiercelifesciences.com/fiercelifesciencescom/advertise
+- BioPharma Dive advertise: https://www.biopharmadive.com/advertise/
+- BioPharm International 2026 Media Kit (MJH Life Sciences / Industry Sciences One): https://mjh-site-content.s3.amazonaws.com/industry_sciences/marketing/assets/Media-Kits/2026/IS1_Media_Kit_BP_2026.pdf
+- GEN (Genetic Engineering & Biotechnology News): https://www.genengnews.com/
+- Endpoints Studio (sponsorship): https://endpoints.studio/products/
