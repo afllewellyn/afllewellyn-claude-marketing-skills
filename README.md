@@ -22,6 +22,8 @@ The repo is organized into three groups. Each group is a top-level folder holdin
 
 ### AI governance and adoption
 
+Two skills over one shared framework, split by what you want out of it: `pmi-ai-standard` is advisory (think, argue, prep talking points), `ai-adoption-plan` is a deliverable generator (produces a Word document). Live in [`ai-governance-and-adoption/`](ai-governance-and-adoption/).
+
 | Skill | What it does |
 |---|---|
 | [`ai-governance-and-adoption/ai-adoption-plan/`](ai-governance-and-adoption/ai-adoption-plan/) | Builds a formal, client- or leadership-ready AI adoption and governance plan as a Word document, grounded in PMI's Standard for Artificial Intelligence in PPPM. |
@@ -51,7 +53,7 @@ Each of these skills keeps a `memory.md` file — a running log of past mistakes
 
 ## Installing a skill
 
-Each folder in `healthcare-trade-media-planning/` and `ai-governance-and-adoption/` is a self-contained skill: copy it into your Claude client's skills directory (or however your Claude product supports custom/loaded skills), following that skill's own `SKILL.md` for setup notes. `paid-media-analyst-skills/` is the exception — copy the whole folder together (see that section above) so the shared `prompts/`, `scripts/`, and `.claude/agents/` files it depends on come with it.
+`healthcare-trade-media-planning/` is itself a single skill folder, and each subfolder of `ai-governance-and-adoption/` is one too: copy the folder into your Claude client's skills directory (or however your Claude product supports custom/loaded skills), following that skill's own `SKILL.md` for setup notes. The two AI governance skills each work alone, but `ai-adoption-plan` will read `pmi-ai-standard`'s reference files for fuller framework detail when both are installed side by side — so install the pair together if you want the richer output. `paid-media-analyst-skills/` is the exception — copy the whole folder together (see that section above) so the shared `prompts/`, `scripts/`, and `.claude/agents/` files it depends on come with it.
 
 ## Getting started
 
