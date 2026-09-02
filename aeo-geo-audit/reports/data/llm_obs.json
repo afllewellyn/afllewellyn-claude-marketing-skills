@@ -1,0 +1,1457 @@
+[
+ {
+  "id": "D1",
+  "type": "discovery",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 6,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Roku Ads Manager",
+   "Simpli.fi",
+   "Waveband",
+   "The Trade Desk",
+   "ad:personam",
+   "DV360"
+  ],
+  "n_cites": 5,
+  "excerpt": ""
+ },
+ {
+  "id": "D1",
+  "type": "discovery",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 6,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "AdLib",
+   "SmartyAds",
+   "tvScientific",
+   "Roku Ads Manager",
+   "Vibe"
+  ],
+  "n_cites": 3,
+  "excerpt": ""
+ },
+ {
+  "id": "D1",
+  "type": "discovery",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 8,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "DV360",
+   "Vibe",
+   "StackAdapt",
+   "tvScientific",
+   "Basis"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "D1",
+  "type": "discovery",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 6,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "AdLib",
+   "Amazon DSP",
+   "Roku Ads Manager",
+   "StackAdapt",
+   "Basis",
+   "SmartyAds"
+  ],
+  "n_cites": 9,
+  "excerpt": ""
+ },
+ {
+  "id": "D2",
+  "type": "discovery",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 7,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Yahoo DSP",
+   "DV360",
+   "The Trade Desk",
+   "Amazon DSP",
+   "Simpli.fi",
+   "StackAdapt"
+  ],
+  "n_cites": 6,
+  "excerpt": ""
+ },
+ {
+  "id": "D2",
+  "type": "discovery",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 6,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "AdLib",
+   "tvScientific",
+   "StackAdapt",
+   "MNTN",
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 6,
+  "excerpt": ""
+ },
+ {
+  "id": "D2",
+  "type": "discovery",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 5,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Vibe",
+   "StackAdapt",
+   "DV360",
+   "The Trade Desk",
+   "Amazon DSP"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "D2",
+  "type": "discovery",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 4,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "The Trade Desk",
+   "DV360",
+   "Amazon DSP"
+  ],
+  "n_cites": 10,
+  "excerpt": ""
+ },
+ {
+  "id": "D3",
+  "type": "discovery",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 5,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Waveband",
+   "Amazon DSP",
+   "The Trade Desk",
+   "StackAdapt",
+   "Epom"
+  ],
+  "n_cites": 9,
+  "excerpt": ""
+ },
+ {
+  "id": "D3",
+  "type": "discovery",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 6,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "Amazon DSP",
+   "The Trade Desk",
+   "DV360",
+   "Epom",
+   "Viant"
+  ],
+  "n_cites": 5,
+  "excerpt": ""
+ },
+ {
+  "id": "D3",
+  "type": "discovery",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 4,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "Epom",
+   "StackAdapt",
+   "Amazon DSP"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "D3",
+  "type": "discovery",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 3,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Basis",
+   "StackAdapt",
+   "The Trade Desk"
+  ],
+  "n_cites": 9,
+  "excerpt": ""
+ },
+ {
+  "id": "D4",
+  "type": "discovery",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 6,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "DV360",
+   "Amazon DSP",
+   "Basis",
+   "Viant",
+   "Yahoo DSP"
+  ],
+  "n_cites": 8,
+  "excerpt": ""
+ },
+ {
+  "id": "D4",
+  "type": "discovery",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 5,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "Amazon DSP",
+   "StackAdapt",
+   "Epom",
+   "DV360"
+  ],
+  "n_cites": 6,
+  "excerpt": ""
+ },
+ {
+  "id": "D4",
+  "type": "discovery",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 5,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "Basis",
+   "DV360",
+   "Yahoo DSP",
+   "Viant"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "D4",
+  "type": "discovery",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 8,
+  "excerpt": ""
+ },
+ {
+  "id": "D5",
+  "type": "discovery",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 0,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 7,
+  "excerpt": ""
+ },
+ {
+  "id": "D5",
+  "type": "discovery",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 1,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Simpli.fi"
+  ],
+  "n_cites": 5,
+  "excerpt": ""
+ },
+ {
+  "id": "D5",
+  "type": "discovery",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "D5",
+  "type": "discovery",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 3,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 8,
+  "excerpt": ""
+ },
+ {
+  "id": "D6",
+  "type": "discovery",
+  "engine": "chat_gpt",
+  "mentioned": true,
+  "position": 6,
+  "n_brands": 6,
+  "tone": "neutral",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media"
+  ],
+  "competitors": [
+   "The Trade Desk",
+   "DV360",
+   "Simpli.fi",
+   "Viant",
+   "StackAdapt"
+  ],
+  "n_cites": 3,
+  "excerpt": "TV and programmatic channels. ([sec.gov](https://www.sec.gov/Archives/edgar/data/1828791/000119312523105721/d465969dars.pdf?utm_source=openai))   - Simpli.fi / Pontiac-style local/zip-code DSPs \u2014 specialist programmatic platforms that explicitly build audiences from US Census + public records and target by ZIP/census geography. (See Pontiac / Simpli.fi-type offering descriptions.) ([pontiac.media]"
+ },
+ {
+  "id": "D6",
+  "type": "discovery",
+  "engine": "claude",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media",
+   "go.pontiac.media"
+  ],
+  "competitors": [
+   "Simpli.fi"
+  ],
+  "n_cites": 4,
+  "excerpt": "l DSPs have built cookieless audience targeting solutions leveraging **U.S. Census data and ZIP code information**. Here are the notable ones:  ---  ### 1. \ud83d\udd35 **Pontiac Intelligence**  Pontiac's **Audience Research Tool (ART)** is a proprietary cookie-less identity solution that enables advertisers to better understand and better reach the users of highest value to their brands.   Cookieless and ZI"
+ },
+ {
+  "id": "D6",
+  "type": "discovery",
+  "engine": "gemini",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 3,
+  "tone": "positive",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Simpli.fi",
+   "Viant"
+  ],
+  "n_cites": 1,
+  "excerpt": "us Tracts) and rich behavioral signals, aggregating them up to ZIP/postal codes for targeting and ad activation across digital, mobile, CTV, and audio.  ### 2. Pontiac Intelligence * **How it works:** Pontiac is a flexible, transparent programmatic DSP that heavily promotes its \"Cookieless Audiences\" feature.  * **The Census & ZIP connection:** Pontiac actively maps public records and comprehensiv"
+ },
+ {
+  "id": "D6",
+  "type": "discovery",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 1,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Viant"
+  ],
+  "n_cites": 9,
+  "excerpt": ""
+ },
+ {
+  "id": "D7",
+  "type": "discovery",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 5,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "DV360",
+   "Amazon DSP",
+   "Basis",
+   "Simpli.fi"
+  ],
+  "n_cites": 0,
+  "excerpt": ""
+ },
+ {
+  "id": "D7",
+  "type": "discovery",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 5,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Amazon DSP",
+   "Yahoo DSP",
+   "AdRoll",
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 6,
+  "excerpt": ""
+ },
+ {
+  "id": "D7",
+  "type": "discovery",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 3,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Amazon DSP",
+   "AdRoll",
+   "Yahoo DSP"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "D7",
+  "type": "discovery",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Amazon DSP",
+   "The Trade Desk"
+  ],
+  "n_cites": 9,
+  "excerpt": ""
+ },
+ {
+  "id": "C1",
+  "type": "comparison",
+  "engine": "chat_gpt",
+  "mentioned": true,
+  "position": 2,
+  "n_brands": 2,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media",
+   "drive.pontiac.media"
+  ],
+  "competitors": [
+   "StackAdapt"
+  ],
+  "n_cites": 5,
+  "excerpt": ". My recommendation is that if the agency wants managed service and an easy UI, they should go with StackAdapt; if they need specialized inventory and support, Pontiac could be a better fit. I should also ask about the user's priorities and budget! Short answer \u2014 both are viable, but which is \u201cbetter\u201d depends on what your small agency values:  - If you want an easy-to-use, multi\u2011channel self\u2011serve"
+ },
+ {
+  "id": "C1",
+  "type": "comparison",
+  "engine": "claude",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 3,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media",
+   "go.pontiac.media"
+  ],
+  "competitors": [
+   "StackAdapt",
+   "The Trade Desk"
+  ],
+  "n_cites": 7,
+  "excerpt": "I was able to gather solid information on Pontiac Intelligence. Let me now pull in StackAdapt data to give you a fair comparison. I've hit my search limit for this turn. Let me give you the best comparison I can based on the Pontiac Intelligence data I retrieved, combined with my e"
+ },
+ {
+  "id": "C1",
+  "type": "comparison",
+  "engine": "gemini",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 4,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 1,
+  "excerpt": "When choosing between **Pontiac Intelligence** and **StackAdapt** as a small agency looking to buy Connected TV (CTV), the decision comes down to **how you charge your clients, how much hand-holding your team needs, and your campaign minimums.**   Both are highly "
+ },
+ {
+  "id": "C1",
+  "type": "comparison",
+  "engine": "perplexity",
+  "mentioned": true,
+  "position": 2,
+  "n_brands": 2,
+  "tone": "mixed",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media"
+  ],
+  "competitors": [
+   "StackAdapt"
+  ],
+  "n_cites": 8,
+  "excerpt": "ve, intuitive, multi-channel platform with no stated minimum spend and strong support, which tends to fit smaller teams that need speed and simplicity.[4][6] **Pontiac Intelligence** is compelling if your priority is **premium CTV access and more customized buying support**, especially if you want direct access to major publishers and transparent delivery controls.[1][2]  - **Choose StackAdapt if "
+ },
+ {
+  "id": "C2",
+  "type": "comparison",
+  "engine": "chat_gpt",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media",
+   "drive.pontiac.media"
+  ],
+  "competitors": [
+   "Simpli.fi"
+  ],
+  "n_cites": 3,
+  "excerpt": "**Researching marketing platforms**  The user wants a comparison between Pontiac Intelligence and Simpli.fi for local CTV and geo-targeted campaigns. It\u2019s about marketing platforms, which isn\u2019t too high-stakes, but I should make sure to get accurate information since things could have changed recently. I\u2019ll use "
+ },
+ {
+  "id": "C2",
+  "type": "comparison",
+  "engine": "claude",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 2,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media"
+  ],
+  "competitors": [
+   "Simpli.fi"
+  ],
+  "n_cites": 4,
+  "excerpt": "I have solid data on Pontiac Intelligence from the search results. Let me now pull in what I know about Simpli.fi from my training knowledge and combine it with the fresh Pontiac data for a thorough comparison.  ---  # \ud83c\udfaf Pontiac Intelligence vs. Simpli.fi: Loca"
+ },
+ {
+  "id": "C2",
+  "type": "comparison",
+  "engine": "gemini",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Simpli.fi"
+  ],
+  "n_cites": 1,
+  "excerpt": "When choosing between **Pontiac Intelligence** and **Simpli.fi** for local Connected TV (CTV) and geo-targeted campaigns, you are looking at two highly capable but structurally different programmatic Demand-Side Platforms (DSPs).   The decision largely comes down "
+ },
+ {
+  "id": "C2",
+  "type": "comparison",
+  "engine": "perplexity",
+  "mentioned": true,
+  "position": 2,
+  "n_brands": 2,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media"
+  ],
+  "competitors": [
+   "Simpli.fi"
+  ],
+  "n_cites": 5,
+  "excerpt": "geted campaigns**, **Simpli.fi** is the stronger fit if your priority is **ZIP code, household-level, and geofencing-based local activation at scale**.[1][6] **Pontiac Intelligence** appears stronger if you want **CTV plus broader contextual/audience discovery** and a platform that emphasizes **inventory access, transparency, and easy-to-use buying tools**.[4][2][3]  A practical way to think about"
+ },
+ {
+  "id": "C3",
+  "type": "comparison",
+  "engine": "chat_gpt",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 3,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media",
+   "drive.pontiac.media"
+  ],
+  "competitors": [
+   "AdLib",
+   "Roku Ads Manager"
+  ],
+  "n_cites": 4,
+  "excerpt": "tting the most up-to-date and accurate information, so searching through this tool is essential. Alright, let\u2019s move ahead and conduct that search! **Comparing Pontiac and AdLib**  I\u2019ve noted that both Pontiac and AdLib claim no minimums and offer transparent pricing, along with access to major inventory, including CTV. I need to summarize how their pricing, minimums, and inventory compare. I\u2019ll a"
+ },
+ {
+  "id": "C3",
+  "type": "comparison",
+  "engine": "claude",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 2,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "drive.pontiac.media",
+   "pontiac.media"
+  ],
+  "competitors": [
+   "AdLib"
+  ],
+  "n_cites": 4,
+  "excerpt": "It looks like the search results returned detailed information about **Pontiac DSP**, but did not return sufficient results for **AdLib DSP** to make a direct comparison. Here's what I can share about Pontiac DSP, and a note on AdLib:  ---  ## Pontiac DSP  ### \ud83d\udcb0 Pricing  If you choose to activate and manage yo"
+ },
+ {
+  "id": "C3",
+  "type": "comparison",
+  "engine": "gemini",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 7,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "AdLib",
+   "The Trade Desk",
+   "DV360",
+   "Basis",
+   "Amazon DSP",
+   "Yahoo DSP"
+  ],
+  "n_cites": 1,
+  "excerpt": "**Pontiac DSP** and **AdLib DSP** are both highly popular solutions for independent agencies and small-to-midsize businesses (SMBs) looking to run programmatic campaigns without the massive minimum spend requirements of enterprise giants like"
+ },
+ {
+  "id": "C3",
+  "type": "comparison",
+  "engine": "perplexity",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "drive.pontiac.media"
+  ],
+  "competitors": [
+   "AdLib"
+  ],
+  "n_cites": 8,
+  "excerpt": "Pontiac DSP appears to have **clearer public pricing and lower minimums**, while AdLib DSP\u2019s public pricing is **less specific** but its selling point is **no monthly spend minimums** and access to a broader set of DSPs/inventory paths.[2]["
+ },
+ {
+  "id": "C4",
+  "type": "comparison",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 9,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "StackAdapt",
+   "Simpli.fi",
+   "Basis",
+   "AdRoll",
+   "DV360"
+  ],
+  "n_cites": 6,
+  "excerpt": ""
+ },
+ {
+  "id": "C4",
+  "type": "comparison",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 8,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "StackAdapt",
+   "Epom",
+   "AdLib",
+   "AdRoll",
+   "Simpli.fi"
+  ],
+  "n_cites": 5,
+  "excerpt": ""
+ },
+ {
+  "id": "C4",
+  "type": "comparison",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 7,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "StackAdapt",
+   "Choozle",
+   "Simpli.fi",
+   "AdLib",
+   "Amazon DSP"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "C4",
+  "type": "comparison",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 7,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "StackAdapt",
+   "Basis",
+   "AdRoll",
+   "Choozle",
+   "DV360"
+  ],
+  "n_cites": 9,
+  "excerpt": ""
+ },
+ {
+  "id": "C5",
+  "type": "comparison",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 4,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "The Trade Desk",
+   "AdRoll",
+   "Choozle"
+  ],
+  "n_cites": 7,
+  "excerpt": ""
+ },
+ {
+  "id": "C5",
+  "type": "comparison",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 6,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "AdRoll",
+   "ad:personam",
+   "AdLib",
+   "Simpli.fi",
+   "Basis"
+  ],
+  "n_cites": 6,
+  "excerpt": ""
+ },
+ {
+  "id": "C5",
+  "type": "comparison",
+  "engine": "gemini",
+  "mentioned": true,
+  "position": 3,
+  "n_brands": 8,
+  "tone": "positive",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "The Trade Desk",
+   "AdRoll",
+   "ad:personam",
+   "Simpli.fi",
+   "AdLib"
+  ],
+  "n_cites": 1,
+  "excerpt": "managed services.   The best StackAdapt alternatives with **true $0 minimum spend** (or highly accessible, low-barrier models) are detailed below:  ---  ### 1. Pontiac Intelligence (Pontiac.media) Pontiac is a highly recommended alternative for independent traders and small-to-midsize agencies who want raw, self-serve programmatic access with zero fluff.  * **The Spend Minimum:** **$0**. You can s"
+ },
+ {
+  "id": "C5",
+  "type": "comparison",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 9,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "AdRoll",
+   "Choozle",
+   "Epom",
+   "Basis",
+   "Simpli.fi"
+  ],
+  "n_cites": 9,
+  "excerpt": ""
+ },
+ {
+  "id": "E1",
+  "type": "evaluation",
+  "engine": "chat_gpt",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media",
+   "drive.pontiac.media"
+  ],
+  "competitors": [
+   "The Trade Desk"
+  ],
+  "n_cites": 5,
+  "excerpt": "**Evaluating Pontiac Intelligence DSP**  I see that I have multiple sources to check, like the company site, G2 reviews, AdExchanger articles, and case studies from Peer39. I need to answer whether Pontiac Intelligence is a good DSP for CTV advertising "
+ },
+ {
+  "id": "E1",
+  "type": "evaluation",
+  "engine": "claude",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 3,
+  "tone": "positive",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 6,
+  "excerpt": "Pontiac Intelligence appears to be a strong option for CTV advertising, particularly for those looking for an agile, transparent, and cost-effective DSP. Here's a breakdown of what makes it stand out:  ---  ### \ud83c\udfd7\ufe0f Built for CTV  Pontiac Int"
+ },
+ {
+  "id": "E1",
+  "type": "evaluation",
+  "engine": "gemini",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 4,
+  "tone": "positive",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "DV360",
+   "Simpli.fi"
+  ],
+  "n_cites": 1,
+  "excerpt": "Yes, **Pontiac Intelligence** is considered a strong, highly efficient Demand-Side Platform (DSP) for Connected TV (CTV) advertising, especially for mid-market agencies, independent buyers, and brands looking to maximize their actual ad spend.   H"
+ },
+ {
+  "id": "E1",
+  "type": "evaluation",
+  "engine": "perplexity",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 4,
+  "tone": "neutral",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media"
+  ],
+  "competitors": [
+   "The Trade Desk",
+   "StackAdapt",
+   "DV360"
+  ],
+  "n_cites": 8,
+  "excerpt": "Pontiac Intelligence appears to be a **credible CTV-focused DSP** if your priority is **CTV-specific buying, transparency, and show-level optimization** rather than a broad, all-channel enterprise DSP.[1][3][5]  What the results support: - "
+ },
+ {
+  "id": "E2",
+  "type": "evaluation",
+  "engine": "chat_gpt",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "drive.pontiac.media",
+   "pontiac.media"
+  ],
+  "competitors": [],
+  "n_cites": 2,
+  "excerpt": "mpaign spending, and the minimum user fee may be waived. It would be helpful to contact sales or check the fee schedule for more details. Short answer \u2014 public Pontiac documentation shows:  - Platform (margin) fee: 20% of media spend (Pontiac charges a software user\u2011licensing fee equal to a margin of 20% of the media spend run through the platform). ([pontiac.media](https://pontiac.media/terms-and"
+ },
+ {
+  "id": "E2",
+  "type": "evaluation",
+  "engine": "claude",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "drive.pontiac.media",
+   "go.pontiac.media"
+  ],
+  "competitors": [],
+  "n_cites": 5,
+  "excerpt": "Here's a breakdown of Pontiac Intelligence's DSP fees, margins, and minimums based on available information:  ---  ### \ud83d\udcb0 Platform / Sign-Up Fee  A **$99 fee** provides access to the Pontiac Intelligence digital advertising platform.   ---  ### \ud83d\udcca Software License"
+ },
+ {
+  "id": "E2",
+  "type": "evaluation",
+  "engine": "gemini",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "positive",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 1,
+  "excerpt": "Pontiac Intelligence offers a highly transparent, pay-as-you-go pricing model designed to remove the high barriers to entry often associated with enterprise demand-side platforms (DSPs).   ### 1. Pontiac DSP Fees & Margin (Tech Take-Rate) P"
+ },
+ {
+  "id": "E2",
+  "type": "evaluation",
+  "engine": "perplexity",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "neutral",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media",
+   "drive.pontiac.media"
+  ],
+  "competitors": [],
+  "n_cites": 6,
+  "excerpt": "Pontiac Intelligence\u2019s publicly listed pricing starts at **$25/month**, and some listings say there is a **free version** available.[1][9]  For the **Pontiac DSP fees**, Pontiac says the platform uses a **usage-based margin fee** that is bu"
+ },
+ {
+  "id": "E3",
+  "type": "evaluation",
+  "engine": "chat_gpt",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "negative",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 0,
+  "excerpt": "**Searching for DSP reviews**  I need to use web.run because the topic about Pontiac Intelligence DSP could be niche, and maybe it has changed over time. I should search for phrases like \"Pontiac Intelligence DSP reviews\" or \"Pontiac Intelligence DSP user reviews forum.\" It seems like the product might specifically "
+ },
+ {
+  "id": "E3",
+  "type": "evaluation",
+  "engine": "claude",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 4,
+  "tone": "positive",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Basis",
+   "Simpli.fi",
+   "Yahoo DSP"
+  ],
+  "n_cites": 4,
+  "excerpt": "Here's a summary of what users and reviews say about the **Pontiac Intelligence DSP**:  ---  ### \ud83c\udf1f Overall Reputation  Pontiac Intelligence bills itself as the \"100% transparent DSP,\" offering no spend minimums, state-of-the-art cookieless targeting technology, and AI optimization \u2014 positioning its"
+ },
+ {
+  "id": "E3",
+  "type": "evaluation",
+  "engine": "gemini",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 3,
+  "tone": "positive",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 1,
+  "excerpt": "Reviews and user feedback for the **Pontiac Intelligence DSP** (Demand-Side Platform) are generally very positive, particularly among small-to-midsize agencies, independent advertisers, and localized marketers. Built by Programmatic Mechanics, it is frequently highlighted as "
+ },
+ {
+  "id": "E3",
+  "type": "evaluation",
+  "engine": "perplexity",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media"
+  ],
+  "competitors": [],
+  "n_cites": 7,
+  "excerpt": "Users and reviewers generally describe **Pontiac Intelligence DSP** as **easy to use, responsive, and flexible**, with strong praise for its customer support and campaign-management interface.[2] The available reviews also highlight **effective audience targeting**, **omni-channel"
+ },
+ {
+  "id": "E4",
+  "type": "evaluation",
+  "engine": "chat_gpt",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "mixed",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media"
+  ],
+  "competitors": [],
+  "n_cites": 1,
+  "excerpt": "\u2019ll be sure to provide citations along with the gathered data, confirming I'm focusing on delivering accurate and timely insights relevant to the user's needs! Pontiac Intelligence was founded by Keith Gooberman (CEO) and Erik Thorson (CTO). ([pontiac.media](https://pontiac.media/about/?utm_source=openai))  What the company is known for in ad tech - A transparent, self\u2011service Demand\u2011Side Platform"
+ },
+ {
+  "id": "E4",
+  "type": "evaluation",
+  "engine": "claude",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media"
+  ],
+  "competitors": [],
+  "n_cites": 4,
+  "excerpt": "**Pontiac Intelligence** was co-founded by  **Keith Gooberman**, who serves as CEO & Co-founder of Pontiac Intelligence.   Keith and **Erik** built Pontiac Intelligence to be an open window into programmatic buying.   In the ad tech space, Po"
+ },
+ {
+  "id": "E4",
+  "type": "evaluation",
+  "engine": "gemini",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 1,
+  "excerpt": "**Pontiac Intelligence** was founded by **Keith Gooberman** (CEO), **Paul Rostkowski** (COO), and **Erik Thorson** (CTO).   Originally conceived in 2015\u20132016 as the technology arm of their programmatic media agency, Programmatic Mechanics, th"
+ },
+ {
+  "id": "E4",
+  "type": "evaluation",
+  "engine": "perplexity",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "positive",
+  "pontiac_cited": true,
+  "cited_pontiac_domains": [
+   "pontiac.media"
+  ],
+  "competitors": [],
+  "n_cites": 4,
+  "excerpt": "Pontiac Intelligence was founded by **Keith Gooberman**; the company\u2019s about page says he and **Erik Thorson** built it, with Gooberman listed as **Founder and CEO** and Thorson as **CTO**.[1] It is known in ad tech as a **fully transparent"
+ },
+ {
+  "id": "I1",
+  "type": "implementation",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 1,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Roku Ads Manager"
+  ],
+  "n_cites": 0,
+  "excerpt": ""
+ },
+ {
+  "id": "I1",
+  "type": "implementation",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 4,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "StackAdapt",
+   "MNTN",
+   "Roku Ads Manager",
+   "Amazon DSP"
+  ],
+  "n_cites": 6,
+  "excerpt": ""
+ },
+ {
+  "id": "I1",
+  "type": "implementation",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 5,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Roku Ads Manager",
+   "The Trade Desk",
+   "DV360",
+   "Yahoo DSP",
+   "Basis"
+  ],
+  "n_cites": 0,
+  "excerpt": ""
+ },
+ {
+  "id": "I1",
+  "type": "implementation",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 3,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Amazon DSP",
+   "The Trade Desk",
+   "StackAdapt"
+  ],
+  "n_cites": 9,
+  "excerpt": ""
+ },
+ {
+  "id": "I2",
+  "type": "implementation",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 0,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 0,
+  "excerpt": ""
+ },
+ {
+  "id": "I2",
+  "type": "implementation",
+  "engine": "claude",
+  "mentioned": true,
+  "position": 1,
+  "n_brands": 1,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 6,
+  "excerpt": "D Matching  Some SSPs pass a **content ID** in bid requests to DSPs, which can use that signal to match ad spend to the inventory where ads appeared. DSPs like Pontiac can also measure ad performance by embedding a tracking pixel on the brand's website to track outcomes like site visits or purchases, and then use this data to prioritize buying inventory that drives outcomes.   ### 2. \ud83d\udcca Leverage Sh"
+ },
+ {
+  "id": "I2",
+  "type": "implementation",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "tvScientific"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "I2",
+  "type": "implementation",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 0,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 10,
+  "excerpt": ""
+ },
+ {
+  "id": "I3",
+  "type": "implementation",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 2,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Amazon DSP",
+   "StackAdapt"
+  ],
+  "n_cites": 8,
+  "excerpt": ""
+ },
+ {
+  "id": "I3",
+  "type": "implementation",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 0,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 6,
+  "excerpt": ""
+ },
+ {
+  "id": "I3",
+  "type": "implementation",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 6,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "The Trade Desk",
+   "DV360",
+   "ad:personam",
+   "StackAdapt",
+   "Choozle",
+   "AdLib"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "I3",
+  "type": "implementation",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 0,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 10,
+  "excerpt": ""
+ },
+ {
+  "id": "I4",
+  "type": "implementation",
+  "engine": "chat_gpt",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 1,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Amazon DSP"
+  ],
+  "n_cites": 4,
+  "excerpt": ""
+ },
+ {
+  "id": "I4",
+  "type": "implementation",
+  "engine": "claude",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 3,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Amazon DSP",
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 6,
+  "excerpt": ""
+ },
+ {
+  "id": "I4",
+  "type": "implementation",
+  "engine": "gemini",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 3,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [
+   "Amazon DSP",
+   "The Trade Desk",
+   "DV360"
+  ],
+  "n_cites": 1,
+  "excerpt": ""
+ },
+ {
+  "id": "I4",
+  "type": "implementation",
+  "engine": "perplexity",
+  "mentioned": false,
+  "position": null,
+  "n_brands": 0,
+  "tone": "neutral",
+  "pontiac_cited": false,
+  "cited_pontiac_domains": [],
+  "competitors": [],
+  "n_cites": 7,
+  "excerpt": ""
+ }
+]

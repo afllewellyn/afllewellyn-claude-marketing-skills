@@ -1,0 +1,39 @@
+observations=80 (prompts x engines actually checked) | Pontiac mentioned in 33 = 41%
+per engine:
+  ChatGPT (gpt-5-mini, web)          prompts=20 mentioned= 8 (40%) pontiac-domain cited=7
+  Claude (Sonnet 4.6, web)           prompts=20 mentioned= 9 (45%) pontiac-domain cited=6
+  Gemini (3.5 Flash, grounded)       prompts=20 mentioned= 9 (45%) pontiac-domain cited=0
+  Perplexity (sonar-pro)             prompts=20 mentioned= 7 (35%) pontiac-domain cited=7
+per prompt type:
+  discovery       obs=28 mentioned= 3 (11%)
+  comparison      obs=20 mentioned=13 (65%)
+  evaluation      obs=16 mentioned=16 (100%)
+  implementation  obs=16 mentioned= 1 (6%)
+unbranded prompts (discovery+implementation): 4/44
+branded prompts (comparison+evaluation): 29/36
+tone of mentions: Counter({'positive': 18, 'neutral': 12, 'mixed': 2, 'negative': 1})
+Pontiac-owned domains cited: {'pontiac.media': 18, 'go.pontiac.media': 3, 'drive.pontiac.media': 9}
+competitors named (obs count): [('The Trade Desk', 41), ('DV360', 31), ('StackAdapt', 31), ('Amazon DSP', 22), ('Simpli.fi', 20), ('AdLib', 14), ('Basis', 13), ('AdRoll', 9), ('Roku Ads Manager', 8), ('Yahoo DSP', 8), ('Epom', 7), ('Viant', 7), ('Choozle', 7), ('ad:personam', 4), ('tvScientific', 4)]
+top cited domains overall: [('vertexaisearch.cloud.google.com', 19), ('reddit.com', 18), ('pontiac.media', 18), ('linkedin.com', 16), ('g2.com', 15), ('getadlib.com', 12), ('epom.com', 11), ('stackadapt.com', 10), ('drive.pontiac.media', 9), ('adexchanger.com', 7), ('getspike.ai', 6), ('adpersonam.io', 5), ('aidigital.com', 5), ('adroll.com', 5), ('slashdot.org', 5), ('simpli.fi', 4), ('learn.microsoft.com', 4), ('improvado.io', 4), ('digiday.com', 4), ('beet.tv', 4), ('businesswire.com', 4), ('vibe.co', 4), ('sourceforge.net', 4), ('smartyads.com', 3), ('emarketer.com', 3)]
+
+GRID (rows=prompt, cols=engines; M=mentioned/pos, c=owned domain cited, -=absent, .=not run):
+  D1 disc | -     | -     | -     | -     | What are the best self-serve DSPs for a small agency that wants to buy
+  D2 disc | -     | -     | -     | -     | Which programmatic advertising platforms let me buy Netflix, Disney+ a
+  D3 disc | -     | -     | -     | -     | What are the most transparent DSPs with the lowest take rates and plat
+  D4 disc | -     | -     | -     | -     | Which DSPs give buyers log-level data and full reporting transparency?
+  D5 disc | -     | -     | -     | -     | What are the best self-serve platforms for buying programmatic digital
+  D6 disc | M6c   | M1c   | M1    | -     | Which DSPs offer cookieless audience targeting built on census and zip
+  D7 disc | -     | -     | -     | -     | Which ad tech platforms or DSPs let me manage campaigns from ChatGPT o
+  C1 comp | M2c   | M1c   | M1    | M2c   | Pontiac Intelligence vs StackAdapt: which is better for a small agency
+  C2 comp | M1c   | M1c   | M1    | M2c   | Pontiac Intelligence vs Simpli.fi for local CTV and geo-targeted campa
+  C3 comp | M1c   | M1c   | M1    | M1c   | How does Pontiac DSP compare to AdLib DSP on pricing, minimums and inv
+  C4 comp | -     | -     | -     | -     | What are the best alternatives to The Trade Desk for agencies spending
+  C5 comp | -     | -     | M3    | -     | What are good StackAdapt alternatives with no minimum spend?
+  E1 eval | M1c   | M1    | M1    | M1c   | Is Pontiac Intelligence a good DSP for CTV advertising?
+  E2 eval | M1c   | M1c   | M1    | M1c   | What does Pontiac Intelligence charge? What are the Pontiac DSP fees, 
+  E3 eval | M1    | M1    | M1    | M1c   | What do users and reviews say about the Pontiac Intelligence DSP?
+  E4 eval | M1c   | M1c   | M1    | M1c   | Who founded Pontiac Intelligence and what is the company known for in 
+  I1 impl | -     | -     | -     | -     | How do I set up a CTV campaign on a self-serve DSP using private marke
+  I2 impl | -     | M1    | -     | -     | How can I get show-level transparency and performance data for CTV ads
+  I3 impl | -     | -     | -     | -     | How do I run programmatic audio and podcast ads through a DSP with a s
+  I4 impl | -     | -     | -     | -     | How do I connect a DSP to ChatGPT or Claude using MCP to manage ad cam

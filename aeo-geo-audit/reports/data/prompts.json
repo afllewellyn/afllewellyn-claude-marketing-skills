@@ -1,0 +1,22 @@
+[
+ {"id":"D1","type":"discovery","prompt":"What are the best self-serve DSPs for a small agency that wants to buy CTV with no minimum spend?"},
+ {"id":"D2","type":"discovery","prompt":"Which programmatic advertising platforms let me buy Netflix, Disney+ and Hulu CTV inventory without a large monthly minimum?"},
+ {"id":"D3","type":"discovery","prompt":"What are the most transparent DSPs with the lowest take rates and platform fees?"},
+ {"id":"D4","type":"discovery","prompt":"Which DSPs give buyers log-level data and full reporting transparency?"},
+ {"id":"D5","type":"discovery","prompt":"What are the best self-serve platforms for buying programmatic digital out-of-home (DOOH) down to specific billboards?"},
+ {"id":"D6","type":"discovery","prompt":"Which DSPs offer cookieless audience targeting built on census and zip code data?"},
+ {"id":"D7","type":"discovery","prompt":"Which ad tech platforms or DSPs let me manage campaigns from ChatGPT or Claude through an MCP server?"},
+ {"id":"C1","type":"comparison","prompt":"Pontiac Intelligence vs StackAdapt: which is better for a small agency buying CTV?"},
+ {"id":"C2","type":"comparison","prompt":"Pontiac Intelligence vs Simpli.fi for local CTV and geo-targeted campaigns?"},
+ {"id":"C3","type":"comparison","prompt":"How does Pontiac DSP compare to AdLib DSP on pricing, minimums and inventory?"},
+ {"id":"C4","type":"comparison","prompt":"What are the best alternatives to The Trade Desk for agencies spending under $10,000 a month?"},
+ {"id":"C5","type":"comparison","prompt":"What are good StackAdapt alternatives with no minimum spend?"},
+ {"id":"E1","type":"evaluation","prompt":"Is Pontiac Intelligence a good DSP for CTV advertising?"},
+ {"id":"E2","type":"evaluation","prompt":"What does Pontiac Intelligence charge? What are the Pontiac DSP fees, margin and minimums?"},
+ {"id":"E3","type":"evaluation","prompt":"What do users and reviews say about the Pontiac Intelligence DSP?"},
+ {"id":"E4","type":"evaluation","prompt":"Who founded Pontiac Intelligence and what is the company known for in ad tech?"},
+ {"id":"I1","type":"implementation","prompt":"How do I set up a CTV campaign on a self-serve DSP using private marketplace deals?"},
+ {"id":"I2","type":"implementation","prompt":"How can I get show-level transparency and performance data for CTV ads bought programmatically?"},
+ {"id":"I3","type":"implementation","prompt":"How do I run programmatic audio and podcast ads through a DSP with a small budget?"},
+ {"id":"I4","type":"implementation","prompt":"How do I connect a DSP to ChatGPT or Claude using MCP to manage ad campaigns with natural language?"}
+]

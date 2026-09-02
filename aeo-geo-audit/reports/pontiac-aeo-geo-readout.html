@@ -1,0 +1,311 @@
+<title>Pontiac AI Search Readout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Albert+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  --paper:#F4F5F2; --surface:#FFFFFF; --ink:#171B22; --ink-2:#4A5163; --muted:#6F7789; --rule:#D9DCE1; --rule-soft:#E9EBEE;
+  --accent:#1E4ED8; --accent-ink:#FFFFFF; --accent-soft:#E4EBFB;
+  --crit:#B42318; --crit-soft:#FBE9E7; --warn:#A5680E; --warn-soft:#FBF0D9; --good:#1F7A4D; --good-soft:#E3F3EA;
+  --hit:#1E4ED8; --hit-1:#1E4ED8; --hit-2:#7C9BEA; --hit-3:#C5D3F5; --miss:#EDEFF2;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif; --body:"Albert Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#0F1319; --surface:#171C24; --ink:#E7EAEF; --ink-2:#B6BCC8; --muted:#8B93A3; --rule:#2A313D; --rule-soft:#222833;
+  --accent:#7DA2FF; --accent-ink:#0F1319; --accent-soft:#1C2A4A;
+  --crit:#F28B82; --crit-soft:#3A1F1D; --warn:#E5B567; --warn-soft:#3A2E17; --good:#7FD1A2; --good-soft:#173328;
+  --hit:#7DA2FF; --hit-1:#7DA2FF; --hit-2:#3E62B8; --hit-3:#25365E; --miss:#1D2330;
+}}
+:root[data-theme="dark"]{
+  --paper:#0F1319; --surface:#171C24; --ink:#E7EAEF; --ink-2:#B6BCC8; --muted:#8B93A3; --rule:#2A313D; --rule-soft:#222833;
+  --accent:#7DA2FF; --accent-ink:#0F1319; --accent-soft:#1C2A4A;
+  --crit:#F28B82; --crit-soft:#3A1F1D; --warn:#E5B567; --warn-soft:#3A2E17; --good:#7FD1A2; --good-soft:#173328;
+  --hit:#7DA2FF; --hit-1:#7DA2FF; --hit-2:#3E62B8; --hit-3:#25365E; --miss:#1D2330;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:76rem;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+.prose{max-width:68ch}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:700;letter-spacing:-.02em;line-height:1.05}
+h2{font-size:1.45rem;font-weight:600;letter-spacing:-.01em;margin-top:3.5rem;padding-top:1.25rem;border-top:1px solid var(--rule)}
+h3{font-size:1.05rem;font-weight:600;margin-top:1.75rem}
+p{margin:.85rem 0}
+.eyebrow{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+header{display:grid;grid-template-columns:1fr;gap:1rem;padding-bottom:1.5rem;border-bottom:1px solid var(--rule)}
+header .meta{display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;font-size:.9rem;color:var(--ink-2)}
+header .meta span b{color:var(--ink);font-weight:600}
+.lede{font-size:1.15rem;color:var(--ink-2);max-width:62ch}
+/* scoreboard */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:2rem 0 0}
+.tile{background:var(--surface);padding:1.25rem 1.25rem 1.1rem;display:flex;flex-direction:column;gap:.35rem}
+.tile .n{font-family:var(--display);font-size:2.4rem;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tile .n small{font-size:1rem;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:.3rem}
+.tile .l{font-size:.9rem;color:var(--ink-2);line-height:1.35}
+.tile .src{font-size:.72rem;color:var(--muted);margin-top:auto;padding-top:.5rem}
+.tile.crit .n{color:var(--crit)} .tile.good .n{color:var(--good)} .tile.acc .n{color:var(--accent)}
+/* tables */
+.tscroll{overflow-x:auto;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+th{font-family:var(--display);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:1px solid var(--rule)}
+td.num,th.num{text-align:right}
+tbody tr:hover td{background:var(--rule-soft)}
+/* grid heat table */
+.grid td.c{text-align:center;width:4.6rem;font-family:var(--display);font-size:.8rem;font-weight:600;padding:.45rem .3rem}
+.grid td.c span{display:inline-block;min-width:3.3rem;padding:.25rem .3rem;border-radius:2px}
+.h1{background:var(--hit-1);color:var(--accent-ink)} .h2{background:var(--hit-2);color:var(--accent-ink)} .h3{background:var(--hit-3);color:var(--ink)} .miss{background:var(--miss);color:var(--muted)}
+.grid td.t{color:var(--muted);font-size:.78rem;white-space:nowrap;font-family:var(--display);letter-spacing:.06em;text-transform:uppercase}
+.grid tr.sep td{border-top:2px solid var(--rule)}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.8rem;color:var(--ink-2);margin:.5rem 0 0}
+.legend span i{display:inline-block;width:.9rem;height:.9rem;border-radius:2px;vertical-align:-2px;margin-right:.35rem}
+/* bars */
+.bars{display:grid;grid-template-columns:auto 1fr auto;gap:.5rem 1rem;align-items:center;margin:1rem 0;max-width:40rem}
+.bars .lab{font-size:.9rem;color:var(--ink-2)}
+.bars .bar{height:.85rem;background:var(--miss);position:relative;border-radius:2px}
+.bars .bar i{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:2px}
+.bars .val{font-family:var(--display);font-weight:600;font-size:.9rem;font-variant-numeric:tabular-nums;color:var(--ink)}
+/* priorities */
+ol.prio{list-style:none;margin:1.5rem 0 0;padding:0;counter-reset:p;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+ol.prio li{background:var(--surface);padding:1.25rem 1.4rem 1.25rem 4.4rem;position:relative;display:grid;gap:.5rem}
+ol.prio li::before{counter-increment:p;content:counter(p);position:absolute;left:1.3rem;top:1.2rem;font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--accent);letter-spacing:-.03em;line-height:1}
+ol.prio h3{margin:0;font-size:1.08rem}
+ol.prio p{margin:0;color:var(--ink-2);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.2rem}
+.tag{font-family:var(--display);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .5rem;border-radius:2px;background:var(--rule-soft);color:var(--ink-2)}
+.tag.low{background:var(--good-soft);color:var(--good)} .tag.med{background:var(--warn-soft);color:var(--warn)} .tag.high{background:var(--crit-soft);color:var(--crit)}
+/* status pills */
+.pill{display:inline-block;font-family:var(--display);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .45rem;border-radius:2px}
+.ok{background:var(--good-soft);color:var(--good)} .bad{background:var(--crit-soft);color:var(--crit)} .mid{background:var(--warn-soft);color:var(--warn)}
+details{border-top:1px solid var(--rule);padding:.9rem 0}
+details:last-of-type{border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:500;color:var(--muted);font-size:1.3rem}
+details[open] summary::after{content:"–"}
+details .in{padding-top:.5rem}
+ul{padding-left:1.2rem} li{margin:.3rem 0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:var(--rule-soft);padding:.05em .3em;border-radius:2px}
+.note{font-size:.85rem;color:var(--muted)}
+footer{margin-top:3rem;font-size:.85rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1rem}
+@media (max-width:640px){ .wrap{padding:1.5rem 1rem 4rem} ol.prio li{padding-left:3.4rem} ol.prio li::before{left:1rem} }
+@media (prefers-reduced-motion:no-preference){ .bars .bar i{transition:width .5s ease} }
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">SEO · AEO · GEO audit · leadership readout</div>
+  <h1>Pontiac is known to the AI engines. It isn't found through them.</h1>
+  <p class="lede">An audit of pontiac.media and wiki.pontiac.media for how buyers find a DSP in 2026: Google rankings, and what ChatGPT, Claude, Gemini, Perplexity and Google AI Overviews choose to cite.</p>
+  <div class="meta">
+    <span><b>Sites</b> pontiac.media · wiki.pontiac.media</span>
+    <span><b>Date</b> 2 September 2026</span>
+    <span><b>Data</b> DataForSEO (On-Page, Labs, Backlinks, SERP, LLM Mentions, LLM Responses), Pontiac MCP wiki search, web search</span>
+  </div>
+</header>
+
+<section>
+  <div class="board">
+    <div class="tile crit"><div class="n">9<small>%</small></div><div class="l">of unbranded AI answers mention Pontiac (4 of 44). Prompts like "best self-serve DSP with no minimum".</div><div class="src">DataForSEO LLM Responses, 4 engines, 2 Sep 2026</div></div>
+    <div class="tile good"><div class="n">81<small>%</small></div><div class="l">of branded AI answers mention Pontiac (29 of 36), accurately and mostly favourably.</div><div class="src">Same run. 18 positive, 12 neutral, 2 mixed, 1 negative</div></div>
+    <div class="tile crit"><div class="n">1<small>vs 2,357</small></div><div class="l">logged AI answers citing pontiac.media, against StackAdapt. Vibe 946, Simpli.fi 246, AdLib 135.</div><div class="src">DataForSEO LLM Mentions database</div></div>
+    <div class="tile acc"><div class="n">0</div><div class="l">times wiki.pontiac.media was cited in 80 answers, including two prompts asking for exactly what its MCP pages document.</div><div class="src">DataForSEO LLM Responses</div></div>
+    <div class="tile"><div class="n">10</div><div class="l">Google keywords pontiac.media ranks for in the US top 100. All brand terms. StackAdapt: 4,003. The wiki: 0.</div><div class="src">DataForSEO Labs</div></div>
+    <div class="tile"><div class="n">14<small>months</small></div><div class="l">since the last blog post on pontiac.media (28 June 2024). The wiki is maintained but shows no dates.</div><div class="src">On-page article:modified_time</div></div>
+  </div>
+</section>
+
+<section class="prose">
+  <h2>State of play</h2>
+  <p>When a buyer types the name, all four engines find Pontiac, describe the 20% self-serve margin, the no-minimum model and the CTV-first bidder, and Google's AI Overview does the same from Reddit, YouTube and drive.pontiac.media. When a buyer asks the question that comes <em>before</em> knowing the name, Pontiac is absent and the engines name StackAdapt, The Trade Desk, AdLib, Vibe, Roku and Simpli.fi instead, sourced from those competitors' own comparison articles, Reddit threads and G2.</p>
+  <p>Two things make this fixable rather than structural. The gates are open: neither site blocks any AI crawler, both are server-rendered so crawlers see full copy without JavaScript, and G2 sentiment is strong (4.8 from 16 reviews, support scored 10.0). And Pontiac's real offer, no minimum, flat margin, Netflix and Disney CTV access, log-level data, an MCP server for ChatGPT and Claude, fits the winning queries better than most of the brands being cited. What is missing is content on Pontiac's own domain that answers those queries, and basic crawl hygiene on the wiki where the most citable material already lives.</p>
+  <p>One cost of the gap is already visible: with no pricing page on pontiac.media, Perplexity tells buyers Pontiac costs "$25/month with a free version" (from SourceForge) and Claude reports "a $99 fee and $1,000 minimum" (from Clutch). The correct figures sit on a wiki page no engine has cited.</p>
+</section>
+
+<section>
+  <h2>Where Pontiac appears, prompt by prompt</h2>
+  <p class="prose">Twenty buyer prompts, four engines, one run each, on 2 September 2026. A filled cell means Pontiac was named; the digit is its position among brands mentioned in that answer. Share figures divide by the 80 prompt-engine observations, not by prompts.</p>
+  <div class="tscroll">
+  <table class="grid">
+    <thead><tr><th>Type</th><th>Prompt</th><th style="text-align:center">ChatGPT</th><th style="text-align:center">Claude</th><th style="text-align:center">Gemini</th><th style="text-align:center">Perplexity</th></tr></thead>
+    <tbody>
+      <tr><td class="t">Discovery</td><td>Best self-serve DSPs for a small agency buying CTV, no minimum</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Discovery</td><td>Buy Netflix, Disney+, Hulu CTV without a large monthly minimum</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Discovery</td><td>Most transparent DSPs with the lowest take rates</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Discovery</td><td>DSPs with log-level data and full reporting transparency</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Discovery</td><td>Self-serve programmatic DOOH down to the billboard</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Discovery</td><td>Cookieless targeting built on census and ZIP-code data</td><td class="c"><span class="h3">6th</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Discovery</td><td>DSPs you can manage from ChatGPT or Claude via MCP</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr class="sep"><td class="t">Comparison</td><td>Pontiac Intelligence vs StackAdapt for a small agency buying CTV</td><td class="c"><span class="h2">2nd</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h2">2nd</span></td></tr>
+      <tr><td class="t">Comparison</td><td>Pontiac Intelligence vs Simpli.fi for local CTV</td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h2">2nd</span></td></tr>
+      <tr><td class="t">Comparison</td><td>Pontiac DSP vs AdLib on pricing, minimums, inventory</td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td></tr>
+      <tr><td class="t">Comparison</td><td>Best Trade Desk alternatives for agencies under $10k/month</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Comparison</td><td>StackAdapt alternatives with no minimum spend</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="h3">3rd</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr class="sep"><td class="t">Evaluation</td><td>Is Pontiac Intelligence a good DSP for CTV?</td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td></tr>
+      <tr><td class="t">Evaluation</td><td>What does Pontiac charge: fees, margin, minimums?</td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td></tr>
+      <tr><td class="t">Evaluation</td><td>What do users and reviews say about Pontiac?</td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td></tr>
+      <tr><td class="t">Evaluation</td><td>Who founded Pontiac Intelligence, what is it known for?</td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="h1">1st</span></td></tr>
+      <tr class="sep"><td class="t">Implementation</td><td>Set up a CTV campaign on a self-serve DSP with PMP deals</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Implementation</td><td>Show-level transparency and performance data for CTV</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="h1">1st</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Implementation</td><td>Programmatic audio and podcast ads on a small budget</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+      <tr><td class="t">Implementation</td><td>Connect a DSP to ChatGPT or Claude via MCP</td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td><td class="c"><span class="miss">–</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="legend"><span><i style="background:var(--hit-1)"></i>Named first</span><span><i style="background:var(--hit-2)"></i>Named second</span><span><i style="background:var(--hit-3)"></i>Named third or later</span><span><i style="background:var(--miss)"></i>Absent</span></div>
+
+  <h3>Share by engine and by prompt type</h3>
+  <div class="bars">
+    <div class="lab">ChatGPT (gpt-5-mini, web)</div><div class="bar"><i style="width:40%"></i></div><div class="val">8 / 20 · 40%</div>
+    <div class="lab">Claude (Sonnet 4.6, web)</div><div class="bar"><i style="width:45%"></i></div><div class="val">9 / 20 · 45%</div>
+    <div class="lab">Gemini (3.5 Flash, grounded)</div><div class="bar"><i style="width:45%"></i></div><div class="val">9 / 20 · 45%</div>
+    <div class="lab">Perplexity (sonar-pro)</div><div class="bar"><i style="width:35%"></i></div><div class="val">7 / 20 · 35%</div>
+  </div>
+  <div class="bars">
+    <div class="lab">Evaluation (branded)</div><div class="bar"><i style="width:100%"></i></div><div class="val">16 / 16 · 100%</div>
+    <div class="lab">Comparison (mostly branded)</div><div class="bar"><i style="width:65%"></i></div><div class="val">13 / 20 · 65%</div>
+    <div class="lab">Discovery (unbranded)</div><div class="bar"><i style="width:11%"></i></div><div class="val">3 / 28 · 11%</div>
+    <div class="lab">Implementation (unbranded)</div><div class="bar"><i style="width:6%"></i></div><div class="val">1 / 16 · 6%</div>
+  </div>
+  <p class="note">Brands named across the 80 answers: The Trade Desk 41, StackAdapt 31, DV360 31, Amazon DSP 22, Simpli.fi 20, AdLib 14, Basis 13. Most-cited domains: reddit.com 18, pontiac.media 18 (almost all on branded prompts), linkedin.com 16, g2.com 15, getadlib.com 12, epom.com 11, stackadapt.com 10. This is a baseline, not a score: AI answers shift month to month, and this run cost $3.35, so it should be repeated monthly and read as a trend.</p>
+</section>
+
+<section>
+  <h2>Five priorities, ranked by impact against effort</h2>
+  <ol class="prio">
+    <li>
+      <h3>Publish the comparison and category pages the engines actually cite</h3>
+      <p>Four pages on pontiac.media: <em>Pontiac vs StackAdapt</em>, <em>Pontiac vs Simpli.fi</em>, <em>Best self-serve DSPs with no minimum spend (2026)</em>, <em>Trade Desk alternatives for agencies under $10k/month</em>. Answer-first opening, a comparison table with real fees and minimums, a named author. Add a fifth page on the Pontiac MCP server for ChatGPT and Claude Code and list it in the MCP directories Perplexity and Claude cited.</p>
+      <p><b>Why:</b> unbranded discovery share is 3 of 28. The two comparison prompts Pontiac lost outright are its own positioning. Every engine cited competitor listicles (AdLib, Epom, Vibe, StackAdapt) for those answers, and Pontiac's MCP docs were cited 0 times in 8 MCP observations.</p>
+      <div class="tags"><span class="tag med">Effort: medium</span><span class="tag">Owner: marketing lead, founders for the fee and positioning claims</span></div>
+    </li>
+    <li>
+      <h3>Put the real pricing on pontiac.media and correct the third-party listings</h3>
+      <p>One pricing page ($100 one-time entry, 20% self-serve margin, 30% managed, no minimum). Then update G2's pricing entry (dated 2022), SourceForge and Slashdot ("$25/month, free version") and Clutch ("$1,000 minimum").</p>
+      <p><b>Why:</b> Perplexity is telling buyers Pontiac costs $25/month. Claude says $99 and a $1,000 minimum. ChatGPT had to read the Terms &amp; Conditions to find the 20%. The correct numbers sit on a wiki page no engine has cited.</p>
+      <div class="tags"><span class="tag low">Effort: low</span><span class="tag">Owner: marketing lead, one afternoon</span></div>
+    </li>
+    <li>
+      <h3>Make the wiki citable</h3>
+      <p>Add robots.txt and an XML sitemap, promote doc titles to H1, generate meta descriptions, fix 47 duplicate titles, turn the 89,000-word hub pages into indexes with a two-line summary per child, expose last-updated dates, add Organization and TechArticle schema.</p>
+      <p><b>Why:</b> 700+ pages of the most specific documentation in the category rank for zero keywords, have 3 referring domains, and were cited in 0 of 80 answers. A 90,000-word page cannot be chunked and attributed by an AI engine.</p>
+      <div class="tags"><span class="tag med">Effort: medium</span><span class="tag">Owner: web developer, about a week of template work</span></div>
+    </li>
+    <li>
+      <h3>Fix the marketing site's crawl signals</h3>
+      <p>Replace the stale eight-URL <code>sitemap.txt</code> with the WordPress XML sitemap. Fix the Organization schema that points at <code>http://172.31.40.15/</code>. 301 the four legacy <code>.html</code> pages. Promote blog post titles to H1. Server-render the contact form.</p>
+      <p><b>Why:</b> the schema bug weakens entity disambiguation for a brand that shares its name with a car company (319 logged AI answers for "Pontiac Intelligence" are about Firebirds). An AI agent asked to request a demo cannot find a form in the HTML.</p>
+      <div class="tags"><span class="tag low">Effort: low</span><span class="tag">Owner: web developer, one day</span></div>
+    </li>
+    <li>
+      <h3>Show up where the engines are reading, and keep the baseline running</h3>
+      <p>Founders answer the r/programmatic threads the engines cite ("self-serve DSP recs", "buy CTV without minimum", "fully transparent DSPs"). Post the 2025 to 2026 news (Peer39 and InterMedia show-level CPA, MCP launch, Beet.TV) on pontiac.media. Re-run the 20-prompt baseline monthly and pull the AI-bot server logs once to confirm crawlers are actually getting 200s.</p>
+      <p><b>Why:</b> Reddit was the most-cited domain across all 80 answers and already recommends Pontiac organically in one thread. The blog's freshness signal is 14 months stale. Visibility is volatile, so the number only means something as a trend.</p>
+      <div class="tags"><span class="tag low">Effort: low to medium, ongoing</span><span class="tag">Owner: CEO or co-founder for Reddit voice, marketing for cadence, hosting admin for logs</span></div>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Findings by audit pass</h2>
+  <p class="prose note">The full working document, with per-page issue tables, keyword data and the raw observations, is in the repository at <code>aeo-geo-audit/reports/pontiac-media-aeo-geo-audit-2026-09.md</code>. The essentials of each pass are below.</p>
+
+  <details open>
+    <summary>1 · Machine crawlability</summary>
+    <div class="in tscroll">
+      <table>
+        <thead><tr><th>Check</th><th>pontiac.media</th><th>wiki.pontiac.media</th></tr></thead>
+        <tbody>
+          <tr><td>robots.txt</td><td><span class="pill ok">Present</span> allows all agents</td><td><span class="pill bad">404</span> none, so allowed by default</td></tr>
+          <tr><td>GPTBot, OAI-SearchBot, ClaudeBot, Claude-User, PerplexityBot, Google-Extended</td><td><span class="pill ok">Allowed</span></td><td><span class="pill ok">Allowed</span></td></tr>
+          <tr><td>Googlebot (what AI Overviews and AI Mode actually use)</td><td><span class="pill ok">Allowed</span></td><td><span class="pill ok">Allowed</span></td></tr>
+          <tr><td>Sitemap</td><td><span class="pill bad">Stale</span> robots.txt points at <code>sitemap.txt</code> listing 8 legacy URLs, one a 404, none of the 40 live pages</td><td><span class="pill bad">None</span></td></tr>
+          <tr><td>Raw vs rendered HTML (homepage)</td><td><span class="pill ok">Match</span> 564 vs 603 words, same title, H1, canonical, links</td><td><span class="pill ok">Match</span> 99 vs 105 words, but no H1 in either</td></tr>
+          <tr><td>Interactive elements</td><td><span class="pill mid">Partial</span> 48 of 60 "buttons" are divs; main CTAs are real links; contact form injected by JS</td><td><span class="pill ok">Semantic</span></td></tr>
+          <tr><td>Extractability</td><td><span class="pill ok">Fine</span></td><td><span class="pill bad">Hub pages of 25k to 89k words</span> duplicating every child page</td></tr>
+          <tr><td>CDN or WAF bot rules</td><td colspan="2">Not visible from outside (Apache and nginx, no CDN headers). Confirm with hosting that no bot-management rule 403s these agents.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary>2 · Log-verified AI bot access</summary>
+    <div class="in prose">
+      <p>Not run: no server, CDN or WAF logs were available. Follow-up for the hosting admin, about an hour: pull 30 days of Apache and nginx access logs, filter the nine AI user agents, count response codes (any 403, 429 or 5xx is a blocker robots.txt cannot show), verify hits against each vendor's published IP ranges, and note which wiki URLs the bots fetch most. The LLM Mentions database confirms Google's AI systems have reached pontiac.media at least once; it says nothing about OpenAI or Anthropic crawlers.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>3 · Off-site citation surface</summary>
+    <div class="in">
+      <div class="tscroll"><table>
+        <thead><tr><th>Surface</th><th>Status</th><th>What we found</th></tr></thead>
+        <tbody>
+          <tr><td>G2</td><td><span class="pill ok">Claimed, active</span></td><td>4.8 from 16 reviews, 94% small business, support 10.0. "Two months since the last review." Pricing entry dated 2022. G2 auto-generates the vs-StackAdapt, vs-Simpli.fi, vs-SmartyAds and vs-AdLib pages that Google's AI Overview cites.</td></tr>
+          <tr><td>SourceForge, Slashdot</td><td><span class="pill mid">Listed, empty</span></td><td>0 reviews. Shows "$25/month, free version", which Perplexity now repeats as Pontiac's pricing.</td></tr>
+          <tr><td>Capterra, GetApp, Software Advice</td><td><span class="pill bad">Not found</span></td><td>G2 acquired all three in February 2026; worth checking whether the G2 listing propagates.</td></tr>
+          <tr><td>On-site comparison pages</td><td><span class="pill bad">None</span></td><td>Every "Pontiac vs X" query is answered by G2's auto page or a competitor's blog (AdLib, Vibe, AdRoll all publish vs and alternatives content).</td></tr>
+          <tr><td>Reddit</td><td><span class="pill mid">Organic only</span></td><td>Recommended in r/programmatic "What DSPs are fully transparent?", which Google's AI Overview cites for pricing. Absent from the "self-serve DSP recs" and "CTV without minimum" threads the engines cite most.</td></tr>
+          <tr><td>YouTube, trade press</td><td><span class="pill ok">Present</span></td><td>Channel with 2025 uploads; Beet.TV interview; AdExchanger tag page and July 2026 Peer39 and InterMedia coverage; MediaPost, Business Wire, ExchangeWire. None of it is summarised or linked from pontiac.media.</td></tr>
+          <tr><td>Backlinks</td><td><span class="pill mid">Thin and noisy</span></td><td>157 referring domains, spam score 18. Strongest referrer is the founders' agency (progmechs.com, 224 links). Dozens of Aug 2026 referrers are casino and link-directory sites. Wiki: 3 referring domains.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Proof already in hand: G2 review language, a mattress-company CTV case study and a "23% CPA improvement" result on the case-studies page, and the wiki's own setup guidance (closing CTV CPMs of $20 to 40, run through PMPs, set frequency caps to 0). None of it appears on pontiac.media's marketing pages. Sales-call transcripts were not available and should be mined for the priority-1 content.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>5 · Traditional on-page and technical SEO</summary>
+    <div class="in">
+      <div class="tscroll"><table>
+        <thead><tr><th>Domain</th><th class="num">Organic keywords (US top 100)</th><th class="num">Est. monthly organic visits</th><th class="num">Top-3 rankings</th></tr></thead>
+        <tbody>
+          <tr><td>pontiac.media</td><td class="num">10</td><td class="num">50</td><td class="num">3 (all brand)</td></tr>
+          <tr><td>wiki.pontiac.media</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+          <tr><td>stackadapt.com</td><td class="num">4,003</td><td class="num">26,868</td><td class="num">369</td></tr>
+          <tr><td>simpli.fi</td><td class="num">523</td><td class="num">9,806</td><td class="num">62</td></tr>
+          <tr><td>smartyads.com</td><td class="num">3,527</td><td class="num">4,904</td><td class="num">52</td></tr>
+          <tr><td>choozle.com</td><td class="num">593</td><td class="num">1,800</td><td class="num">23</td></tr>
+          <tr><td>getadlib.com</td><td class="num">241</td><td class="num">1,683</td><td class="num">22</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tscroll"><table>
+        <thead><tr><th>Crawl check</th><th>pontiac.media (40 pages)</th><th>wiki (300 of 700+ pages)</th></tr></thead>
+        <tbody>
+          <tr><td>OnPage score</td><td>88.7</td><td>87.0</td></tr>
+          <tr><td>No meta description</td><td>2</td><td><b>290</b></td></tr>
+          <tr><td>No H1</td><td>17 (every blog post)</td><td><b>290</b></td></tr>
+          <tr><td>Duplicate titles</td><td>0</td><td>47 ("Overview" ×8)</td></tr>
+          <tr><td>Duplicate content</td><td>2</td><td>63</td></tr>
+          <tr><td>Images without alt</td><td>27 pages</td><td>229 pages</td></tr>
+          <tr><td>Broken internal links</td><td>2</td><td>3</td></tr>
+          <tr><td>Legacy pages live without canonical</td><td>4 (<code>platform.html</code>, <code>pontiac-landing.html</code>, <code>algorithm.html</code>, <code>register.html</code>)</td><td>0</td></tr>
+          <tr><td>Structured data</td><td>Present, but Organization and WebSite <code>url</code> = <code>http://172.31.40.15/</code></td><td>None</td></tr>
+          <tr><td>Homepage LCP / fully loaded (desktop)</td><td>2.35 s / 3.5 s</td><td>1.34 s / 1.8 s</td></tr>
+          <tr><td>Freshness</td><td>Newest post 28 Jun 2024; homepage last modified Oct 2024</td><td>Actively updated (2026 MCP docs) but exposes no dates</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tscroll"><table>
+        <thead><tr><th>Keyword opportunity</th><th class="num">Monthly volume</th><th class="num">Difficulty</th><th class="num">CPC</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>demand side platform</td><td class="num">1,300</td><td class="num">49</td><td class="num">$38</td><td>Category head term, AI Overview present</td></tr>
+          <tr><td>programmatic advertising platform</td><td class="num">720</td><td class="num">8</td><td class="num">$56</td><td>Low difficulty for the volume</td></tr>
+          <tr><td>ctv advertising platform</td><td class="num">320</td><td class="num">0</td><td class="num">$142</td><td>Best single opportunity: KD 0, SERP is small-vendor listicles</td></tr>
+          <tr><td>what is ctv advertising</td><td class="num">880</td><td class="num">1</td><td class="num">$25</td><td>Wiki glossary could own this</td></tr>
+          <tr><td>best dsp platforms</td><td class="num">320</td><td class="num">20</td><td class="num">$7</td><td>Listicle format the engines cite</td></tr>
+          <tr><td>programmatic dooh</td><td class="num">140</td><td class="num">–</td><td class="num">$82</td><td>Differentiated Pontiac offer</td></tr>
+          <tr><td>audience research tool</td><td class="num">140</td><td class="num">–</td><td class="num">$63</td><td>Pontiac's product is literally named ART</td></tr>
+          <tr><td>self-serve dsp</td><td class="num">110</td><td class="num">1 to 16</td><td class="num">$189</td><td>Highest CPC in the set</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Source: DataForSEO Labs and Keywords Data, US, 2 September 2026. Pontiac ranks for none of these.</p>
+    </div>
+  </details>
+</section>
+
+<footer>
+  Every figure names its source. DataForSEO numbers are verified API data from 2 September 2026; AI-engine answers are a single run per prompt and engine and should be read as a baseline to re-run, not a fixed score. No server logs were available, so pass 2 is a follow-up. Prepared with the aeo-geo-audit skill.
+</footer>
+</div>

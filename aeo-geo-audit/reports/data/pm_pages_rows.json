@@ -1,0 +1,938 @@
+[
+ {
+  "url": "https://pontiac.media/advaced-features/",
+  "status": 404,
+  "title": null,
+  "tlen": 0,
+  "desc": "",
+  "h1": null,
+  "words": null,
+  "int_in": null,
+  "score": null,
+  "size": 91677,
+  "ttfb": null,
+  "issues": [
+   "is_broken"
+  ],
+  "modified": null,
+  "published": null,
+  "rtype": "broken",
+  "canonical": null
+ },
+ {
+  "url": "https://pontiac.media/our-cookieless-audience-research-solution/",
+  "status": 404,
+  "title": null,
+  "tlen": 0,
+  "desc": "",
+  "h1": null,
+  "words": null,
+  "int_in": null,
+  "score": null,
+  "size": 91677,
+  "ttfb": null,
+  "issues": [
+   "is_broken"
+  ],
+  "modified": null,
+  "published": null,
+  "rtype": "broken",
+  "canonical": null
+ },
+ {
+  "url": "https://pontiac.media/",
+  "status": 200,
+  "title": "Home - Pontiac Intelligence",
+  "tlen": 27,
+  "desc": "Get the most out of your media buying strategy with the Pontiac DSP. Execute your programmatic buying with better controls and lower pricing.",
+  "h1": [
+   "Built for  tomorrow  to give you an edge  today.",
+   "Ready to get started?"
+  ],
+  "words": 458,
+  "int_in": 36,
+  "score": 93.41,
+  "size": 127581,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "low_content_rate",
+   "title_too_short",
+   "no_image_alt"
+  ],
+  "modified": "2024-10-10T14:59:37+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/"
+ },
+ {
+  "url": "https://pontiac.media/about/",
+  "status": 200,
+  "title": "About - Pontiac Intelligence",
+  "tlen": 28,
+  "desc": "Discover the future of tech in programmatic buying. Pontiac Intelligence offers transparent, cost-effective solutions to reach real people.",
+  "h1": [
+   "Our commitment to you"
+  ],
+  "words": 290,
+  "int_in": 36,
+  "score": 93.41,
+  "size": 73200,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "low_content_rate",
+   "title_too_short",
+   "no_image_alt"
+  ],
+  "modified": "2024-07-01T15:05:32+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/about/"
+ },
+ {
+  "url": "https://pontiac.media/advanced-features/",
+  "status": 200,
+  "title": "Advanced Features - Pontiac Intelligence",
+  "tlen": 40,
+  "desc": "Maximize your campaign performance with our advanced programmatic solutions. Leverage your own bidding algorithm or use our custom bidder for optimal results.",
+  "h1": [
+   "Custom solutions to meet your platform needs"
+  ],
+  "words": 340,
+  "int_in": 36,
+  "score": 95.24,
+  "size": 83205,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-10T19:54:37+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/advanced-features/"
+ },
+ {
+  "url": "https://pontiac.media/audience-discovery/",
+  "status": 200,
+  "title": "Audience Discovery - Pontiac Intelligence",
+  "tlen": 41,
+  "desc": "Reach your target audience effectively in a cookieless world. Learn how ART Audience Research Tool from Pontiac Intelligence uses ZIP code profiling and AI-driven segmentation to create accurate audience segmentation at scale.",
+  "h1": [
+   "Future-Proof Audience Tools",
+   "The Science of ART",
+   "Audience Discovery and Research",
+   "Al-Driven Profiles",
+   "Ready to get started?"
+  ],
+  "words": 428,
+  "int_in": 37,
+  "score": 95.24,
+  "size": 81511,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": "2024-08-02T15:26:07+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/audience-discovery/"
+ },
+ {
+  "url": "https://pontiac.media/blog-optimization-models/",
+  "status": 200,
+  "title": "Two Optimization Models Are Better Than One - Pontiac Intelligence",
+  "tlen": 66,
+  "desc": "Pontiac and Chalice have partnered to deliver cutting edge media targeting on CTV. Together, they offer the ability to target CTV based on Linear data without the need for show level transparency.",
+  "h1": null,
+  "words": 579,
+  "int_in": 11,
+  "score": 91.59,
+  "size": 96586,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "no_image_alt"
+  ],
+  "modified": null,
+  "published": "2024-06-28T13:29:27+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/blog-optimization-models/"
+ },
+ {
+  "url": "https://pontiac.media/blog/",
+  "status": 200,
+  "title": "Blog - Pontiac Intelligence",
+  "tlen": 27,
+  "desc": "Read about the latest insights on the adtech industry with the Pontiac blog. Learn about new trends, helpful perspectives, and industry tips.",
+  "h1": [
+   "Pontiac Blog",
+   "Two Optimization Models Are Better Than One",
+   "Ready to get started?"
+  ],
+  "words": 217,
+  "int_in": 39,
+  "score": 93.41,
+  "size": 111070,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "low_content_rate",
+   "title_too_short",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-10T19:59:08+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/blog/"
+ },
+ {
+  "url": "https://pontiac.media/blog/?e-page-58a409c=2",
+  "status": 200,
+  "title": "Blog - Pontiac Intelligence",
+  "tlen": 27,
+  "desc": "Read about the latest insights on the adtech industry with the Pontiac blog. Learn about new trends, helpful perspectives, and industry tips.",
+  "h1": [
+   "Pontiac Blog",
+   "Two Optimization Models Are Better Than One",
+   "Ready to get started?"
+  ],
+  "words": 215,
+  "int_in": 3,
+  "score": 97.44,
+  "size": 110786,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors"
+  ],
+  "modified": "2024-06-10T19:59:08+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/blog/"
+ },
+ {
+  "url": "https://pontiac.media/blog/?e-page-58a409c=3",
+  "status": 200,
+  "title": "Blog - Pontiac Intelligence",
+  "tlen": 27,
+  "desc": "Read about the latest insights on the adtech industry with the Pontiac blog. Learn about new trends, helpful perspectives, and industry tips.",
+  "h1": [
+   "Pontiac Blog",
+   "Two Optimization Models Are Better Than One",
+   "Ready to get started?"
+  ],
+  "words": 221,
+  "int_in": 3,
+  "score": 97.44,
+  "size": 111673,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors"
+  ],
+  "modified": "2024-06-10T19:59:08+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/blog/"
+ },
+ {
+  "url": "https://pontiac.media/blog/?e-page-58a409c=4",
+  "status": 200,
+  "title": "Blog - Pontiac Intelligence",
+  "tlen": 27,
+  "desc": "Read about the latest insights on the adtech industry with the Pontiac blog. Learn about new trends, helpful perspectives, and industry tips.",
+  "h1": [
+   "Pontiac Blog",
+   "Two Optimization Models Are Better Than One",
+   "Ready to get started?"
+  ],
+  "words": 143,
+  "int_in": 3,
+  "score": 97.44,
+  "size": 94441,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors"
+  ],
+  "modified": "2024-06-10T19:59:08+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/blog/"
+ },
+ {
+  "url": "https://pontiac.media/case-studies/",
+  "status": 200,
+  "title": "Case Studies - Pontiac Intelligence",
+  "tlen": 35,
+  "desc": "Discover how Pontiac's Al optimization algorithm achieved a 23% improvement in CPA for an ecommerce platform in this programmatic case study.",
+  "h1": [
+   "Don't Take Our Word For\u00a0It"
+  ],
+  "words": 402,
+  "int_in": 36,
+  "score": 95.24,
+  "size": 84875,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-18T23:16:36+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/case-studies/"
+ },
+ {
+  "url": "https://pontiac.media/contextual-advertising-and-natural-language-processing/",
+  "status": 200,
+  "title": "Contextual Advertising and Natural Language Processing: an Interview with Data Scientist, Michael Misiewicz - Pontiac Intelligence",
+  "tlen": 130,
+  "desc": "\"I think advertising, when it\u2019s done best, in the most creative, interesting ways, is always about how do you place your ad in the right place at the right time?\" Read what data scientist, Michael Misiewicz has to say about natural language processing, AI, and the future of contextual advertising.",
+  "h1": null,
+  "words": 1018,
+  "int_in": 8,
+  "score": 89.47,
+  "size": 99902,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-04T15:49:44+00:00",
+  "published": "2023-04-17T10:13:10+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/contextual-advertising-and-natural-language-processing/"
+ },
+ {
+  "url": "https://pontiac.media/contextual-ai/",
+  "status": 200,
+  "title": "AI-Powered Contextual for a Better Advertising Experience - Pontiac Intelligence",
+  "tlen": 80,
+  "desc": "For the past year, Pontiac has partnered with Michael Misiewicz to build out world class contextual tools. These tools are integral to the contextual components of our ART audience discovery platform and enable a cookieless solution that provides scale and accuracy.",
+  "h1": null,
+  "words": 1070,
+  "int_in": 3,
+  "score": 89.47,
+  "size": 99773,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-11T15:45:10+00:00",
+  "published": "2024-06-11T15:45:09+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/contextual-ai/"
+ },
+ {
+  "url": "https://pontiac.media/contextual-and-geography/",
+  "status": 200,
+  "title": "The Power of Context and Geography in a Privacy-First World - Pontiac Intelligence",
+  "tlen": 82,
+  "desc": "Contextual AI and geography can combine to offer future-proof audience targeting at scale with better performance and reliability.",
+  "h1": null,
+  "words": 1585,
+  "int_in": 5,
+  "score": 97.44,
+  "size": 103178,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors"
+  ],
+  "modified": null,
+  "published": "2024-06-11T21:09:07+00:00",
+  "rtype": "html",
+  "canonical": "https://54.156.164.157/contextual-and-geography/"
+ },
+ {
+  "url": "https://pontiac.media/contextual-performance/",
+  "status": 200,
+  "title": "Proven Success of Pontiac\u2019s Contextual AI Targeting Solution - Pontiac Intelligence",
+  "tlen": 83,
+  "desc": "Contextual targeting using AI is a powerful tool to drive results. Pontiac's tool has proven to be scalable and effective.",
+  "h1": null,
+  "words": 493,
+  "int_in": 2,
+  "score": 97.44,
+  "size": 97160,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors"
+  ],
+  "modified": null,
+  "published": "2024-06-11T21:13:30+00:00",
+  "rtype": "html",
+  "canonical": "https://54.156.164.157/contextual-performance/"
+ },
+ {
+  "url": "https://pontiac.media/cookie-delay/",
+  "status": 200,
+  "title": "Grasping On To Crumbs.. - Pontiac Intelligence",
+  "tlen": 46,
+  "desc": "Google is delaying cookie deprecation again. Advertisers shouldn't wait around for the inevitable to come and instead embrace change.",
+  "h1": null,
+  "words": 699,
+  "int_in": 8,
+  "score": 97.44,
+  "size": 96984,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors"
+  ],
+  "modified": null,
+  "published": "2024-06-11T21:18:25+00:00",
+  "rtype": "html",
+  "canonical": "https://54.156.164.157/cookie-delay/"
+ },
+ {
+  "url": "https://pontiac.media/cookies-and-ai/",
+  "status": 200,
+  "title": "Hungry? Let's fight over pie! - Pontiac Intelligence",
+  "tlen": 52,
+  "desc": "Cookies and AI can have opposite effects on publisher inventory. Fewer cookies is good for pubs but AI search is bad. See who wins the best slice.",
+  "h1": null,
+  "words": 564,
+  "int_in": 9,
+  "score": 90.85,
+  "size": 95719,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "https_to_http_links",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-18T02:01:08+00:00",
+  "published": "2024-06-11T21:36:32+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/cookies-and-ai/"
+ },
+ {
+  "url": "https://pontiac.media/ctv-cable-2/",
+  "status": 200,
+  "title": "Maybe Cable Got It Right After All - Pontiac Intelligence",
+  "tlen": 57,
+  "desc": "CTV is looking more and more like cable, with bundled channels, filler content, and high prices. What's old is new again.",
+  "h1": null,
+  "words": 806,
+  "int_in": 5,
+  "score": 93.41,
+  "size": 98390,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-11T21:29:32+00:00",
+  "published": "2024-06-11T21:29:31+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/ctv-cable-2/"
+ },
+ {
+  "url": "https://pontiac.media/ctv-cable/",
+  "status": 200,
+  "title": "Is CTV Reverting to just... TV? - Pontiac Intelligence",
+  "tlen": 54,
+  "desc": "CTV is looking more and more like cable with unskippable ads and prescheduled content.",
+  "h1": null,
+  "words": 684,
+  "int_in": 5,
+  "score": 93.41,
+  "size": 97027,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": null,
+  "published": "2024-06-11T17:43:46+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/ctv-cable/"
+ },
+ {
+  "url": "https://pontiac.media/doesnt-anyone-care-about-apple-users-post-cookie-era-update-3/",
+  "status": 200,
+  "title": "Doesn\u2019t anyone care about Apple Users? Post Cookie Era Update #3 - Pontiac Intelligence",
+  "tlen": 87,
+  "desc": "We have a basic hypothesis that most marketers and agencies are not paying enough attention to reaching users on Apple Devices using Programmatic Advertising. (And probably social too, but that is a separate blog post.) We decided to run a basic experiment comparing the delivery to Apple Devices when targeting typical 3rd party data audiences vs. our in-house cookieless tool called Pontiac ART.",
+  "h1": null,
+  "words": 1542,
+  "int_in": 5,
+  "score": 90.49,
+  "size": 105124,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "deprecated_html_tags",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-04T15:48:31+00:00",
+  "published": "2023-06-08T10:57:00+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/doesnt-anyone-care-about-apple-users-post-cookie-era-update-3/"
+ },
+ {
+  "url": "https://pontiac.media/forget-cookies-the-future-lies-in-geography/",
+  "status": 200,
+  "title": "Forget Cookies, the Future Lies in Geography - Pontiac Intelligence",
+  "tlen": 67,
+  "desc": "While addressable identifiers will continue to dominate current headlines, the ability to determine what user is being targeted in the digital advertising space is clearly diminishing overall. Here at Pontiac Intelligence, we believe this evolution of targeting will clearly showcase other ways to segment reachable audiences. We see it as an opportunity.",
+  "h1": null,
+  "words": 982,
+  "int_in": 7,
+  "score": 91.59,
+  "size": 100446,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-11T15:45:33+00:00",
+  "published": "2024-06-11T15:28:18+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/forget-cookies-the-future-lies-in-geography/"
+ },
+ {
+  "url": "https://pontiac.media/frequency-mfa/",
+  "status": 200,
+  "title": "The Quality Conundrum: Frequency Capping and MFA Websites - Pontiac Intelligence",
+  "tlen": 80,
+  "desc": "MFA websites are a major waste of advertising spend, but also a massive pain to circumvent, and advertisers are unlikely to find a magic key to avoid them entirely.",
+  "h1": null,
+  "words": 1363,
+  "int_in": 7,
+  "score": 97.44,
+  "size": 102285,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors"
+  ],
+  "modified": null,
+  "published": "2024-06-11T21:04:47+00:00",
+  "rtype": "html",
+  "canonical": "https://54.156.164.157/frequency-mfa/"
+ },
+ {
+  "url": "https://pontiac.media/from-ad-networks-to-exchanges-and-back-again/",
+  "status": 200,
+  "title": "From Ad Networks to Exchanges and Back Again - Pontiac Intelligence",
+  "tlen": 67,
+  "desc": "Advertising is reverting back to a controlled inventory market where platforms and publishers have a closer relationship.",
+  "h1": null,
+  "words": 935,
+  "int_in": 5,
+  "score": 91.59,
+  "size": 98932,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-11T21:33:38+00:00",
+  "published": "2024-06-11T21:33:37+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/from-ad-networks-to-exchanges-and-back-again/"
+ },
+ {
+  "url": "https://pontiac.media/logistic-regression/",
+  "status": 200,
+  "title": "Better Optimization of CTV Campaigns: the Power of Logistic Regression - Pontiac Intelligence Connected TV",
+  "tlen": 106,
+  "desc": "The key to achieving quality performance in CTV is through optimization models that can work with whatever data is available.",
+  "h1": null,
+  "words": 576,
+  "int_in": 5,
+  "score": 91.59,
+  "size": 97755,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-11T17:45:07+00:00",
+  "published": "2024-06-11T17:35:02+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/logistic-regression/"
+ },
+ {
+  "url": "https://pontiac.media/media-buying/",
+  "status": 200,
+  "title": "Media Buying - Pontiac Intelligence",
+  "tlen": 35,
+  "desc": "Maximize your media buying potential with Pontiac. Reach the best CTV inventory and activate against any channel you want, with reach, flexibility, and control.",
+  "h1": [
+   "Putting the 'Pro' in Programmatic",
+   "Ready to get started?"
+  ],
+  "words": 1150,
+  "int_in": 36,
+  "score": 95.24,
+  "size": 133492,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": "2024-08-02T14:27:09+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/media-buying/"
+ },
+ {
+  "url": "https://pontiac.media/newcontact/",
+  "status": 200,
+  "title": "Contact Us - Pontiac Intelligence",
+  "tlen": 33,
+  "desc": "Contact us for any issues.",
+  "h1": null,
+  "words": 24,
+  "int_in": 35,
+  "score": 87.93,
+  "size": 61137,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "low_character_count",
+   "irrelevant_description",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-18T22:29:57+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/newcontact/"
+ },
+ {
+  "url": "https://pontiac.media/oracle-advertising/",
+  "status": 200,
+  "title": "The 3rd Party Data Ship is Sinking - Pontiac Intelligence",
+  "tlen": 57,
+  "desc": "Oracle is shutting down their ad business, and this action is an indicator that the data business is on the edge.",
+  "h1": null,
+  "words": 537,
+  "int_in": 8,
+  "score": 90.85,
+  "size": 96181,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-20T15:12:34+00:00",
+  "published": "2024-06-20T15:11:16+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/oracle-advertising/"
+ },
+ {
+  "url": "https://pontiac.media/privacy-policy/",
+  "status": 200,
+  "title": "Privacy Policy - Pontiac Intelligence",
+  "tlen": 37,
+  "desc": "",
+  "h1": [
+   "Privacy Policy"
+  ],
+  "words": 3613,
+  "int_in": 36,
+  "score": 92.32,
+  "size": 87826,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "https_to_http_links",
+   "deprecated_html_tags",
+   "no_image_alt",
+   "no_description"
+  ],
+  "modified": "2024-06-03T17:25:57+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/privacy-policy/"
+ },
+ {
+  "url": "https://pontiac.media/register.html",
+  "status": 200,
+  "title": "Register - Pontiac Intelligence",
+  "tlen": 31,
+  "desc": "",
+  "h1": [
+   "Register"
+  ],
+  "words": 139,
+  "int_in": 2,
+  "score": 88.79,
+  "size": 78477,
+  "ttfb": 0,
+  "issues": [
+   "low_content_rate",
+   "low_character_count",
+   "no_image_alt",
+   "no_description",
+   "redirect_chain"
+  ],
+  "modified": "2024-06-07T11:39:36+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": null
+ },
+ {
+  "url": "https://pontiac.media/sports-viewing/",
+  "status": 200,
+  "title": "The Lonely Relevance of Sports - Pontiac Intelligence",
+  "tlen": 53,
+  "desc": "Sports is the final frontier of appointment viewing and the CTV industry is making moves to capitalize.",
+  "h1": null,
+  "words": 832,
+  "int_in": 3,
+  "score": 97.44,
+  "size": 98568,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors"
+  ],
+  "modified": null,
+  "published": "2024-06-11T21:23:42+00:00",
+  "rtype": "html",
+  "canonical": "https://54.156.164.157/sports-viewing/"
+ },
+ {
+  "url": "https://pontiac.media/targeting-efficiency/",
+  "status": 200,
+  "title": "Targeting Should Be About Efficiency, Not Precision - Pontiac Intelligence",
+  "tlen": 74,
+  "desc": "Targeting precision has eschewed accuracy for scale. Advertisers can benefit from focusing more on efficiency to drive results.",
+  "h1": null,
+  "words": 512,
+  "int_in": 6,
+  "score": 91.59,
+  "size": 95585,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "no_image_alt"
+  ],
+  "modified": null,
+  "published": "2024-06-11T18:05:26+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/targeting-efficiency/"
+ },
+ {
+  "url": "https://pontiac.media/terms-and-conditions/",
+  "status": 200,
+  "title": "Terms & Conditions - Pontiac Intelligence",
+  "tlen": 41,
+  "desc": "Understand the platform terms and conditions of Pontiac Intelligence LLC. Read our Agreement carefully and confirm your understanding.",
+  "h1": [
+   "Terms & Conditions"
+  ],
+  "words": 8807,
+  "int_in": 3,
+  "score": 95.24,
+  "size": 120520,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "https_to_http_links",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-10T20:04:58+00:00",
+  "published": null,
+  "rtype": "html",
+  "canonical": "https://pontiac.media/terms-and-conditions/"
+ },
+ {
+  "url": "https://pontiac.media/unlocking-audience-insights-art-the-future-of-advertising/",
+  "status": 200,
+  "title": "Unlocking Audience Insights: ART - The Future of Advertising - Pontiac Intelligence",
+  "tlen": 83,
+  "desc": "The industry is moving away from 1:1 targeting or any use of PII. With a fragmented landscape, many current market solutions will be unscalable. Starting today, advertisers need to future-proof campaigns to reach their audience and communities, post-cookie.",
+  "h1": null,
+  "words": 1554,
+  "int_in": 6,
+  "score": 88.06,
+  "size": 107024,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-04T15:44:06+00:00",
+  "published": "2023-07-12T10:38:27+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/unlocking-audience-insights-art-the-future-of-advertising/"
+ },
+ {
+  "url": "https://pontiac.media/walmart-ctv/",
+  "status": 200,
+  "title": "Walmart Enters the Room - Pontiac Intelligence",
+  "tlen": 46,
+  "desc": "The CTV market is growing 15-20%/year and is expected to reach $33B soon. Walmart's acquisition of Vizio is a major step supporting growth.",
+  "h1": null,
+  "words": 724,
+  "int_in": 7,
+  "score": 93.41,
+  "size": 96645,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": null,
+  "published": "2024-06-11T15:55:40+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/walmart-ctv/"
+ },
+ {
+  "url": "https://pontiac.media/where-you-live/",
+  "status": 200,
+  "title": "You Are Where You Live - Pontiac Intelligence",
+  "tlen": 45,
+  "desc": "Geography is a great indicator of audience cohorts. In a cookieless world, where someone lives can be the key to reaching them.",
+  "h1": null,
+  "words": 670,
+  "int_in": 8,
+  "score": 93.41,
+  "size": 97789,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-11T17:44:26+00:00",
+  "published": "2024-06-11T17:39:00+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/where-you-live/"
+ },
+ {
+  "url": "https://pontiac.media/zip-codes-the-key-to-effective-cookieless-targeting/",
+  "status": 200,
+  "title": "ZIP Codes: the Key to Effective Cookieless Targeting - Pontiac Intelligence - Pontiac Intelligence",
+  "tlen": 98,
+  "desc": "With the ongoing shift towards a cookie-less world, it will be important to \u201cmake what\u2019s old, new again.\u201d ZIP data has become even more important for a brand\u2019s audience targeting strategy to maintain a strong level of precision in targeting, while complying with new privacy regulations.",
+  "h1": null,
+  "words": 955,
+  "int_in": 4,
+  "score": 91.59,
+  "size": 101877,
+  "ttfb": 0,
+  "issues": [
+   "has_micromarkup_errors",
+   "no_h1_tag",
+   "low_content_rate",
+   "title_too_long",
+   "no_image_alt"
+  ],
+  "modified": "2024-06-04T15:46:09+00:00",
+  "published": "2023-06-06T10:08:28+00:00",
+  "rtype": "html",
+  "canonical": "https://pontiac.media/zip-codes-the-key-to-effective-cookieless-targeting/"
+ },
+ {
+  "url": "http://pontiac.media/register.html",
+  "status": 301,
+  "title": null,
+  "tlen": 0,
+  "desc": "",
+  "h1": null,
+  "words": null,
+  "int_in": null,
+  "score": null,
+  "size": 134,
+  "ttfb": null,
+  "issues": [
+   "is_redirect",
+   "is_http",
+   "has_links_to_redirects"
+  ],
+  "modified": null,
+  "published": null,
+  "rtype": "redirect",
+  "canonical": null
+ },
+ {
+  "url": "https://pontiac.media/audience/",
+  "status": 301,
+  "title": null,
+  "tlen": 0,
+  "desc": "",
+  "h1": null,
+  "words": null,
+  "int_in": null,
+  "score": null,
+  "size": 0,
+  "ttfb": null,
+  "issues": [
+   "is_redirect",
+   "has_links_to_redirects"
+  ],
+  "modified": null,
+  "published": null,
+  "rtype": "redirect",
+  "canonical": null
+ },
+ {
+  "url": "https://pontiac.media/register",
+  "status": 302,
+  "title": null,
+  "tlen": 0,
+  "desc": "",
+  "h1": null,
+  "words": null,
+  "int_in": null,
+  "score": null,
+  "size": 297,
+  "ttfb": null,
+  "issues": [
+   "is_redirect",
+   "has_links_to_redirects"
+  ],
+  "modified": null,
+  "published": null,
+  "rtype": "redirect",
+  "canonical": null
+ }
+]
