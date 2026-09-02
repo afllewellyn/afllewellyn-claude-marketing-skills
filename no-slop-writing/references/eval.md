@@ -48,6 +48,6 @@ Run this on your own output before returning it. Answer each line pass or fail. 
 
 ## Final read
 
-1. Is the edited piece more useful than the original, not just smoother?
-2. Would it sound natural read aloud to a sharp colleague?
-3. Does the output include the full draft plus a short What changed list?
+1. Would the piece sound natural read aloud to a sharp colleague?
+2. Edit: is the edited piece more useful than the original, not just smoother, and does the output include the full draft plus a short What changed list?
+3. Ship-check: does the output stay a verdict, quoted blocking issues, and optional polish, with no rewrite of the draft?
