@@ -63,7 +63,7 @@ Each of these skills keeps a `memory.md` file — a running log of past mistakes
 
 | Skill | What it does |
 |---|---|
-| [`aeo-geo-audit/`](aeo-geo-audit/) | Audits a site for how buyers actually find B2B products now — AI crawler access, log-verified bot hits, off-site citation surface (G2, Reddit, comparison content), a cross-engine visibility baseline across ChatGPT/Perplexity/Google AI Mode/Gemini, and the traditional on-page and technical SEO fundamentals — then produces either a ranked five-item leadership readout or a full working-team doc. Uses a DataForSEO connection for verified visibility and keyword data when one is available, and falls back to clearly-labeled estimates when it isn't. |
+| [`aeo-geo-audit/`](aeo-geo-audit/) | Audits a site for how buyers actually find B2B products now — AI crawler access, log-verified bot hits, off-site citation surface (G2, Reddit, comparison content), a cross-engine visibility baseline across ChatGPT/Perplexity/Google AI Mode/Gemini, and the traditional on-page and technical SEO fundamentals — then produces either a ranked five-item leadership readout or a full working-team doc. Optionally uses a DataForSEO account (paid third-party API, not required — see the skill's setup note) for verified visibility and keyword data, and falls back to clearly-labeled estimates without one. |
 
 ## Installing a skill
 

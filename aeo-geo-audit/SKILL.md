@@ -27,6 +27,15 @@ Before running passes 4 and 5, check whether a DataForSEO API credential or MCP 
 
 Never assume the credential exists. Never fail the audit for lacking it.
 
+### Setting one up (optional, for whoever installs this skill)
+
+DataForSEO is a paid third-party API and is **not** required — the audit runs without it, with estimated numbers labeled as such. If you want the verified version, it's one account (from [dataforseo.com](https://dataforseo.com)) covering both the AI Optimization API used in pass 4 and the Keywords Data / SERP APIs used in pass 5, billed per request. Two ways to make it reachable:
+
+- **Via MCP** — configure a DataForSEO MCP server in your Claude client. This skill looks for any MCP tool whose name contains "dataforseo", so no further wiring is needed.
+- **Via raw API credentials** — hand the credentials to Claude in the session (or keep them somewhere the session can read) and let it call the endpoints directly.
+
+Check DataForSEO's own docs for current auth details, endpoint paths, and pricing before relying on either — this skill names endpoints as of its writing, and vendor APIs move.
+
 ## Process
 
 Run these five passes. Each produces findings that feed the final prioritized report — don't skip straight to writing recommendations.
