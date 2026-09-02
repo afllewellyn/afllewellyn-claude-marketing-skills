@@ -19,7 +19,7 @@ Hiding that AI touched the draft is not the goal. The goal is enough specificity
 
 ## Before you start
 
-1. **Load the voice profile.** Read `references/voice-profile.local.md` if it exists, otherwise `references/voice-profile.md`. A filled-in profile is the writer's voice: follow its rules, its banned words, and its examples. A file still holding template placeholders gets ignored - infer voice from the draft itself.
+1. **Load the voice profile.** Read `references/voice-profile.local.md` if it exists, otherwise `references/voice-profile.md`. A filled-in profile is the writer's voice: follow its rules, its banned words, and its examples. If neither file exists, or the one that does still holds template placeholders, ignore it and infer voice from the draft itself. Never block on a missing file.
 2. **No draft?** Ask for it. Do not write a fresh piece under this skill unless asked.
 3. **Audience or channel unclear?** Ask one question: who reads this, and where does it publish? Ask nothing else.
 4. **Missing facts?** Ask or flag. Never invent a number, source, quote, customer, or anecdote to fill a hole.
@@ -95,7 +95,7 @@ Apply these on top of the rules above. One channel per piece.
 1. Read the whole draft before touching anything.
 2. Note the core point and three to five voice signals to protect. Keep this note to yourself.
 3. Detect request: return the findings report and stop.
-4. Edit or ship-check: make the minimum effective changes, then check your own work against `references/eval.md`.
+4. Edit or ship-check: make the minimum effective changes, then check your own work against `references/eval.md`. If that file is not present, check against the Hard fails list below instead.
 5. Fix any failed check and run the checks again.
 6. Return the output in the format below.
 
