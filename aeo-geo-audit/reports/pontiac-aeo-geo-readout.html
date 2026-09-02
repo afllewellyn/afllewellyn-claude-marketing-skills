@@ -88,6 +88,22 @@ details .in{padding-top:.5rem}
 ul{padding-left:1.2rem} li{margin:.3rem 0}
 code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:var(--rule-soft);padding:.05em .3em;border-radius:2px}
 .note{font-size:.85rem;color:var(--muted)}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--rule);margin:1.5rem 0 0;position:sticky;top:0;background:var(--paper);z-index:2}
+.tabs button{appearance:none;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:.8rem 1rem .7rem;font-family:var(--display);font-weight:600;font-size:.95rem;color:var(--muted);cursor:pointer;letter-spacing:.01em}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs button:hover{color:var(--ink)}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:.35rem 1rem;font-size:.92rem;margin:.75rem 0 1rem}
+.kv dt{font-family:var(--display);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:.15rem}
+.kv dd{margin:0;color:var(--ink-2)}
+blockquote.draft{margin:1rem 0;padding:.9rem 1.1rem;border-left:3px solid var(--accent);background:var(--surface);color:var(--ink);font-size:.98rem}
+blockquote.draft::before{content:"Answer-first draft";display:block;font-family:var(--display);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.page{border:1px solid var(--rule);background:var(--surface);padding:1.25rem 1.4rem;margin:1.25rem 0}
+.page h3{margin-top:0}
+.page .url{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;color:var(--accent);margin-bottom:.4rem}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1rem 0}
+.rules div{background:var(--surface);padding:.9rem 1rem;font-size:.92rem;color:var(--ink-2)}
+.rules div b{display:block;color:var(--ink);font-family:var(--display);margin-bottom:.2rem}
+@media (max-width:640px){ .kv{grid-template-columns:1fr} }
 footer{margin-top:3rem;font-size:.85rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1rem}
 @media (max-width:640px){ .wrap{padding:1.5rem 1rem 4rem} ol.prio li{padding-left:3.4rem} ol.prio li::before{left:1rem} }
 @media (prefers-reduced-motion:no-preference){ .bars .bar i{transition:width .5s ease} }
@@ -105,6 +121,13 @@ footer{margin-top:3rem;font-size:.85rem;color:var(--muted);border-top:1px solid 
   </div>
 </header>
 
+<nav class="tabs" role="tablist" aria-label="Sections">
+  <button role="tab" id="t-readout" aria-controls="tab-readout" aria-selected="true" data-tab="readout">Readout</button>
+  <button role="tab" id="t-brief" aria-controls="tab-brief" aria-selected="false" data-tab="brief">Content brief</button>
+</nav>
+
+<div id="tab-readout" class="tab" role="tabpanel" aria-labelledby="t-readout">
+
 <section>
   <div class="board">
     <div class="tile crit"><div class="n">9<small>%</small></div><div class="l">of unbranded AI answers mention Pontiac (4 of 44). Prompts like "best self-serve DSP with no minimum".</div><div class="src">DataForSEO LLM Responses, 4 engines, 2 Sep 2026</div></div>
@@ -120,7 +143,7 @@ footer{margin-top:3rem;font-size:.85rem;color:var(--muted);border-top:1px solid 
   <h2>State of play</h2>
   <p>When a buyer types the name, all four engines find Pontiac, describe the 20% self-serve margin, the no-minimum model and the CTV-first bidder, and Google's AI Overview does the same from Reddit, YouTube and drive.pontiac.media. When a buyer asks the question that comes <em>before</em> knowing the name, Pontiac is absent and the engines name StackAdapt, The Trade Desk, AdLib, Vibe, Roku and Simpli.fi instead, sourced from those competitors' own comparison articles, Reddit threads and G2.</p>
   <p>Two things make this fixable rather than structural. The gates are open: neither site blocks any AI crawler, both are server-rendered so crawlers see full copy without JavaScript, and G2 sentiment is strong (4.8 from 16 reviews, support scored 10.0). And Pontiac's real offer, no minimum, flat margin, Netflix and Disney CTV access, log-level data, an MCP server for ChatGPT and Claude, fits the winning queries better than most of the brands being cited. What is missing is content on Pontiac's own domain that answers those queries, and basic crawl hygiene on the wiki where the most citable material already lives.</p>
-  <p>One cost of the gap is already visible: with no pricing page on pontiac.media, Perplexity tells buyers Pontiac costs "$25/month with a free version" (from SourceForge) and Claude reports "a $99 fee and $1,000 minimum" (from Clutch). The correct figures sit on a wiki page no engine has cited.</p>
+  <p>One cost of the gap is already visible: with no pricing page on pontiac.media, Perplexity tells buyers Pontiac "starts at $25/month with a free version" (from SourceForge) and Claude reports "a $99 fee and $1,000 minimum" (from Clutch). Both are fragments of real numbers on the wiki Pricing page, a $25/month minimum user fee and a $1,000/month requirement that applies to managed service only, with the context stripped. No engine has cited that wiki page.</p>
 </section>
 
 <section>
@@ -177,13 +200,13 @@ footer{margin-top:3rem;font-size:.85rem;color:var(--muted);border-top:1px solid 
     <li>
       <h3>Publish the comparison and category pages the engines actually cite</h3>
       <p>Four pages on pontiac.media: <em>Pontiac vs StackAdapt</em>, <em>Pontiac vs Simpli.fi</em>, <em>Best self-serve DSPs with no minimum spend (2026)</em>, <em>Trade Desk alternatives for agencies under $10k/month</em>. Answer-first opening, a comparison table with real fees and minimums, a named author. Add a fifth page on the Pontiac MCP server for ChatGPT and Claude Code and list it in the MCP directories Perplexity and Claude cited.</p>
-      <p><b>Why:</b> unbranded discovery share is 3 of 28. The two comparison prompts Pontiac lost outright are its own positioning. Every engine cited competitor listicles (AdLib, Epom, Vibe, StackAdapt) for those answers, and Pontiac's MCP docs were cited 0 times in 8 MCP observations.</p>
+      <p><b>Why:</b> unbranded discovery share is 3 of 28. The two comparison prompts Pontiac lost outright are its own positioning. Every engine cited competitor listicles (AdLib, Epom, Vibe, StackAdapt) for those answers, and Pontiac's MCP docs were cited 0 times in 8 MCP observations. Page-by-page specs are in the Content brief tab.</p>
       <div class="tags"><span class="tag med">Effort: medium</span><span class="tag">Owner: marketing lead, founders for the fee and positioning claims</span></div>
     </li>
     <li>
       <h3>Put the real pricing on pontiac.media and correct the third-party listings</h3>
-      <p>One pricing page ($100 one-time entry, 20% self-serve margin, 30% managed, no minimum). Then update G2's pricing entry (dated 2022), SourceForge and Slashdot ("$25/month, free version") and Clutch ("$1,000 minimum").</p>
-      <p><b>Why:</b> Perplexity is telling buyers Pontiac costs $25/month. Claude says $99 and a $1,000 minimum. ChatGPT had to read the Terms &amp; Conditions to find the 20%. The correct numbers sit on a wiki page no engine has cited.</p>
+      <p>One pricing page: $100 one-time entry, 20% self-serve fee on the all-in media cost, $25/month minimum user fee, no campaign minimum, 30% managed service with a $1,000/month requirement. Then update G2's pricing entry (dated 2022), SourceForge and Slashdot ("$25/month, free version") and Clutch ("$1,000 minimum").</p>
+      <p><b>Why:</b> Perplexity tells buyers Pontiac "starts at $25/month with a free version". Claude says $99 and a $1,000 minimum. Both are real wiki numbers with the context removed. ChatGPT had to read the Terms &amp; Conditions to find the 20%. See the Content brief tab for the page spec.</p>
       <div class="tags"><span class="tag low">Effort: low</span><span class="tag">Owner: marketing lead, one afternoon</span></div>
     </li>
     <li>
@@ -305,7 +328,215 @@ footer{margin-top:3rem;font-size:.85rem;color:var(--muted);border-top:1px solid 
   </details>
 </section>
 
+</div>
+
+<div id="tab-brief" class="tab" role="tabpanel" aria-labelledby="t-brief" hidden>
+
+<section class="prose">
+  <h2 style="border-top:0;margin-top:1.5rem">Content brief</h2>
+  <p class="lede">The pages and posts that close the measured gap: Pontiac appears in 4 of 44 unbranded AI answers and ranks for no category keyword. Every item is tied to a prompt from the baseline, a keyword from DataForSEO, or a fact on Pontiac's own wiki that no engine has cited.</p>
+  <p><b>One rule for all of it.</b> Publish on pontiac.media, not the wiki. The wiki was cited 0 times in 80 answers and ranks for 0 keywords. The wiki stays the source of truth; the marketing page is what gets cited, and it links to the wiki for depth.</p>
+</section>
+
+<section>
+  <h2>House rules for every page</h2>
+  <p class="prose">What the winning pages in the baseline (AdLib, Epom, Vibe, StackAdapt) all do, and what Google's May 2026 AI-search guidance describes.</p>
+  <div class="rules">
+    <div><b>Answer first</b>The first paragraph under the H1 answers the query in 40 to 60 words of plain declarative sentences. The engines lift it verbatim.</div>
+    <div><b>Table above the fold</b>Fees, minimums, channels, inventory, support. A table was extracted in nearly every winning answer.</div>
+    <div><b>A fact every 150 to 200 words</b>With the source named inline. "20% fee on the all-in media cost" gets quoted; "best-in-class" gets skipped.</div>
+    <div><b>Named author, reviewed date</b>Keith Gooberman or Erik Thorson on comparison and pricing pages; a trader on setup guides. Existing posts show a name with no bio.</div>
+    <div><b>Honest about competitors</b>Say where StackAdapt, Simpli.fi or AdLib is the better fit. Engines cross-check against G2 and Reddit; one-sided pages get discounted.</div>
+    <div><b>Real H1, short meta, Article schema</b>All 22 existing blog posts lack an H1. Change <code>dateModified</code> only when a claim changes.</div>
+    <div><b>Internal links</b>From the homepage, Media Buying and the wiki hub to every new page. The wiki's 700 pages point at pontiac.media only through the footer.</div>
+    <div><b>Update, don't date-stamp</b>Refresh a comparison when a competitor changes pricing, and say what changed.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Tier 1 · Six pages that answer the prompts Pontiac lost</h2>
+  <p class="prose">Ordered by how many lost observations each page addresses.</p>
+
+  <div class="page">
+    <h3>1. Best self-serve DSPs with no minimum spend (2026)</h3>
+    <div class="url">/best-self-serve-dsp-no-minimum/</div>
+    <dl class="kv">
+      <dt>Format</dt><dd>Listicle, 1,800 to 2,400 words, 8 to 10 platforms, Pontiac included honestly and not first by default</dd>
+      <dt>Prompts</dt><dd>D1 best self-serve DSPs for a small agency buying CTV · D2 buy Netflix, Disney+, Hulu without a large minimum · C5 StackAdapt alternatives · C4 Trade Desk alternatives under $10k. Pontiac lost 15 of 16 observations across these.</dd>
+      <dt>Keywords</dt><dd>self-serve dsp 110/mo (KD 1 to 16, CPC $189) · best dsp platforms 320 (KD 20) · top dsp platforms 170 (KD 3) · programmatic advertising platforms 720 (KD 8, $56) · best programmatic advertising platforms 110 (KD 6, $112)</dd>
+      <dt>Who wins today</dt><dd>getadlib.com "best DSP software for a small agency" (cited 12 times in the baseline), smartyads.com, epom.com, vibe.co, getspike.ai, Reddit r/programmatic</dd>
+      <dt>What they claim</dt><dd>StackAdapt: no minimum on paper, works best around $5k/month, managed from $10 to 15k. Vibe: $50/day. Roku Ads Manager: $500. AdLib: 20+ DSPs, no minimums. Amazon DSP: no hard minimum, ~$10k recommended. None mention Pontiac.</dd>
+    </dl>
+    <blockquote class="draft">A self-serve DSP with no minimum spend lets an agency open a seat, fund it and buy CTV, display, audio or DOOH without a monthly commitment. In 2026 the platforms that genuinely have no monthly minimum are Pontiac Intelligence ($100 one-time entry, 20% platform fee, $25/month minimum user fee), AdLib, ad:personam and Vibe ($50/day). StackAdapt, Amazon DSP and Roku have low or informal floors. The table below compares fees, minimums, CTV access and reporting depth.</blockquote>
+    <p><b>Table columns:</b> platform · minimum spend (self-serve) · platform fee model · CTV inventory and direct integrations · log-level data · managed option and its minimum · best for · source and date checked.</p>
+    <p><b>Sections:</b> answer paragraph → table → one section per platform (80 to 120 words, one specific fact, one honest limitation) → "How to choose" (budget, channels, managed or not) → FAQ from the prompts ("Is there a truly free DSP?", "What does no minimum actually mean?", "Can I buy Netflix inventory self-serve?", "What is a normal DSP take rate?") → author and reviewed date.</p>
+    <p><b>Pontiac's entry, facts from the wiki:</b> $100 one-time entry · 20% software licensing fee on the all-in media cost, tiered under an MSA · $25/month minimum user fee · no campaign minimum · managed service 30% with $1,000/month required · direct CTV pipes to Netflix, Disney+/Hulu, NBCU and FAST · 2,000+ PMP deals in the Deal Catalog · log-level reports daily to S3 or Google Cloud · G2 4.8 from 16 reviews, support 10.0. <b>Limitation to state:</b> smaller user base and fewer reviews than StackAdapt; reporting UI is the most common G2 improvement request.</p>
+    <div class="tags"><span class="tag med">3 days incl. competitor fact-check</span><span class="tag">Marketing lead drafts, Keith Gooberman credited</span></div>
+  </div>
+
+  <div class="page">
+    <h3>2. Pontiac Intelligence vs StackAdapt</h3>
+    <div class="url">/compare/pontiac-vs-stackadapt/</div>
+    <dl class="kv">
+      <dt>Prompts</dt><dd>C1 (Pontiac was named on all four engines, but every engine cited G2's auto page, LiveRamp's directory, AdRoll or Vibe, never pontiac.media) · C5 · C4</dd>
+      <dt>Today</dt><dd>Google AI Overview on "pontiac intelligence vs stackadapt" says "StackAdapt is larger and more feature-rich; Pontiac is praised for flexibility and cost", sourced from G2, LiveRamp, AdRoll, Vibe</dd>
+    </dl>
+    <blockquote class="draft">StackAdapt and Pontiac Intelligence are both self-serve, multichannel DSPs. StackAdapt is the larger platform with a broader UI, native and in-game formats and a bigger sales and support organisation; it suits agencies spending upward of $5,000 a month. Pontiac is a bootstrapped, CTV-first DSP with a flat 20% fee, no monthly minimum, direct Netflix and Disney pipes and log-level data; it suits agencies and traders who want lower fees and more control at any budget.</blockquote>
+    <p><b>Table rows:</b> minimum spend · fee model · channels · CTV inventory and direct integrations · deal tools (Deal Catalog, Deal Landscape, Inventory Availability) · cookieless audiences (ART vs StackAdapt contextual) · log-level data · show-level reporting (Peer39 and InterMedia, 94% of CTV impressions) · managed service and its minimum · MCP or AI assistant (check StackAdapt's status at publish) · G2 rating and count · support model · founded and ownership.</p>
+    <p><b>Also:</b> "Who should pick StackAdapt" as its own H2 (bigger teams, native and in-game, larger account team). "Who should pick Pontiac". A day-one migration note (deal-based CTV buying, funding the seat, MSA for tiered fees).</p>
+    <div class="tags"><span class="tag med">2 days</span><span class="tag">Same template reused for the next three</span></div>
+  </div>
+
+  <div class="tscroll"><table>
+    <thead><tr><th>Page</th><th>URL</th><th>Prompt</th><th>Angle and facts</th><th>Concede</th></tr></thead>
+    <tbody>
+      <tr><td>3. Pontiac vs Simpli.fi</td><td><code>/compare/pontiac-vs-simplifi/</code></td><td>C2</td><td>Engines frame Simpli.fi as the local and geo specialist. Counter with ZIP-level ART audiences from census and content data, geo-framed audience targeting ($2.00 CPM add-on), DOOH by address or venue, foot-traffic reporting ($1.50 CPM banners, $4 CPM CTV), all from the wiki.</td><td>Simpli.fi's local sales network and geo-fencing depth.</td></tr>
+      <tr><td>4. Pontiac vs AdLib</td><td><code>/compare/pontiac-vs-adlib/</code></td><td>C3</td><td>AdLib is the most-cited competitor site in the baseline (12) and sells "20+ DSPs in one interface, no minimums". Pontiac is a bidder, not an aggregator: direct supply pipes, one fee rather than a layer on another DSP's fee, log-level data from the bidder itself.</td><td>AdLib reaches walled-garden DSPs Pontiac does not replace.</td></tr>
+      <tr><td>5. Trade Desk alternatives for agencies under $10k/month</td><td><code>/trade-desk-alternatives/</code></td><td>C4, lost 4 of 4</td><td>Listicle of six, Pontiac third or fourth by honest fit. Engines name StackAdapt, Epom, AdLib, Choozle, Basis, AdRoll. Hook: "the only one on this list with direct Netflix pipes and no monthly minimum". Describe TTD as "enterprise contract" unless its public terms confirm a figure.</td><td>TTD's scale and Kokai for large budgets.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="page">
+    <h3>6. Pricing, as a real page with the FAQ the engines are trying to answer</h3>
+    <div class="url">/pricing/ &nbsp;(301 the legacy pricing.html here)</div>
+    <dl class="kv">
+      <dt>Prompts</dt><dd>E2 (all four engines answered; ChatGPT read the Terms &amp; Conditions, Perplexity read SourceForge, Claude read Clutch) · C3 · D3 most transparent DSPs, lowest fees (lost 4 of 4)</dd>
+      <dt>Why now</dt><dd>Perplexity: "starts at $25/month, free version available". Claude: "$99 fee, $1,000 minimum project size". Both are fragments of real wiki numbers ($25/month minimum user fee; $1,000/month managed-service requirement) with the context removed, picked up from SourceForge and Clutch because pontiac.media has no pricing page.</dd>
+    </dl>
+    <blockquote class="draft">Pontiac charges a one-time $100 entry fee and a 20% software licensing fee on the all-in cost of media bought through the platform. There is no monthly spend minimum for self-serve; each user pays a $25 minimum user fee in any month they spend less than $25. Managed service is a 30% fee with a $1,000 monthly spend requirement. Every fee is listed below.</blockquote>
+    <p><b>Structure:</b> answer paragraph → fee table (entry fee · software licensing fee and tier schedule under MSA · minimum user fee · managed service 30%, $1,000/month, $100 line minimum · agency solution at no cost · co-branded white label $2,500 setup + $1,000/month · video hosting $0.50 CPM Origin, $1.00 CPM CTV bidder · creative overage $2.50/GB · foot-traffic and geo-framing add-ons) → "What the 20% covers" (bidder, exchange, data and card fees bundled into the CPM) → worked example on a $5,000 deposit → FAQ: "Is there a free plan?" (no; the $25 on SourceForge is the minimum user fee), "Is there a $1,000 minimum?" (managed service only), "Do fees drop with spend?", "How does this compare to a typical DSP take rate?" → link to the wiki Pricing page.</p>
+    <p><b>Then correct the listings:</b> G2 pricing (2022), SourceForge and Slashdot, Clutch.</p>
+    <div class="tags"><span class="tag low">One afternoon each for page and listings</span><span class="tag">Marketing lead; Erik Thorson signs off fee wording</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Tier 1 · The MCP launch, the story no engine is telling</h2>
+  <p class="prose">Prompts D7 ("which DSPs can I manage from ChatGPT or Claude via MCP") and I4 ("how do I connect a DSP to ChatGPT or Claude via MCP") were lost 8 of 8. The engines named Amazon Ads' MCP server, Meta's AI Connectors, community Google Ads servers, AdRoll and middleware (Pipeboard, Windsor.ai, Adspirer, Adzviser). Pontiac has a live server documented on the wiki at <code>ai.pontiac.media/mcp</code> with OAuth login, ChatGPT and Claude Code setup guides, a prompt library and an in-platform assistant, and none of it is on pontiac.media, in any directory or in any press. DataForSEO's LLM Mentions data shows "chatgpt advertising" carries 9,900 monthly AI-search prompts, currently answered with StackAdapt cited.</p>
+
+  <div class="page">
+    <h3>Product page: Pontiac MCP</h3>
+    <div class="url">/mcp/</div>
+    <dl class="kv">
+      <dt>Title</dt><dd>Pontiac MCP: run your DSP from ChatGPT or Claude</dd>
+      <dt>Meta</dt><dd>Connect ChatGPT or Claude Code to the Pontiac DSP over MCP. Check pacing, pull spend, build CTV campaigns and explore deals in natural language. Setup in ten minutes.</dd>
+    </dl>
+    <blockquote class="draft">Pontiac MCP is a hosted Model Context Protocol server at ai.pontiac.media/mcp that connects ChatGPT and Claude Code directly to a Pontiac DSP seat. After an OAuth login, you can list advertisers and campaigns, pull spend and pacing, create or update campaigns, lines, flights and creatives, and search deals, audiences and the documentation, all by typing a request. It is included with every seat.</blockquote>
+    <div class="tscroll"><table>
+      <thead><tr><th>Section</th><th>Content</th></tr></thead>
+      <tbody>
+        <tr><td>What you can do</td><td>A table of capability · example prompt · read or write, grouped by the tool families the server exposes: account and seats (auth status, seat switching, MFA) · advertisers, campaigns, lines, flights (get, create, update, clone, bulk update) · creatives (create, bulk create, update) · audiences and pixels · inventory (deals, deal landscape, deal sample requests, inventory lists, import and manage deal lists) · reporting (metrics, reports, real-time bid data, templates) · reference data · wiki search.</td></tr>
+        <tr><td>Ten example prompts</td><td>From the wiki prompt library: "check pontiac dsp connection", "check all active advertisers", "show me campaigns that are under pacing", "create a new CTV campaign for $10K in California", "what's my spend this week by campaign", "what creatives under [advertiser] have been approved", "which deals have the highest transparency for CTV", "pull sample bid requests for deal 23".</td></tr>
+        <tr><td>Setup</td><td>ChatGPT: Settings → Apps/Connectors → Advanced → Create App → server URL → login. Claude Code: <code>claude mcp add --transport http pontiac https://ai.pontiac.media/mcp</code>. Numbered steps, one screenshot each, mirroring and linking to the wiki pages.</td></tr>
+        <tr><td>Security and control</td><td>OAuth with MFA, seat-scoped access, reconnection after inactivity, what write actions do and how to keep an assistant read-only. Gemini's and Perplexity's I4 answers were mostly about read-only tokens and approval gates, so address it directly.</td></tr>
+        <tr><td>Pontiac Assistant</td><td>The in-platform chatbot as the no-setup alternative.</td></tr>
+        <tr><td>FAQ</td><td>"Does it work with Gemini or other clients?", "Is there an API instead?" (link the wiki API section), "Is there a cost?", "Can an agency use it across seats?"</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>Distribution, the part that gets it cited:</b> list the server in the directories the engines cited (mcpservers.org, the Claude connector directory, ChatGPT's app directory, Smithery, PulseMCP, glama), publish a GitHub README linking to the page, and pitch AdExchanger and Digiday (both cited on MCP prompts) on the "first independent DSP with a native MCP server" angle, if that claim survives a check against Amazon's and Yahoo's launches.</p>
+    <div class="tags"><span class="tag med">2 days page, 1 day listings</span><span class="tag">Erik Thorson as author; marketing for directories</span></div>
+  </div>
+
+  <div class="tscroll"><table>
+    <thead><tr><th>Companion piece</th><th>Spec</th></tr></thead>
+    <tbody>
+      <tr><td>Launch post: "We put the DSP inside ChatGPT and Claude. Here is what traders do with it."</td><td>900 to 1,200 words by Keith Gooberman. Three real workflows with before-and-after time (a pacing check across 30 lines, a deal-transparency query, a campaign clone), with the exact prompts. Post to LinkedIn and, disclosed as a founder, to r/programmatic and r/adops.</td></tr>
+      <tr><td>Prompt library page <code>/mcp/prompts/</code></td><td>The wiki's list expanded to 30 prompts with expected outputs. Cheap, and the exact shape of content the I4 answers were built from.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Tier 2 · Category pages the keyword data says are open</h2>
+  <div class="tscroll"><table>
+    <thead><tr><th>Page</th><th>Keyword (volume · KD · CPC)</th><th>Prompt</th><th>Notes and facts to use</th></tr></thead>
+    <tbody>
+      <tr><td><b>CTV advertising platform</b><br><code>/ctv-advertising-platform/</code></td><td>ctv advertising platform 320 · KD 0 · $142<br>connected tv advertising platform 320 · $95<br>best ctv advertising platforms 40 · KD 11 · $448<br>programmatic ctv advertising 70 · KD 1<br>netflix programmatic advertising 20</td><td>D1, D2, I1</td><td>The best single keyword in the audit: KD 0, SERP is small-vendor listicles, AI Overview cites starti.ai, getadlib.com, vibe.co. Facts: proprietary CTV bidder (Oct 2022), direct Netflix, Disney+/Hulu, NBCU pipes, 2,000+ PMPs, Deal Catalog floor min/max/avg, Deal Landscape transparency scores, Inventory Availability forecasting, closing CPMs typically $20 to 40, show-level CPA on 94% of impressions with Peer39.</td></tr>
+      <tr><td><b>Programmatic DOOH</b><br><code>/programmatic-dooh/</code></td><td>programmatic dooh 140 · $82<br>programmatic dooh advertising 70</td><td>D5, lost 4 of 4 to Blip, Blindspot, AdQuick, Adomni, Vistar</td><td>Screens selectable by address, ZIP, venue type or media owner across the US and Canada; venue list from the wiki. The engines answered with DOOH-only platforms; a DSP that does DOOH plus CTV plus display in one seat is a distinct answer.</td></tr>
+      <tr><td><b>Programmatic audio</b><br><code>/programmatic-audio/</code></td><td>programmatic audio advertising 140 · KD 0</td><td>I3, lost 4 of 4; StackAdapt's audio PDF was cited</td><td>15, 30 and 60s across Spotify, podcasts, streaming radio; listen-through over 95%; no minimum. Pair with the setup guide below.</td></tr>
+      <tr><td><b>Cookieless audiences: ART</b><br>rewrite <code>/audience-discovery/</code></td><td>audience research tool 140 · $63<br>cookieless targeting 20</td><td>D6, the one discovery prompt Pontiac won (first on Claude and Gemini)</td><td>Already the strongest AI-search asset. Make the page match: ZIP-level audiences from census and content consumption, the Audience Discovery Tool's over-index method, lookalikes from site traffic, geo-framed targeting, a worked example and a chart.</td></tr>
+      <tr><td><b>What is CTV advertising?</b><br><code>/what-is-ctv-advertising/</code></td><td>what is ctv advertising 880 · KD 1 · $25<br>how does ctv advertising work 50</td><td>Feeder for the CTV page</td><td>700 to 1,000 words, definition in the first 50 words, a diagram of OTT vs CTV vs linear. The wiki glossary already has the definitions; they rank for nothing where they sit.</td></tr>
+      <tr><td><b>What is a DSP?</b><br><code>/what-is-a-dsp/</code></td><td>what is a dsp advertising 590 · KD 38<br>self service dsp 110 · KD 1</td><td>Feeder for the listicle</td><td>Lower priority: KD 38 and the AI Overview already answers from airbridge, smartyads, audiencex. After the six Tier-1 pages.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Tier 2 · Implementation guides, the prompts Pontiac lost 15 of 16</h2>
+  <p class="prose">The wiki already holds the operational guidance the engines wanted. It was never cited because it lives on <code>?docs=</code> URLs inside 20,000-word hubs. Publish each as a standalone guide on pontiac.media by a trader, with the wiki page as the canonical deep reference: 900 to 1,400 words, numbered steps, a screenshot per step, a "common mistakes" box, an author line and reviewed date.</p>
+  <div class="tscroll"><table>
+    <thead><tr><th>Guide</th><th>Prompt</th><th>What the wiki already says (use verbatim where it fits)</th><th>Who won</th></tr></thead>
+    <tbody>
+      <tr><td>How to set up a CTV campaign with private marketplace deals</td><td>I1, lost 4 of 4</td><td>Run through Deals, not the open exchange; request access in Inventory and associate to the Line under Targeting; pick Inventory Types CTV or OTT/CTV; set frequency caps to 0 because CTV caps are inaccurate and limit scale; closing CPMs $20 to 40, base bid at the floor and max bid $3 to 5 above; enable "allow cookieless users"; remove exchanges when using PMPs; foot-traffic reporting at $4 CPM. Deal Catalog shows floor min/max/avg/median and recommended bids.</td><td>AdLib, ad:personam, Amazon's PMP guide, improvado</td></tr>
+      <tr><td>How to get show-level performance data for CTV</td><td>I2 (Claude named Pontiac first; the other three did not)</td><td>Transparency chart (% of impressions reporting Series, Title, Network, Channel, Full IP); deal sample logs; Peer39 and InterMedia integration delivering show-level CPA on 94% of impressions (AdExchanger, eMarketer, July 2026); custom reporting; log-level delivery to S3 or GCS.</td><td>Peer39, eMarketer, AdExchanger, Rain, tvScientific</td></tr>
+      <tr><td>How to run programmatic audio and podcast ads on a small budget</td><td>I3, lost 4 of 4</td><td>Audio page: 15/30/60s, Spotify, podcasts, radio, LTR over 95%, KPIs reach, CTR, LTR; no minimum; Inventory Availability for audio forecasting.</td><td>StackAdapt's audio PDF, aidigital, podcastadvertising.com</td></tr>
+      <tr><td>How to buy DOOH by venue and ZIP code</td><td>D5</td><td>DOOH page: screens by address, ZIP, venue type, media owner; venue list; KPIs.</td><td>Blip, AdQuick, Adomni</td></tr>
+      <tr><td>How to read a deal's transparency before you bid</td><td>D3, D4, lost 8 of 8</td><td>Deal Landscape: per-deal transparency of content signals; sample request logs; shareable links valid 30 days; log-level reporting with encrypted IP and IFA delivered daily.</td><td>Xandr and TTD docs, tercept, Reddit</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Refresh existing pages and fix the freshness signal</h2>
+  <div class="tscroll"><table>
+    <thead><tr><th>Page</th><th>Change</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Homepage</td><td>One line of hard facts under the hero: "No monthly minimum. 20% flat fee. Direct Netflix, Disney+ and NBCU CTV. Log-level data. Works inside ChatGPT and Claude." Add a Pricing nav item.</td><td>The engines quote the homepage on branded prompts; today it gives them adjectives ("built for tomorrow") rather than facts.</td></tr>
+      <tr><td>Media Buying</td><td>Add the CTV comparison table; link to the new CTV, DOOH and audio pages.</td><td>1,150 words with no table and no numbers.</td></tr>
+      <tr><td>About</td><td>Founder bios with photos, years in programmatic, prior companies, the bootstrapped story. Organization schema with <code>founder</code> and <code>sameAs</code> to LinkedIn, Crunchbase, G2, YouTube.</td><td>E4 was answered from LinkedIn and ZoomInfo; disambiguation from the car brand depends on this.</td></tr>
+      <tr><td>Case Studies</td><td>Turn the "23% CPA improvement" and the mattress-company CTV study into full pages with numbers, dates, channel and a quote.</td><td>Engines cited "case studies" generically on E1; nothing specific exists to lift.</td></tr>
+      <tr><td>Blog</td><td>Three catch-up posts dated 2026: the Peer39 and InterMedia result (July 2026), the MCP launch, the Beet.TV interview as a written piece. Then one substantive post a month. Promote all post titles to H1.</td><td>Newest post is 28 June 2024. The 2026 news exists only on third-party sites.</td></tr>
+      <tr><td>All 22 posts</td><td>H1 fix; trim titles over 65 characters; author bio and reviewed date on the four cookieless and ZIP posts.</td><td>Those four are the only posts ranking (positions 49 to 86), and the ZIP and cookieless cluster is the one topic Pontiac already wins on.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Off-site placements that come with the content</h2>
+  <ul class="prose">
+    <li><b>Reddit, founders, disclosed.</b> Reply in r/programmatic "What DSPs are fully transparent?" (already recommends Pontiac; add the fee facts and a link to /pricing/), "Looking for self-serve DSP recs", "How to buy CTV inventory without minimum spend", "DSP for small business recommendation", and r/adops "Looking for self-serve DSP without minimum". Reddit was the most-cited domain in the baseline and the AI Overview's source for Pontiac's pricing.</li>
+    <li><b>Listicle inclusion requests</b> with the facts table: epom.com "Trade Desk alternatives" and "20 best self-serve DSPs", smartyads.com, getspike.ai "StackAdapt alternatives", starti.ai, aidigital.com, improvado.io, demandbase "10 best CTV platforms", businessofapps, G2 Learn "best DSPs". AdLib's and Vibe's lists are competitors' and will not add Pontiac.</li>
+    <li><b>G2.</b> Refresh the 2022 pricing entry; ask the five most recent customers for reviews; answer the open questions on the Discuss tab.</li>
+    <li><b>MCP directories</b> as above.</li>
+    <li><b>YouTube.</b> Retitle the Beet.TV and "CTV-first DSP" videos to include "self-serve DSP", "no minimum", "CTV DSP"; add the pricing and MCP pages to descriptions.</li>
+    <li><b>Press.</b> One pitch each to AdExchanger and Digiday on the MCP launch; both were cited on the MCP prompts.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Sequence and measurement</h2>
+  <div class="tscroll"><table>
+    <thead><tr><th>Weeks</th><th>Ship</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>/pricing/, listing corrections, homepage fact line, blog H1 fix, three catch-up news posts</td></tr>
+      <tr><td>2 to 3</td><td>/best-self-serve-dsp-no-minimum/, /compare/pontiac-vs-stackadapt/, /mcp/ plus directory listings, Reddit replies</td></tr>
+      <tr><td>4 to 5</td><td>/compare/pontiac-vs-simplifi/, /compare/pontiac-vs-adlib/, /trade-desk-alternatives/, MCP launch post</td></tr>
+      <tr><td>6 to 8</td><td>/ctv-advertising-platform/, CTV-with-PMP guide, show-level data guide, ART page rewrite, About page bios</td></tr>
+      <tr><td>9 to 12</td><td>DOOH and audio pages and guides, /what-is-ctv-advertising/, case-study pages, listicle inclusion outreach</td></tr>
+    </tbody>
+  </table></div>
+  <p class="prose"><b>Measure</b> by re-running the same 20 prompts on the same four engines monthly ($3.35 per run). The KPI is unbranded share: 4 of 44 today. A realistic 90-day target is 12 to 15 of 44, driven mostly by D1, D2, C4, C5, D7 and I4, where Pontiac's offer already matches the query. Track alongside: Google rankings for the seven category keywords (all unranked today), citations of pontiac.media on unbranded prompts (0 today), and referring domains to the new pages.</p>
+  <p class="prose"><b>Inputs still needed from Pontiac:</b> sales-call transcripts and support tickets for buyer language; permission and customer names for the two case studies; dated screenshots of every competitor fee before any comparison table is published; confirmation of the "first independent DSP with a native MCP server" claim before it is used.</p>
+</section>
+
+</div>
+
+
 <footer>
   Every figure names its source. DataForSEO numbers are verified API data from 2 September 2026; AI-engine answers are a single run per prompt and engine and should be read as a baseline to re-run, not a fixed score. No server logs were available, so pass 2 is a follow-up. Prepared with the aeo-geo-audit skill.
 </footer>
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tabs [role="tab"]');
+  function show(name){
+    tabs.forEach(function(b){var on=b.dataset.tab===name;b.setAttribute('aria-selected',on?'true':'false');});
+    document.querySelectorAll('.tab').forEach(function(p){p.hidden=(p.id!=='tab-'+name);});
+    try{history.replaceState(null,'','#'+name);}catch(e){}
+    window.scrollTo(0,0);
+  }
+  tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.tab);});});
+  var h=(location.hash||'').replace('#','');
+  show(h==='brief'?'brief':'readout');
+})();
+</script>
 </div>
