@@ -1,18 +1,19 @@
 # Claude Marketing Skills
 
-A collection of [Claude skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) for marketing, media planning, and AI adoption/governance work. Each skill lives in its own folder and can be installed independently — you don't need all of them.
+A collection of [Claude skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) for marketing, media planning, writing, and AI adoption/governance work. Each skill lives in its own folder and can be installed independently — you don't need all of them.
 
 These are generic templates, not tied to any one company. Where a skill has a company-specific "quick-start" layer (real spend, verified reps, past decisions), it ships blank so you can fill in your own — see each skill's folder for details.
 
 ## Groups in this repo
 
-The repo is organized into three groups. Each group is a top-level folder holding one or more related skills.
+The repo is organized into four groups. Each group is a top-level folder holding one or more related skills.
 
 | Group | What it's for |
 |---|---|
 | [`healthcare-trade-media-planning/`](healthcare-trade-media-planning/) | Healthcare trade publication research and media planning. |
 | [`ai-governance-and-adoption/`](ai-governance-and-adoption/) | Planning and grounding AI adoption and governance work in PMI's published AI standard. |
 | [`paid-media-analyst-skills/`](paid-media-analyst-skills/) | Running paid media analysis end to end, across ad platforms. |
+| [`no-slop-writing/`](no-slop-writing/) | Editing, auditing, and ship-checking writing so it reads like a specific person rather than generic AI output. |
 
 ### Healthcare trade media planning
 
@@ -51,9 +52,15 @@ Unlike the other two groups, these skills aren't drag-and-drop on their own — 
 
 Each of these skills keeps a `memory.md` file — a running log of past mistakes, client corrections, and lessons learned, so the skill gets smarter the more you use it. Since these were pulled from a real client engagement, the `memory.md` files still describe realistic scenarios (just with names swapped out) — treat them as example patterns to learn from, not literal client history.
 
+### No-slop writing
+
+| Skill | What it does |
+|---|---|
+| [`no-slop-writing/`](no-slop-writing/) | Edits, audits, or pre-flights a draft (post, email, memo, landing page, deck, doc) to remove the patterns that make writing sound machine-made and the vagueness underneath them. Three modes: edit a draft, detect slop patterns without rewriting, or ship-check a near-final piece. Ships with a blank [`references/voice-profile.md`](no-slop-writing/references/voice-profile.md) you can fill in so edits match your own voice, plus [`references/eval.md`](no-slop-writing/references/eval.md) for testing the skill. |
+
 ## Installing a skill
 
-`healthcare-trade-media-planning/` is itself a single skill folder, and each subfolder of `ai-governance-and-adoption/` is one too: copy the folder into your Claude client's skills directory (or however your Claude product supports custom/loaded skills), following that skill's own `SKILL.md` for setup notes. The two AI governance skills each work alone, but `ai-adoption-plan` will read `pmi-ai-standard`'s reference files for fuller framework detail when both are installed side by side — so install the pair together if you want the richer output. `paid-media-analyst-skills/` is the exception — copy the whole folder together (see that section above) so the shared `prompts/`, `scripts/`, and `.claude/agents/` files it depends on come with it.
+`healthcare-trade-media-planning/` and `no-slop-writing/` are each a single skill folder, and each subfolder of `ai-governance-and-adoption/` is one too: copy the folder into your Claude client's skills directory (or however your Claude product supports custom/loaded skills), following that skill's own `SKILL.md` for setup notes. The two AI governance skills each work alone, but `ai-adoption-plan` will read `pmi-ai-standard`'s reference files for fuller framework detail when both are installed side by side — so install the pair together if you want the richer output. `paid-media-analyst-skills/` is the exception — copy the whole folder together (see that section above) so the shared `prompts/`, `scripts/`, and `.claude/agents/` files it depends on come with it.
 
 ## Getting started
 
