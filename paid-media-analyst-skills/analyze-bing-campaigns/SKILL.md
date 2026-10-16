@@ -110,6 +110,13 @@ de-duplicated keyword list into ONE call (hard cap 1,000 keywords/request and
 any extra calls ~10s apart). If the server is not connected, skip silently and note
 it in Data Limitations — never block the pipeline on it.
 
+### Judgment layer (optional, TypeSafe Jev)
+
+To support negative-keyword proposals, use `scripts/jev_judge.py` to classify the top search terms by spend, one question per term, as relevant / adjacent / irrelevant to the campaign's product and audience (`choice(...)`). Pass only the term and a short product description as state.
+- Code owns thresholds, match types, scope and the CSV; Jev only labels each term.
+- Propose a negative only for "irrelevant" with clear confidence; low confidence (below about 0.5) or a split distribution is PARTIAL and goes to manual review.
+- No `TYPESAFE_API_KEY`: skip and use the rule-based relevance check. Never block the run.
+
 ## Step 5: Conditionally Run Agent 3 — Ad Copy Analyst
 
 Check if RSA ad copy columns are present in any of the detected files.
@@ -160,4 +167,9 @@ For any blended Google + Bing engagement: run `/analyze-bing-campaigns <account>
 - **Column names**: Bing uses `Impressions` (not `Impr.`), `Spend` (not `Cost`), `Campaign name` (not `Campaign`).
 - **Search queries**: Bing calls them "Search queries" (not "Search terms"). The report is called "Search query report."
 - **Implementation references**: Use "Microsoft Ads Editor" (not "Google Ads Editor") in all action recommendations.
-- **Never use "waste" or "wasted spend"** — reframe as efficiency, learning, or optimization opportunities.
+- **Total footer rows**: Campaign and Search query exports end with a `Month == "Total"` row (followed by a copyright row). Filter both before summing or aggregates double. If an export is .xlsx, load it with `openpyxl` `read_only=False`; a bogus declared dimension (`A1`) silently truncates read-only loads.
+- **Reconcile**: a search query report can never exceed the campaign performance export on clicks or impressions. If it does, the totals were double-read.
+- **Search term report is coverage-only**: it undercounts clicks and spend. Use it for query coverage and leakage; take clicks, spend and totals from the campaign, ad group or keyword report.
+- **Keyword dedup before any ADD_KEYWORD* action**: check the keyword against the active keyword set (lowercase, despace CJK terms, then match exact plus close variants: plurals, word order, one-word misspellings) and against any change-history export that shows it was added earlier, including keywords with zero impressions. If a broader match type already serves the query, frame the action as a carve to exact and name the live keyword in `current_metric`. Never re-add a term the account already runs.
+- **Search-volume enrichment is optional**: never block the run on it, and never cite the data vendor in outputs.
+- **Language**: Say "more efficient" or "lower CPC", never "cheap", "cheaper" or "cheapest". Never use "waste" or "wasted"; reframe as an efficiency or optimization opportunity. Never write "consider" in a recommendation; state the action. Never name the search-volume data vendor in client-facing outputs; say "keyword research" or "monthly search volume".

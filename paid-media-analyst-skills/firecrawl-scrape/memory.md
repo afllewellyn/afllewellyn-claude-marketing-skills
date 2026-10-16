@@ -8,5 +8,6 @@ this file is the skill-scoped view.
 
 ## Log (newest first)
 
-_No entries yet._
+### 2026-10-16: WebFetch summaries drop figures
+WebFetch returns a model summary of the page, and the summary can omit figures and acronyms that matter to a claim check. When a finding depends on an exact figure or word, use Firecrawl full text and search it directly. The helper also reads `FIRECRAWL_API_KEY` from a gitignored `.env`, so a local key works without exporting it.
 

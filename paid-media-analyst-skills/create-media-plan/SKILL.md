@@ -18,6 +18,8 @@ user feedback, stylistic preferences, and campaign-analysis insights specific to
 this skill. Apply anything relevant to the current task. If the run surfaces a new
 skill-specific lesson, add a dated entry to `memory.md` at the end.
 
+Also read `docs/learnings.md` (cross-account data pitfalls and deck-building techniques).
+
 ## What You Receive as Arguments
 
 - `$ARGUMENTS` — Optional. Platform and account name (e.g., `meta account_dental`). If empty, ask the user.
@@ -62,7 +64,7 @@ import glob, os, re
 platform = "meta"  # or "google" / "bing"
 account = "account_dental"  # from $ARGUMENTS — normalize to lowercase, underscores
 
-# Build case-insensitive account tokens (e.g. "account_dental" → ["account_dental", "dental-core", "dental core", "dentalcore"])
+# Build case-insensitive account tokens (e.g. "account_one" → ["account_one", "account-one", "account one", "accountone"])
 tokens = {account, account.replace("_", "-"), account.replace("_", " "), account.replace("_", "")}
 
 def account_match(path):
@@ -116,3 +118,4 @@ Print a summary of what was generated and the key projections (budget, estimated
 - **Present projections as ranges** (conservative / optimistic) — never false precision.
 - **Flag assumptions explicitly** — distinguish data-driven estimates from judgment calls.
 - **Never combine USD and CAD** in a single total without labeling.
+- **Language**: Say "more efficient" or "lower CPC", never "cheap", "cheaper" or "cheapest". Never use "waste" or "wasted"; reframe as an efficiency or optimization opportunity. Never write "consider" in a recommendation; state the action. Never name the search-volume data vendor in client-facing outputs; say "keyword research" or "monthly search volume".

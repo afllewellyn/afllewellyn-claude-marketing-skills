@@ -55,7 +55,7 @@ Before generating any plan, you need these inputs from the user. Ask conversatio
 | Market | Geography (US, CA, UK, etc.) | US only |
 | Budget | Total campaign budget | $20,000 |
 | Objective | Awareness, traffic, lead gen, conversions | Awareness + form fills |
-| Offers/Products | What is being promoted | RelyX 4+1, Filtek Warmer B1G1, FEM 4+1, [Product E] Clear 4+1 |
+| Offers/Products | What is being promoted | [Product A] 4+1, [Product B] B1G1, [Product C] 4+1, [Product E] Clear 4+1 |
 | Success Metrics | How success will be measured | Form fills + traffic to offer pages |
 | Timing | Campaign dates | Q2 (April 1 – June 30) |
 | Audience | Target audience description or existing audience names | "Dental Audience" (71K–84K), "FEM engagers US" (37K–44K) |
@@ -202,7 +202,7 @@ Monthly Frequency = Monthly Impressions / Audience Size
 - Week 2: Ramp to full budget, launch retargeting
 - Weeks 3–4: First optimization window
 - Month 2+: Steady state with monthly optimization reviews
-- Final 2 weeks: Consider 10–15% budget increase on winners
+- Final 2 weeks: Raise budget 10–15% on winners
 
 ### 5. GENERATE EXCEL WORKBOOK
 

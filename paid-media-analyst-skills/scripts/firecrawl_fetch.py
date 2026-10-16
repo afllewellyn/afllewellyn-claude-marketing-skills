@@ -2,13 +2,13 @@
 
 Used by the `landing-page-audit` skill as a fallback when WebFetch is blocked
 by a bot-management WAF (HTTP 403) or the page is JS-rendered. WebFetch and
-the sandbox both run from a datacenter IP that [Client]-class WAFs reject;
+the sandbox both run from a datacenter IP that bot-management WAFs often reject;
 Firecrawl runs the headless browser + residential/stealth proxies on its own
 infrastructure, so the origin sees a real residential browser.
 
-Requires the FIRECRAWL_API_KEY environment variable (set in the Claude Code
-environment config — never committed). The sandbox must allow egress to
-`api.firecrawl.dev` (see `.claude/settings.json` → sandbox.network.allowedDomains).
+Requires the FIRECRAWL_API_KEY environment variable (or a gitignored .env
+at the paid-media-analyst-skills root; never committed). The sandbox must allow egress to
+`api.firecrawl.dev` (add it to your sandbox network allowlist).
 
 Provider-agnostic surface: callers use `fetch_page(url)` only, so swapping the
 scraping provider later is a one-function change inside this module.
@@ -71,6 +71,21 @@ def _scrape(url, api_key, *, proxy=None, timeout=60):
     return content or None
 
 
+def _load_dotenv():
+    """Local-dev fallback: read FIRECRAWL_API_KEY from the skills-root .env (gitignored)
+    when it isn't already in the environment (cloud sessions inject it directly)."""
+    if os.getenv(ENV_KEY):
+        return
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            for line in fh:
+                if line.startswith(ENV_KEY + "="):
+                    os.environ[ENV_KEY] = line.split("=", 1)[1].strip()
+    except OSError:
+        pass
+
+
 def fetch_page(url, *, timeout=60):
     """Fetch `url` via Firecrawl, returning page markdown (HTML fallback) or None.
 
@@ -79,11 +94,12 @@ def fetch_page(url, *, timeout=60):
     Returns None on any failure — callers should treat None as "skip + note",
     never as an exception.
     """
+    _load_dotenv()
     api_key = os.getenv(ENV_KEY)
     if not api_key:
         print(
             f"firecrawl: {ENV_KEY} is not set — cannot fetch {url}. "
-            "Set it in the Claude Code environment config.",
+            "Set it in the environment or a gitignored .env.",
             file=sys.stderr,
         )
         return None

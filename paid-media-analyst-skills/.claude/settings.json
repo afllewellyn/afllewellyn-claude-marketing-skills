@@ -1,0 +1,11 @@
+{
+  "sandbox": {
+    "network": {
+      "allowedDomains": [
+        "api.firecrawl.dev",
+        "api.typesafe.ai",
+        "npiregistry.cms.hhs.gov"
+      ]
+    }
+  }
+}

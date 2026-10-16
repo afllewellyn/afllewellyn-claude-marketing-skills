@@ -63,6 +63,8 @@ These are examples of the kind of standing conventions worth capturing once and 
 6. Cite media kits and advertise pages from `references/sources.md`; add any newly verified source.
 7. Produce the output: a shortlist tagged by fit, a tiered plan with all-in pricing, or outreach drafts (placeholders for unconfirmed rep names).
 
+For live provider counts by specialty and state when sizing an audience or sanity-checking a publisher's claimed reach, use `../nppes-npi-registry/`.
+
 ## Reference files
 
 - `references/your-accounts.md` — blank template for your account-specific quick-start layer: proven partners, verified rep contacts, real spend benchmarks, operating conventions, decision rationale, and creative specs. Fill this in as you build relationships; read it first for any known account.

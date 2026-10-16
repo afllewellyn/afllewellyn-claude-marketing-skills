@@ -8,5 +8,6 @@ this file is the skill-scoped view.
 
 ## Log (newest first)
 
-_No entries yet._
+### 2026-10-16: Jev guardrails and exact-text fetches
+Never report a Gap A "contradicted" unless the page text itself contains the conflicting figure, and run literal checks with word boundaries (`\bAI\b`, since "ai" matches "said"). Treat Jev judgments below about 0.5 confidence, or with a split distribution, as PARTIAL rather than a finding. WebFetch summaries can drop figures and acronyms, so fetch full text with Firecrawl when a claim depends on an exact figure or word.
 
