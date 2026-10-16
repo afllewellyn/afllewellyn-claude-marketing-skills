@@ -73,6 +73,7 @@ Each of these skills keeps a `memory.md` file — a running log of past mistakes
 - **Firecrawl hardened.** `scripts/firecrawl_fetch.py` now also reads a gitignored `.env`. New lesson: WebFetch returns a model summary that can drop figures and acronyms, so use Firecrawl full text whenever a claim depends on an exact figure or word.
 - **LinkedIn analysis.** New `analyze-linkedin-campaigns` skill with its agent prompt, `scripts/linkedin_compute.py`, and tests.
 - **NPPES tool.** New standalone `nppes-npi-registry/` (free API, no key, needs network access to `npiregistry.cms.hhs.gov`). The healthcare skill links to it.
+- **Folder layout aligned with the source project.** `paid-media-analyst-skills/` now also carries `data/` (raw exports by platform, processed, brand voice, an `accounts/_example/` registry), `outputs/` (reports and recommendations by platform), `docs/learnings.md`, `templates/`, `tests/`, and `.claude/settings.json` (network allowlist for Firecrawl, TypeSafe, and the NPI Registry). Skills stay as sibling folders, so nothing was moved. Hooks from the source project were not copied because they depend on its run log and sentinel files.
 - **Setup.** Copy `paid-media-analyst-skills/.env.example` to `.env` and add `FIRECRAWL_API_KEY` and `TYPESAFE_API_KEY` if you want those helpers. `.env` is gitignored.
 
 ## Installing a skill
