@@ -56,8 +56,9 @@ For each unique URL (up to 15) — **WebFetch first, Firecrawl fallback**:
 
 1. Fetch via WebFetch with the prompt: "Extract the following from this page: 1) Hero headline and subheadlines, 2) All CTAs (button text, form labels), 3) Key value propositions and benefits listed, 4) Proof points (clinical data, certifications, awards, statistics, testimonials), 5) Product names and brand mentions, 6) Any offers or promotions, 7) Primary keywords and terminology used throughout the page."
 2. **If WebFetch is blocked or empty** (HTTP 403 from a bot-management WAF, timeout, or JS-only rendering), fall back to Firecrawl's hosted scraper: run `python scripts/firecrawl_fetch.py "<url>"`, then run the same 7-point extraction prompt against the returned markdown. Known-WAF domains (e.g. `[client-domain].com`) may skip WebFetch and go straight to Firecrawl. This requires `FIRECRAWL_API_KEY` in the environment and sandbox egress to `api.firecrawl.dev` — see the `firecrawl-scrape` skill.
-3. Store the extracted content for gap analysis.
-4. If **both** WebFetch and Firecrawl fail (or `FIRECRAWL_API_KEY` is unset), note the limitation and skip that URL in the gap analysis. Do not retry — move to the next URL.
+3. **WebFetch returns a model summary, not the page text**, and the summary can drop figures and acronyms. When a Gap A claim depends on an exact figure or word (a stat, a model number, an acronym), fetch the full text with Firecrawl and search it instead of trusting the summary.
+4. Store the extracted content for gap analysis.
+5. If **both** WebFetch and Firecrawl fail (or `FIRECRAWL_API_KEY` is unset), note the limitation and skip that URL in the gap analysis. Do not retry — move to the next URL.
 
 ## Step 5: Run 3-Type Gap Analysis
 
@@ -103,6 +104,13 @@ Severity scoring:
 - **HIGH**: Primary keyword (top by clicks) absent from LP — direct Quality Score impact
 - **MEDIUM**: Secondary keyword absent from LP
 - **LOW**: Long-tail variant absent (but root term is present)
+
+### Validate Gap A and Gap C with Jev (TypeSafe)
+
+Optional but recommended before writing any Gap A or Gap C finding. Run `python3 -I scripts/lp_judgments.py <url> --keywords "<top keywords>" --claims "<ad claim 1>|<ad claim 2>"` (needs `TYPESAFE_API_KEY` in the environment or a gitignored `.env`; see `scripts/jev_judge.py`). It returns a Noul probability per keyword (Gap C) and a supported / contradicted / absent Choice per ad claim (Gap A). With no key, skip it and rely on the literal checks below.
+- Never report "contradicted" (for example an ad stat vs a different page stat) unless the page text contains the conflicting figure. Search the text for both figures first.
+- Never report a keyword or acronym as absent from a literal text search without word boundaries (`\bHIS\b`); "his" matches "this".
+- Judgment below roughly 0.5 confidence, or a split distribution, goes in the report as PARTIAL, not as a finding.
 
 ## Step 6: Generate Recommended Copy
 
@@ -169,7 +177,7 @@ After generating outputs, append the run to the `## Session Learnings` → `### 
 - **Use `Final URL` column**: Not `Ad final URL` — the latter contains tracking parameters that break de-duplication.
 - **URL cap**: Maximum 15 URLs per run to stay within reasonable WebFetch usage. If more exist, prioritize by click volume.
 - **Tracking param stripping**: Remove `?cid=`, `?utm_*`, and other query strings before de-duplicating.
-- **Fetch failures**: If WebFetch fails for a URL (403 WAF, timeout, 404, JS-rendered), fall back to `python scripts/firecrawl_fetch.py "<url>"` (see the `firecrawl-scrape` skill; needs `FIRECRAWL_API_KEY`). Only if Firecrawl also returns nothing, skip the URL and note the limitation. Do not retry the same path in a loop.
+- **Fetch failures**: If WebFetch fails for a URL (403 WAF, timeout, 404, JS-rendered), fall back to `python scripts/firecrawl_fetch.py "<url>"` (see the `firecrawl-scrape` skill; needs `FIRECRAWL_API_KEY` in the environment or a gitignored `.env`). Only if Firecrawl also returns nothing, skip the URL and note the limitation. Do not retry the same path in a loop.
 - **Character limits**: Headlines max 30 characters, descriptions max 90 characters. Always verify recommended copy fits.
 - **B2B context**: Accounts are typically B2B (healthcare, dental, industrial). Infer the division and professional audience from campaign names and keywords. Recommendations should target the relevant professional audience, not consumers.
 - **No "waste" language**: Never use "waste," "wasted," or "wasted spend." Use learning, efficiency, or optimization framing per project conventions.

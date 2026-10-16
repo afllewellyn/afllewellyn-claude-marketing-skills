@@ -6,7 +6,7 @@ These are generic templates, not tied to any one company. Where a skill has a co
 
 ## Groups in this repo
 
-The repo is organized into five groups. Each group is a top-level folder holding one or more related skills.
+The repo is organized into six groups. Each group is a top-level folder holding one or more related skills.
 
 | Group | What it's for |
 |---|---|
@@ -15,6 +15,7 @@ The repo is organized into five groups. Each group is a top-level folder holding
 | [`paid-media-analyst-skills/`](paid-media-analyst-skills/) | Running paid media analysis end to end, across ad platforms. |
 | [`no-slop-writing/`](no-slop-writing/) | Editing, auditing, and ship-checking writing so it reads like a specific person rather than generic AI output. |
 | [`aeo-geo-audit/`](aeo-geo-audit/) | Auditing a website for AI-search visibility (AEO/GEO) alongside traditional SEO. |
+| [`nppes-npi-registry/`](nppes-npi-registry/) | Live healthcare provider counts from the CMS NPI Registry API, for audience sizing. |
 
 ### Healthcare trade media planning
 
@@ -33,13 +34,14 @@ Two skills over one shared framework, split by what you want out of it: `pmi-ai-
 
 ### Paid media analyst skills
 
-A set of 12 skills for running paid media analysis end to end — from raw platform exports to a client-ready deck. Originally built for one client's account setup, then anonymized (client, product, and account names swapped for generic placeholders like `[Client]` and `[Account: X]`) so they're safe to reuse anywhere. Live in [`paid-media-analyst-skills/`](paid-media-analyst-skills/).
+A set of 13 skills for running paid media analysis end to end — from raw platform exports to a client-ready deck. Originally built for one client's account setup, then anonymized (client, product, and account names swapped for generic placeholders like `[Client]` and `[Account: X]`) so they're safe to reuse anywhere. Live in [`paid-media-analyst-skills/`](paid-media-analyst-skills/).
 
 Unlike the other two groups, these skills aren't drag-and-drop on their own — several depend on shared files that sit alongside them in this folder: [`prompts/`](paid-media-analyst-skills/prompts/) (the detailed agent instructions each skill runs), [`scripts/`](paid-media-analyst-skills/scripts/) (helper scripts like the QA linter and the Firecrawl fetch tool), and [`.claude/agents/`](paid-media-analyst-skills/.claude/agents/) (the QA, run-log, and memory-curator subagents `qa-review` calls). To use this set, copy the whole `paid-media-analyst-skills/` folder into your project so those shared paths stay in place, rather than pulling out a single skill folder.
 
 | Skill | What it does |
 |---|---|
 | [`analyze-bing-campaigns/`](paid-media-analyst-skills/analyze-bing-campaigns/) | Analyzes Microsoft (Bing) Ads exports and flags performance issues and opportunities. |
+| [`analyze-linkedin-campaigns/`](paid-media-analyst-skills/analyze-linkedin-campaigns/) | Analyzes LinkedIn Campaign Manager exports — delivery vs plan, ad set and ad performance, lead gen, video, and budget reallocation. |
 | [`analyze-meta-campaigns/`](paid-media-analyst-skills/analyze-meta-campaigns/) | Analyzes Meta (Facebook/Instagram) ad exports and flags performance issues and opportunities. |
 | [`analyze-dsp-display/`](paid-media-analyst-skills/analyze-dsp-display/) | Analyzes programmatic display (DSP) exports — line items, creative rotation, inventory mix, audience segments, and frequency. |
 | [`analyze-search-campaigns/`](paid-media-analyst-skills/analyze-search-campaigns/) | Analyzes Google Search campaign exports — spend, keywords, conversions, and structural issues. |
@@ -65,9 +67,17 @@ Each of these skills keeps a `memory.md` file — a running log of past mistakes
 |---|---|
 | [`aeo-geo-audit/`](aeo-geo-audit/) | Audits a site for how buyers actually find B2B products now — AI crawler access, log-verified bot hits, off-site citation surface (G2, Reddit, comparison content), a cross-engine visibility baseline across ChatGPT/Perplexity/Google AI Mode/Gemini, and the traditional on-page and technical SEO fundamentals — then produces either a ranked five-item leadership readout or a full working-team doc. Optionally uses a DataForSEO account (paid third-party API, not required — see the skill's setup note) for verified visibility and keyword data, and falls back to clearly-labeled estimates without one. |
 
+## What's new
+
+- **Jev judgment layer (paid media).** [TypeSafe](https://docs.typesafe.ai) Jev answers narrow typed questions (a probability or one label) on page text, ad claims, and search terms. `scripts/jev_judge.py` is the shared client; `scripts/lp_judgments.py` uses it for landing page audits. Code keeps control flow and scoring, and Jev only answers the semantic question. Guardrails: no "contradicted" unless the page contains the conflicting figure, word-boundary matching for literal checks, and low-confidence or split results reported as PARTIAL. Optional: skills run without a key.
+- **Firecrawl hardened.** `scripts/firecrawl_fetch.py` now also reads a gitignored `.env`. New lesson: WebFetch returns a model summary that can drop figures and acronyms, so use Firecrawl full text whenever a claim depends on an exact figure or word.
+- **LinkedIn analysis.** New `analyze-linkedin-campaigns` skill with its agent prompt, `scripts/linkedin_compute.py`, and tests.
+- **NPPES tool.** New standalone `nppes-npi-registry/` (free API, no key, needs network access to `npiregistry.cms.hhs.gov`). The healthcare skill links to it.
+- **Setup.** Copy `paid-media-analyst-skills/.env.example` to `.env` and add `FIRECRAWL_API_KEY` and `TYPESAFE_API_KEY` if you want those helpers. `.env` is gitignored.
+
 ## Installing a skill
 
-`healthcare-trade-media-planning/`, `no-slop-writing/`, and `aeo-geo-audit/` are each a single skill folder, and each subfolder of `ai-governance-and-adoption/` is one too: copy the folder into your Claude client's skills directory (or however your Claude product supports custom/loaded skills), following that skill's own `SKILL.md` for setup notes. The two AI governance skills each work alone, but `ai-adoption-plan` will read `pmi-ai-standard`'s reference files for fuller framework detail when both are installed side by side — so install the pair together if you want the richer output. `paid-media-analyst-skills/` is the exception — copy the whole folder together (see that section above) so the shared `prompts/`, `scripts/`, and `.claude/agents/` files it depends on come with it.
+`healthcare-trade-media-planning/`, `no-slop-writing/`, `aeo-geo-audit/`, and `nppes-npi-registry/` are each a single skill folder, and each subfolder of `ai-governance-and-adoption/` is one too: copy the folder into your Claude client's skills directory (or however your Claude product supports custom/loaded skills), following that skill's own `SKILL.md` for setup notes. The two AI governance skills each work alone, but `ai-adoption-plan` will read `pmi-ai-standard`'s reference files for fuller framework detail when both are installed side by side — so install the pair together if you want the richer output. `paid-media-analyst-skills/` is the exception — copy the whole folder together (see that section above) so the shared `prompts/`, `scripts/`, and `.claude/agents/` files it depends on come with it.
 
 ## Getting started
 

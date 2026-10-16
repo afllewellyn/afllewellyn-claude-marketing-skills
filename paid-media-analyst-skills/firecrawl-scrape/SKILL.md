@@ -27,11 +27,12 @@ skill-specific lesson, add a dated entry to `memory.md` at the end.
 
 ## Prerequisites
 
-- `FIRECRAWL_API_KEY` is set in the Claude Code environment config (never
-  committed to the repo). If it is unset, the fetch returns nothing and the
+- `FIRECRAWL_API_KEY` is set as an environment variable, or in a gitignored `.env`
+  at the `paid-media-analyst-skills/` root (see `.env.example`). Never commit it.
+  If it is unset, the helper prints a skip message and returns nothing, and the
   caller should skip the URL and note the limitation.
-- The sandbox network policy allows egress to `api.firecrawl.dev`
-  (`.claude/settings.json` → `sandbox.network.allowedDomains`).
+- The sandbox network policy allows egress to `api.firecrawl.dev` (add it to the
+  allowed domains).
 
 ## When to use
 
@@ -59,13 +60,20 @@ The helper returns markdown (preferred for headings/body copy) and falls back
 to HTML. It never raises — a blocked or failed page produces no output for that
 URL and a `firecrawl: FAILED <url>` line on stderr.
 
+## Prefer Firecrawl when a claim depends on exact text
+
+WebFetch returns a model-written summary of the page, not the page text, and that
+summary can drop figures and acronyms (a statistic, a model number, "HIS" vs
+"this"). When a finding hinges on an exact figure or word, fetch the full text
+with Firecrawl and search it directly instead of trusting the WebFetch summary.
+
 ## Credit model (be frugal)
 
 - A normal scrape is **1 credit**; the stealth-proxy retry that beats a WAF is
   **5 credits**. The helper only escalates to stealth when the default proxy
   returns nothing, so non-WAF pages stay at 1 credit.
-- Prefer WebFetch first for non-WAF pages; reserve this skill for blocked/JS
-  pages so credits are spent only when necessary.
+- Prefer WebFetch first for non-WAF pages where a summary is enough; reserve this
+  skill for blocked/JS pages and for claims that need exact text.
 
 ## On failure
 

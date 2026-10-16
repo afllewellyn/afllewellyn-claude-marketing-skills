@@ -55,6 +55,14 @@ Extract unique Final URLs from the ad data. For each URL:
 
 If a landing page cannot be fetched, note the limitation and proceed with ad-copy-only analysis.
 
+### Judgment layer (optional, TypeSafe Jev)
+
+For the Landing Page Alignment check, `python3 -I scripts/lp_judgments.py <url> --claims "<claim 1>|<claim 2>"` asks one narrow question per ad claim: supported, contradicted or absent on the page text (full text via Firecrawl, not a WebFetch summary).
+- Code owns control flow, scoring and what gets written; Jev only answers each question.
+- Do not report "contradicted" unless the page text holds the conflicting figure; confirm with a word-boundary text search.
+- Low confidence (below about 0.5) or a split distribution is PARTIAL, not a finding.
+- No `TYPESAFE_API_KEY`: skip this layer and use the literal comparison. Never block the run.
+
 ## Step 4: Run Agent 3 — Ad Copy Analysis
 
 Reference spec: `prompts/google/agent_3_ad_copy_analyst.md`

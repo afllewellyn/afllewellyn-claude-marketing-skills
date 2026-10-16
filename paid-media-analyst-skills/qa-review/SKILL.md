@@ -36,6 +36,13 @@ It runs `scripts/qa_lint.py` for the mechanical checks, then applies judgment
 reconciliation incl. the Bing Total-row bug, deck structure, narrative-vs-numbers).
 Relay its prioritized findings to the user.
 
+### Judgment layer (optional, TypeSafe Jev)
+
+Backing `scripts/qa_lint.py`, check report claims against the source: for each quantitative or factual claim, ask one question via `scripts/jev_judge.py` with the claim and the matching source excerpt as state, labelled supported / contradicted / absent (`choice(...)`).
+- The linter and the reviewer own the verdict and the findings list; Jev only labels each claim.
+- Report "contradicted" only when the excerpt contains the conflicting figure (confirm with a word-boundary search); low confidence or a split distribution is PARTIAL.
+- No `TYPESAFE_API_KEY`: skip and rely on `qa_lint.py` plus reviewer judgment. Never block QA.
+
 ## Step 3: Run the Run-Log curator
 
 Invoke the **`run-log-curator`** subagent (via the Task tool). It drafts the new

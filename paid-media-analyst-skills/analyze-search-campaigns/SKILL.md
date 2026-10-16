@@ -135,6 +135,13 @@ Run semantic relevance check — flag consumer/off-topic patterns. [Client] is a
 
 Group negatives by theme with recommended match type and scope (account-level vs campaign-level).
 
+### Judgment layer (optional, TypeSafe Jev)
+
+To support negative-keyword proposals, use `scripts/jev_judge.py` to classify the top search terms by spend, one question per term, as relevant / adjacent / irrelevant to the campaign's product and audience (`choice(...)`). Pass only the term and a short product description as state.
+- Code owns thresholds, match types, scope and the CSV; Jev only labels each term.
+- Propose a negative only for "irrelevant" with clear confidence; low confidence (below about 0.5) or a split distribution is PARTIAL and goes to manual review.
+- No `TYPESAFE_API_KEY`: skip and use the rule-based relevance check above. Never block the run.
+
 ### Keyword Expansion (requires Search Terms Report)
 Identify high-performing search terms NOT already targeted as keywords:
 - Aggregate search terms (same term may appear multiple times across campaigns)

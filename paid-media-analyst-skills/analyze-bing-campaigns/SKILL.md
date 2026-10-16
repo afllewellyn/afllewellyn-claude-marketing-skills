@@ -110,6 +110,13 @@ de-duplicated keyword list into ONE call (hard cap 1,000 keywords/request and
 any extra calls ~10s apart). If the server is not connected, skip silently and note
 it in Data Limitations — never block the pipeline on it.
 
+### Judgment layer (optional, TypeSafe Jev)
+
+To support negative-keyword proposals, use `scripts/jev_judge.py` to classify the top search terms by spend, one question per term, as relevant / adjacent / irrelevant to the campaign's product and audience (`choice(...)`). Pass only the term and a short product description as state.
+- Code owns thresholds, match types, scope and the CSV; Jev only labels each term.
+- Propose a negative only for "irrelevant" with clear confidence; low confidence (below about 0.5) or a split distribution is PARTIAL and goes to manual review.
+- No `TYPESAFE_API_KEY`: skip and use the rule-based relevance check. Never block the run.
+
 ## Step 5: Conditionally Run Agent 3 — Ad Copy Analyst
 
 Check if RSA ad copy columns are present in any of the detected files.
