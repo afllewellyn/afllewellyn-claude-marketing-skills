@@ -12,6 +12,8 @@ Optimize keyword portfolios by promoting high-performers, blocking wasteful sear
 - Negative Keyword Coverage
 - Keyword-to-Search-Term Relevance
 
+**Language rules (client-facing outputs):** say "more efficient", "lower CPC" or "better cost per click", never "cheap", "cheaper" or "cheapest". State the action directly; never write "consider" in a recommendation. Never name the search-volume data vendor in report or CSV text; say "keyword research" or "US monthly search volume". Keep currencies separate and labeled; never sum spend across currencies.
+
 ## Bidding Strategy Context
 
 - Primary: Maximize Clicks with Max CPC caps
@@ -61,7 +63,7 @@ Identify keywords that deserve more investment.
 
 **High Performer Detection**:
 Flag keywords where:
-- `ctr > (account_avg_ctr * 1.5) AND clicks > 20` → Strong performer, consider bid increase
+- `ctr > (account_avg_ctr * 1.5) AND clicks > 20` → Strong performer, raise bid
 - `ctr > (account_avg_ctr * 2.0) AND impressions > 500` → Top performer, priority promotion
 - `ctr > 15% AND clicks > 10` → Exceptional CTR (likely branded, but verify)
 
@@ -103,8 +105,7 @@ the recommendation:
   `estimated_impact`.
 
 **If the server is NOT connected** (no credentials, or not enabled this session),
-skip this sub-step silently and add "search-volume enrichment unavailable
-(DataForSEO MCP not connected)" to the report's Data Limitations section. Never
+skip this sub-step silently and add "search-volume enrichment unavailable" to the report's Data Limitations section. Never
 block the core keyword analysis on it.
 
 ### 4. NEGATIVE KEYWORD DETECTION
@@ -113,7 +114,7 @@ block the core keyword analysis on it.
 
 Identify search terms that should be added as negative keywords.
 
-**Waste Detection from Search Terms**:
+**Efficiency Opportunity Detection from Search Terms**:
 Flag search terms where:
 - `ctr < 1% AND impressions > 100` → Low relevance, wasting impressions
 - `clicks = 0 AND impressions > 50` → Zero-click term, no user intent match
@@ -174,11 +175,15 @@ Reconcile the **Search Terms Report against the active keyword set** (and agains
 - **Gaps to fill**: search terms / themes with demand or strong performance not yet targeted as keywords → `ADD_KEYWORD_EXACT` / `CREATE_AD_GROUP` (see §3 expansion).
 - **Terms to pause / narrow**: keywords or ad groups capturing irrelevant / off-intent queries → `PAUSE_KEYWORD` / `NARROW_MATCH_TYPE` / negatives.
 
-> **MANDATORY — validate every `ADD_KEYWORD*` against the ACTIVE keyword set before recommending it** (the duplicate/no-op trap). Build the active set from the performance export's **and** the Search Terms Report's `Search keyword` columns, **and the change-history export's "keyword added" entries if one is available** — a keyword added before the performance window with zero impressions since is invisible to the performance-column check alone ([Account: MedSurg] 2026-07-08: `core temperature monitoring` / `surgical site infection prevention` were live keywords with 0 impressions all quarter and got wrongly recommended as adds). Then: (1) if the candidate is **already a live keyword** (exact or trivial variant), **DROP it** — never label a running keyword "net-new"; (2) if the query is already served via a **broader** match type (it appears as a search term under a live Broad/Phrase keyword, or is a close variant of a live Exact keyword), it is **NOT net-new** — recommend it as a **carve to exact** for control/QS and name the currently-serving keyword/match in `current_metric` (e.g. "served today via `nasal decolonization` phrase"); (3) only a query with **no** active keyword and **no** broader-match coverage is truly net-new. `/qa-review` runs `scripts/qa_lint.py --raw <export>`, which flags any `ADD_KEYWORD*` row whose keyword already exists in the account — pass the change-history export as an additional `--raw` alongside the performance export(s) whenever one is available, so the check has full coverage. This check is not optional. ([Account: MedSurg] 2026-06-17 — recommended re-adding `nasal decolonization` / `forced air warming` that were already live exact keywords.)
+> **MANDATORY — validate every `ADD_KEYWORD*` against the ACTIVE keyword set before recommending it** (the duplicate/no-op trap). Build the active set from the performance export's **and** the Search Terms Report's `Search keyword` columns, **and the change-history export's "keyword added" entries if one is available** — a keyword added before the performance window with zero impressions since is invisible to the performance-column check alone (example: two live keywords with 0 impressions all quarter were wrongly recommended as adds). Then: (1) if the candidate is **already a live keyword** (exact or trivial variant), **DROP it** — never label a running keyword "net-new"; (2) if the query is already served via a **broader** match type (it appears as a search term under a live Broad/Phrase keyword, or is a close variant of a live Exact keyword), it is **NOT net-new** — recommend it as a **carve to exact** for control/QS and name the currently-serving keyword/match in `current_metric` (e.g. "served today via `nasal decolonization` phrase"); (3) only a query with **no** active keyword and **no** broader-match coverage is truly net-new. `/qa-review` runs `scripts/qa_lint.py --raw <export>`, which flags any `ADD_KEYWORD*` row whose keyword already exists in the account — pass the change-history export as an additional `--raw` alongside the performance export(s) whenever one is available, so the check has full coverage. This check is not optional. (Example: re-adding keywords that were already live exact keywords.)
+
+> **MANDATORY - CLOSE-VARIANT CHECK before any `ADD_KEYWORD*`.** The search engine serves plurals, misspellings and reordered words as close variants of a keyword that is already live, so a candidate that differs from a live keyword only in those ways is ALREADY COVERED. Drop it; it is neither net-new nor a carve-to-exact. Build a close-variant key for every live keyword and every candidate (lowercase, strip spaces between words, singularize each word, sort the words) and drop any candidate whose key matches, or whose key is one misspelled word away from a live one. Only a candidate served today by a genuinely broader keyword (more words or a different phrase, e.g. served via `acme sanitizer` for `acme nasal sanitizer`) can be a carve-to-exact. `scripts/qa_lint.py --raw`, if available, blocks plural and word-order collisions and flags probable misspellings, but it is a backstop: the agent must not write the row. (Example: `acme pads` shipped as an add while `acme pad` was live.)
+
+> **MANDATORY - validate every `ADD_KEYWORD*` / `EXPAND_MATCH_TYPE` / `CREATE_AD_GROUP` against the ad group's ACTUAL PRODUCT before recommending it** (the product-fit guardrail, same check as Agent 3's section 3b, applied to keywords instead of copy). A search term appearing under a broad/phrase keyword is evidence of query volume, NOT evidence the ad group's product can honestly serve that intent. Before promoting a search term to a keyword or recommending `EXPAND_MATCH_TYPE`/`CREATE_AD_GROUP` off it: (1) identify the ad group's actual product from its Final URL (fetch the landing page, or use content already fetched this session, and confirm the product **category**, not just the brand); (2) check whether the search term's implied product category matches the landing page, since surface vocabulary overlap is not proof of category match and two products under one brand can be entirely different categories (for example a composite resin vs. a luting cement); (3) if the landing page does NOT support the category, do NOT recommend `ADD_KEYWORD*` for it. Recommend a **negative** instead (the ad group is capturing demand it cannot honestly serve), and route any copy angle to Agent 3's same guardrail. Only recommend adding a keyword when the product genuinely serves that search intent.
 
 Before you pause, narrow, or consolidate any keyword or whole ad group, inspect **what it actually captures** in the Search Terms Report — never judge it from the keyword text or aggregate metrics alone. A low-performing Broad keyword / "dead-looking" ad group is often a **brand-query catch-all**: compute the brand share (parent `[client]`, legacy `[formerparentco]`, product brands, misspellings like `[client]-typo`/`[client]-variant`); if material (≥ ~20% of impressions), sequence a `CREATE_AD_GROUP` (dedicated [Client] branded ad group, exact/phrase on the top brand queries) to capture it at high QS / low CPC **before** pausing, and quote the brand share in `current_metric`.
 
-Canonical case: [Account: MedTech] US Diagnostic `D - Tape/Adhesive` (2026-06-03) — 49% of the ad group's impressions (447/907) were [Client]/[Former Parent Co] brand queries via two Broad keywords; reading the keyword list alone would have mislabeled it "no demand → pause."
+Canonical case: a US ad group with a generic name had 49% of its impressions (447/907) from [Client] brand queries via two Broad keywords; reading the keyword list alone would have mislabeled it "no demand → pause."
 
 ### 7. OUTPUT GENERATION
 

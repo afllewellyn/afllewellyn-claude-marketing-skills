@@ -16,6 +16,8 @@ user feedback, stylistic preferences, and campaign-analysis insights specific to
 this skill. Apply anything relevant to the current task. If the run surfaces a new
 skill-specific lesson, add a dated entry to `memory.md` at the end.
 
+Also read `docs/learnings.md` (cross-account data pitfalls and deck-building techniques).
+
 ## What You Receive as Arguments
 
 - `$ARGUMENTS` — Either a product/division name to auto-detect files in `data/raw/google/`, OR an explicit path to a data file.
@@ -181,3 +183,4 @@ After generating outputs, append the run to the `## Session Learnings` → `### 
 - **Character limits**: Headlines max 30 characters, descriptions max 90 characters. Always verify recommended copy fits.
 - **B2B context**: Accounts are typically B2B (healthcare, dental, industrial). Infer the division and professional audience from campaign names and keywords. Recommendations should target the relevant professional audience, not consumers.
 - **No "waste" language**: Never use "waste," "wasted," or "wasted spend." Use learning, efficiency, or optimization framing per project conventions.
+- **Other language rules**: Say "more efficient", never "cheap". Never write "consider" in a recommendation; state the action. Never name the search-volume data vendor in outputs.

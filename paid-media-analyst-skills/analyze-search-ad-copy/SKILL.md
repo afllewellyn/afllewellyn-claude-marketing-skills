@@ -141,6 +141,8 @@ After generating outputs, append key findings to the `## Session Learnings` → 
 
 - **Encoding**: Always check for UTF-16 LE first on real Google Ads exports. Use `iconv -f UTF-16LE -t UTF-8` for conversion.
 - **CSV parsing**: Never use naive `split(',')` — impression values like `"5,676"` contain commas. Use `csv.DictReader` or pandas.
+- **Search term report is coverage-only**: it undercounts clicks and spend. Use it for query coverage and leakage; take clicks, spend and totals from the campaign, ad group or keyword report.
+- **Language**: Say "more efficient" or "lower CPC", never "cheap", "cheaper" or "cheapest". Never use "waste" or "wasted"; reframe as an efficiency or optimization opportunity. Never write "consider" in a recommendation; state the action. Never name the search-volume data vendor in client-facing outputs; say "keyword research" or "monthly search volume".
 - **Character limits**: Headlines max 30 characters, descriptions max 90 characters. Always verify recommended copy fits.
 - **B2B context**: Accounts are typically B2B (healthcare, industrial, etc.). Infer the division, product category, and professional audience from campaign names and keywords in the data. Ad copy recommendations should target the relevant professional audience, not consumers.
 - **Be specific in recommendations**: Include current copy, recommended copy, position, rationale, and estimated impact.

@@ -71,7 +71,7 @@ If Search Terms Report available, also calculate:
 
 Reference spec: `prompts/agent_1_search_analyst.md`
 
-### Wasted Spend Detection
+### Efficiency Opportunity Detection
 Flag keywords where:
 - `clicks > 50 AND ctr < (account_avg_ctr * 0.5)` → Low CTR waste
 - `cpc > (account_avg_cpc * 1.5) AND clicks < 10` → High CPC, low volume waste
@@ -257,6 +257,11 @@ After generating outputs, append key findings to the `## Session Learnings` sect
 ## Important Notes
 
 - **Encoding**: Always check for UTF-16 LE first on real Google Ads exports. Use `iconv -f UTF-16LE -t UTF-8` for conversion.
+- **Search term report is coverage-only**: it undercounts clicks and spend. Use it for query coverage and leakage; take clicks, spend and totals from the campaign, ad group or keyword report.
+- **Keyword dedup before any ADD_KEYWORD* action**: check the keyword against the active keyword set (lowercase, despace CJK terms, then match exact plus close variants: plurals, word order, one-word misspellings) and against any change-history export that shows it was added earlier, including keywords with zero impressions. If a broader match type already serves the query, frame the action as a carve to exact and name the live keyword in `current_metric`. Never re-add a term the account already runs.
+- **Ad-level exports**: an export with RSA columns can still carry a `Search keyword` column with per-row metrics. Sum all serving slices by keyword; duplicate (Month, Campaign, Ad group, Keyword) rows are additive, not rows to dedupe.
+- **Search-volume enrichment is optional**: never block the run on it, and never cite the data vendor in outputs.
+- **Language**: Say "more efficient" or "lower CPC", never "cheap", "cheaper" or "cheapest". Never use "waste" or "wasted"; reframe as an efficiency or optimization opportunity. Never write "consider" in a recommendation; state the action. Never name the search-volume data vendor in client-facing outputs; say "keyword research" or "monthly search volume".
 - **Missing columns**: Gracefully handle missing Quality Score, Impression Share, and Match Type columns. Note limitations in the report.
 - **B2B context**: [Client] is a B2B healthcare company (formerly [Former Parent Co] Health Care) spanning multiple divisions — surgical solutions, infection prevention, wound care, dental, health information systems, and more. Consumer queries are waste; professional/clinical queries are relevant. Adapt the consumer vs. professional distinction to each division's product category.
 - **Bidding strategy**: Maximize Clicks with Max CPC caps. NOT conversion-focused. KPIs are traffic efficiency metrics.

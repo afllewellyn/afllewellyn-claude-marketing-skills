@@ -43,6 +43,10 @@ Backing `scripts/qa_lint.py`, check report claims against the source: for each q
 - Report "contradicted" only when the excerpt contains the conflicting figure (confirm with a word-boundary search); low confidence or a split distribution is PARTIAL.
 - No `TYPESAFE_API_KEY`: skip and rely on `qa_lint.py` plus reviewer judgment. Never block QA.
 
+## Step 2.5: Design check on any deck
+
+A deck can carry correct numbers on an unusable slide. PowerPoint wrapping and overflow are invisible in the XML, so a text dump reads fine while a KPI wraps mid-figure or paints over the tile beside it. `qa_lint.py` reports this as `text-fit` and `text-collision` (estimated from Arial advance widths). Treat every one on a slide this run authored as blocking, and fix it in the build script (auto-fit the value size, lay the row out edge-to-edge), never by hand-editing the saved `.pptx`.
+
 ## Step 3: Run the Run-Log curator
 
 Invoke the **`run-log-curator`** subagent (via the Task tool). It drafts the new
@@ -103,4 +107,6 @@ processed.
   after the user confirms (CLAUDE.md is the system-of-record).
 - **Never blend CAD and USD** in any total — always a per-table conversion footnote.
 - **Never use "waste" or "consider"** in deliverables (reframe as efficiency / a
-  directive verb) — the linter flags both.
+  directive verb) — the linter flags both. Also never "cheap", "cheaper" or "cheapest"
+  (say "more efficient" or "lower CPC"), and never name the search-volume data vendor.
+- **Other mechanical checks to confirm ran**: the percent-format trap (a chart percent series whose formatCode carries a literal `"%"` on sub-1.0 fractions renders about 100x too small); every numeric deck table has a Total row that reconciles; the Bing `Month == "Total"` footer is filtered before reconciliation; and for keyword-action CSVs, run with `--raw` (performance export plus any change-history export) so the dedup check catches active keywords, earlier additions and close variants.

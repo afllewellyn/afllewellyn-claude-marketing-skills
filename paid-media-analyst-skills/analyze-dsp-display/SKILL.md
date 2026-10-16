@@ -103,4 +103,6 @@ If this is the first run for a new account, update the spec's "Detected columns"
 - **Schema is account-specific**: The spec's "Detected columns" block is intentionally blank until first run. Once populated for an account, it serves as durable schema knowledge for follow-on sessions.
 - **Conversion tracking is often absent on DSP** — fall back to click-volume weighting and label every rollup accordingly.
 - **Never use "waste" or "wasted spend"** — reframe as efficiency, learning, or optimization.
+- **Say "more efficient" or "lower CPM/CPC", never "cheap".** Never write "consider" in a recommendation; state the action.
+- **Deal vs open exchange**: when a preferred deal or publisher line runs next to open exchange, report CTR, CPM and cost per click side by side (CTR alone flatters the deal), flag when volume is too thin to read, and note that without conversion tracking the premium cannot be justified down-funnel.
 - **Implementation references**: Recommendations should reference "[DSP Platform] Intelligence" specifically (the DSP), not generic "DSP" language.

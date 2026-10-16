@@ -343,10 +343,13 @@ Append a brief session learning entry to the `## Session Learnings` section of `
 - **Encoding**: Always use `encoding='utf-8-sig'` — Meta exports use UTF-8 with BOM.
 - **Date column**: Use `Reporting starts` as the date field. Daily rows will have matching `Reporting starts` and `Reporting ends`.
 - **Lead gen vs. traffic**: Lead gen campaigns populate `Leads` + `Cost per lead (CURRENCY)`. Traffic campaigns populate `Results` + `Cost per results` (where `Result indicator` = `actions:link_click`). Never mix these columns when calculating CPL.
+- **Currency**: Never combine campaigns reported in different currencies in one total. Label the currency on every table and keep each currency separate.
+- **Footer and aggregate rows**: if a paid-social export carries a `Total of N results` footer or a dash (`-`) aggregate row, exclude it before summing; a naive rollup otherwise returns about 2x the true total.
 - **Aggregation**: Always sum/group daily rows before calculating derived metrics. Raw file has one row per ad per day.
 
 ### Analysis Conventions
 - **Never use the word "waste"** — reframe as efficiency opportunities, optimization candidates, or budget misallocation.
+- **Say "more efficient" or "lower CPM/CPL", never "cheap".** Never write "consider" in a recommendation; state the action.
 - **B2B healthcare context**: [Client] dental products target dental professionals, not consumers. This shapes relevance judgments throughout.
 - **No learning phase targets**: B2B lead volumes are too low to reach Meta's 50-conversion learning threshold. Don't flag this as an issue.
 - **Volatility at low volume**: CPL swings of ±50% week-over-week are statistically normal at 1–5 leads/week. Require 3+ consecutive weeks of directional movement before recommending changes.
