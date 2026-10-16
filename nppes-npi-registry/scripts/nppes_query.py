@@ -165,8 +165,8 @@ def parse_args(argv):
     p.add_argument("--format", choices=["csv", "json"], default="csv")
     p.add_argument("--out")
     args = p.parse_args(argv)
-    if not (args.taxonomy or args.state or args.city or args.postal):
-        p.error("give at least one of --taxonomy, --state, --city, --postal")
+    if not (args.taxonomy or args.postal):
+        p.error("give --taxonomy or --postal (the API rejects state-only or city-only searches); add --state/--city to narrow")
     return args
 
 

@@ -63,8 +63,8 @@ URL and a `firecrawl: FAILED <url>` line on stderr.
 ## Prefer Firecrawl when a claim depends on exact text
 
 WebFetch returns a model-written summary of the page, not the page text, and that
-summary can drop figures and acronyms (a statistic, a model number, "HIS" vs
-"this"). When a finding hinges on an exact figure or word, fetch the full text
+summary can drop figures and acronyms (a statistic, a model number, "AI" vs
+"said"). When a finding hinges on an exact figure or word, fetch the full text
 with Firecrawl and search it directly instead of trusting the WebFetch summary.
 
 ## Credit model (be frugal)

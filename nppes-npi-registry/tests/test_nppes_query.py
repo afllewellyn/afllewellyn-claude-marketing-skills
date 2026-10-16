@@ -79,7 +79,7 @@ def test_network_failure_exits_1(monkeypatch, capsys):
         raise nq.requests.ConnectionError("blocked")
     monkeypatch.setattr(nq.requests, "get", boom)
     monkeypatch.setattr(nq.time, "sleep", lambda s: None)
-    rc = nq.main(["--state", "VT", "--count-only"])
+    rc = nq.main(["--taxonomy", "Dentist", "--state", "VT", "--count-only"])
     assert rc == 1
     assert "Error" in capsys.readouterr().err
 

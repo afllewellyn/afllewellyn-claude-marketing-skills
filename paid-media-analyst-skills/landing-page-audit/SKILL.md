@@ -109,7 +109,7 @@ Severity scoring:
 
 Optional but recommended before writing any Gap A or Gap C finding. Run `python3 -I scripts/lp_judgments.py <url> --keywords "<top keywords>" --claims "<ad claim 1>|<ad claim 2>"` (needs `TYPESAFE_API_KEY` in the environment or a gitignored `.env`; see `scripts/jev_judge.py`). It returns a Noul probability per keyword (Gap C) and a supported / contradicted / absent Choice per ad claim (Gap A). With no key, skip it and rely on the literal checks below.
 - Never report "contradicted" (for example an ad stat vs a different page stat) unless the page text contains the conflicting figure. Search the text for both figures first.
-- Never report a keyword or acronym as absent from a literal text search without word boundaries (`\bHIS\b`); "his" matches "this".
+- Never report a keyword or acronym as absent from a literal text search without word boundaries (`\bAI\b`); "ai" matches "said".
 - Judgment below roughly 0.5 confidence, or a split distribution, goes in the report as PARTIAL, not as a finding.
 
 ## Step 6: Generate Recommended Copy

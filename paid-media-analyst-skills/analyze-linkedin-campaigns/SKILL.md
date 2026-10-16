@@ -70,8 +70,8 @@ the export's header.
 
 ## Step 3: Determine the account
 
-Use the argument. Otherwise compare the campaign names in the JSON with each
-your account notes when you keep them; ask the user when no single account clearly fits. `<account>` in
+Use the argument. Otherwise compare the campaign names in the JSON with your
+account notes, if you keep them; ask the user when no single account clearly fits. `<account>` in
 filenames is a short account slug.
 
 ## Step 4: Run Agent 1

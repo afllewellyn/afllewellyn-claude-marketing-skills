@@ -39,7 +39,7 @@ Flags:
 - `--count-only`: report a count per state instead of records.
 - `--format csv|json`, `--out path`: output format and file. Default is CSV to stdout.
 
-At least one of `--taxonomy`, `--state`, `--city`, or `--postal` is required, because the API rejects an empty search.
+`--taxonomy` or `--postal` is required. The API rejects searches that use only state or city, so add `--state` and `--city` to narrow a taxonomy search.
 
 ## Limits
 

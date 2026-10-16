@@ -16,7 +16,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from jev_judge import MAX_STATE_CHARS, JevError, choice, judge, noul  # noqa: E402
+from jev_judge import MAX_STATE_CHARS, JevError, choice, have_key, judge, noul  # noqa: E402
 
 CLAIM_LABELS = {
     "supported": "The page states the same fact or figure.",
@@ -54,6 +54,8 @@ def main():
     kws = [k.strip() for k in a.keywords.split(",") if k.strip()]
     claims = [c.strip() for c in a.claims.split("|") if c.strip()]
 
+    if (kws or claims) and not have_key():
+        sys.exit("jev: TYPESAFE_API_KEY is not set; skipping before any Firecrawl credits are spent")
     text = page_text(a.url)
     print(f"page text: {len(text):,} chars (sending first {MAX_STATE_CHARS:,})")
     qs = {f"kw{i}": keyword_question(k) for i, k in enumerate(kws)}
@@ -65,9 +67,11 @@ def main():
         except JevError as exc:
             sys.exit(f"jev: {exc}")
     for i, k in enumerate(kws):
-        print(f"[Gap C] {k!r}: noul={ans[f'kw{i}']['noul']:.2f}  literal_match={literal_match(k, text)}")
+        n = (ans.get(f"kw{i}") or {}).get("noul")
+        score = f"{n:.2f}" if isinstance(n, (int, float)) else "missing"
+        print(f"[Gap C] {k!r}: noul={score}  literal_match={literal_match(k, text)}")
     for i, c in enumerate(claims):
-        print(f"[Gap A] {c!r}:\n   {json.dumps(ans[f'claim{i}'])}")
+        print(f"[Gap A] {c!r}:\n   {json.dumps(ans.get(f'claim{i}', 'missing'))}")
 
 
 if __name__ == "__main__":
